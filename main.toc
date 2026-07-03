@@ -1,0 +1,37 @@
+\babel@toc {nil}{}\relax 
+\contentsline {chapter}{Dedication}{i}{chapter*.1}%
+\contentsline {chapter}{Acknowledgments}{ii}{chapter*.2}%
+\contentsline {chapter}{Résumé}{iii}{chapter*.3}%
+\contentsline {chapter}{Summary}{iv}{chapter*.4}%
+\contentsline {chapter}{Arabic Abstract}{v}{chapter*.5}%
+\contentsline {chapter}{List of Figures}{vi}{chapter*.6}%
+\contentsline {chapter}{List of Tables}{vii}{chapter*.7}%
+\contentsline {chapter}{List of Listings}{viii}{chapter*.8}%
+\contentsline {chapter}{Table of Contents}{x}{chapter*.9}%
+\contentsline {chapter}{\numberline {1}General Project Context}{1}{chapter.10}%
+\contentsline {section}{\numberline {1.1}Host Organization}{1}{section.11}%
+\contentsline {section}{\numberline {1.2}Oracle Corporation}{1}{section.12}%
+\contentsline {subsection}{\numberline {1.2.1}History}{2}{subsection.14}%
+\contentsline {subsection}{\numberline {1.2.2}Oracle MADC}{2}{subsection.15}%
+\contentsline {subsection}{\numberline {1.2.3}Oracle Labs}{3}{subsection.18}%
+\contentsline {subsection}{\numberline {1.2.4}Organizational Structure}{3}{subsection.20}%
+\contentsline {subsection}{\numberline {1.2.5}Organizational Culture}{4}{subsection.21}%
+\contentsline {chapter}{\numberline {2}Technical and Organizational Context}{6}{chapter.22}%
+\contentsline {section}{\numberline {2.1}Organizational Context within Oracle}{6}{section.23}%
+\contentsline {section}{\numberline {2.2}DIS Region Availability and Status}{7}{section.25}%
+\contentsline {section}{\numberline {2.3}What Is Data Intelligence?}{8}{section.27}%
+\contentsline {section}{\numberline {2.4}DIS Purpose and Role}{8}{section.29}%
+\contentsline {section}{\numberline {2.5}DIS Architecture Overview}{9}{section.30}%
+\contentsline {subsection}{\numberline {2.5.1}Data Ingestion}{9}{subsection.32}%
+\contentsline {subsection}{\numberline {2.5.2}Data Processing}{10}{subsection.33}%
+\contentsline {subsection}{\numberline {2.5.3}Visualization and Data Analysis}{10}{subsection.34}%
+\contentsline {section}{\numberline {2.6}DIS Microservices Overview}{10}{section.35}%
+\contentsline {subsection}{\numberline {2.6.1}Orchestration Service}{11}{subsection.37}%
+\contentsline {subsection}{\numberline {2.6.2}Authentication Service}{11}{subsection.38}%
+\contentsline {chapter}{\numberline {3}Chapter 3 title}{13}{chapter.39}%
+\contentsline {chapter}{\numberline {4}Chapter 4 title}{14}{chapter.40}%
+\contentsline {chapter}{General Conclusion and Perspectives}{15}{chapter*.41}%
+\contentsline {chapter}{\numberline {A}Glossary}{16}{appendix.42}%
+\contentsline {chapter}{\numberline {B}Acronyms}{17}{appendix.43}%
+\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{19}{appendix.44}%
+\contentsline {chapter}{Bibliography}{21}{appendix*.73}%

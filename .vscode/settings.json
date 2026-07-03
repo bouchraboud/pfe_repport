@@ -1,0 +1,34 @@
+{
+  "latex-workshop.latex.build.enableMagicComments": true,
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.auxDir": "%DIR%",
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.message.badbox.show": "none",
+  "latex-workshop.message.log.show": false,
+  "latex-workshop.latex.tools": [
+    {
+      "name": "tectonic-local",
+      "command": "/opt/homebrew/bin/tectonic",
+      "args": [
+        "--synctex",
+        "--keep-intermediates",
+        "--keep-logs",
+        "-r",
+        "2",
+        "--outdir=%OUTDIR%",
+        "--print",
+        "%DOC%.tex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "tectonic-local",
+      "tools": [
+        "tectonic-local"
+      ]
+    }
+  ]
+}

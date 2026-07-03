@@ -1,0 +1,120 @@
+% !TEX root = ../main.tex
+\chapter{Technical and Organizational Context}
+\label{chap:chapter2}
+\section*{Introduction}
+As Oracle continues to expand the adoption of the Data Intelligence Services (DIS) platform across its Global Business Units (GBUs), the choice of tools, technologies, and infrastructure becomes increasingly important. This chapter provides the technical foundation necessary to understand the rationale behind the design and implementation of the DIS platform. It introduces the problem domain, presents a high-level overview of the system, discusses key architectural considerations, and highlights the core technologies that underpin DIS.
+
+Because this internship focused on identifying and addressing integration challenges encountered by GBUs, the chapter first explains their role within Oracle. It then presents the position of DIS within the organization, its regional availability, and its purpose as a shared analytics platform. This background establishes the context required to understand the work carried out during the internship.
+
+\section{Organizational Context within Oracle}
+Oracle Corporation is structured around two major pillars:
+\begin{itemize}
+    \item The broader Oracle organization, which focuses primarily on infrastructure and platform services such as OCI.
+    \item Global Business Units (GBUs), which deliver SaaS solutions tailored to specific industry domains such as healthcare, finance, hospitality, and retail.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/oracle entities.png}
+    \caption{Oracle entities}
+    \label{fig:oracle-entities}
+\end{figure}
+
+To support these GBUs with shared tools and infrastructure, Oracle established Shared Services. This organization includes Cloud Development Services (CDS), which develops common platforms and capabilities used across GBUs. The Data Intelligence Services team is part of CDS and helps bridge the infrastructure and application domains.
+
+DIS provides a managed machine-learning and analytics platform for use across Oracle's GBUs. Instead of requiring each GBU to build and operate a separate data and AI platform, DIS offers centralized, reusable services. SaaS products can therefore integrate machine-learning and analytics capabilities without having to manage the underlying infrastructure independently. This shared approach improves consistency, reduces duplicated effort, and accelerates innovation across Oracle's industry-specific SaaS offerings.
+
+\section{DIS Region Availability and Status}
+DIS is intended to be deployed in the OCI regions where the required supporting services are available. Deployment priorities are determined according to forecast demand from GBU partners and their regional requirements. Figure~\ref{fig:dis-region-availability} presents the planned availability of DIS across the relevant regions.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/DIS Region Availability.png}
+    \caption{DIS Region Availability}
+    \label{fig:dis-region-availability}
+\end{figure}
+
+\section{What Is Data Intelligence?}
+Data intelligence refers to an organization's ability to collect, process, analyze, and interpret data in order to generate actionable insights. It combines tools, technologies, governance practices, and analytical methods that transform raw data into information that supports decision-making. By using their data assets effectively, organizations can improve operational efficiency, identify opportunities, and support strategic initiatives. In a data-driven environment, these capabilities are important for sustaining innovation and delivering value across business units.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Logos/data intelegence logo.png}
+    \caption{Data intelligence logo}
+    \label{fig:data-intelligence-logo}
+\end{figure}
+
+\section{DIS Purpose and Role}
+DIS is an internal Oracle platform that provides product teams with a reusable analytics stack. Instead of requiring each GBU to build its analytics infrastructure from the ground up, DIS provides shared capabilities for data ingestion, storage, processing, machine learning, and visualization. A partner SaaS application can therefore integrate dashboards, reports, predictive models, and analytics pages through DIS rather than developing and operating each capability independently.
+
+From a business perspective, Oracle's GBUs deliver SaaS solutions to their customers, while DIS provides the analytics layer embedded within those offerings. The platform provisions and manages services such as Oracle Analytics Server (OAS), Autonomous Data Warehouse (ADW), and Apache Spark, together with other analytics and data-processing components. End users access these capabilities through the corresponding SaaS applications.
+
+By leveraging DIS for analytics-intensive workloads, partners benefit from the following advantages:
+
+\begin{itemize}
+    \item Avoid building and maintaining a custom analytics technology stack.
+    \item Gain access to a cost-effective and scalable architecture tailored to analytics requirements.
+    \item Focus on developing advanced machine learning capabilities using built-in frameworks and libraries.
+    \item Maintain full control and flexibility over data ingestion, storage, processing, and visualization.
+    \item Reduce Cloud Service Security Approval Process (CSSAP) overhead by adopting DIS's pre-approved architectural patterns.
+\end{itemize}
+\section{DIS Architecture Overview}
+
+Oracle Global Business Unit Analytics (GBUA), also known as the Data Intelligence Service (DIS), is a managed service platform focused on delivering scalable, cloud-native data analytics and machine learning capabilities for Oracle SaaS applications. It enables business units to integrate and leverage machine learning (ML)-based insights without managing the underlying infrastructure or analytics tooling.
+
+The DIS platform architecture can be logically divided into three core layers, as shown in Figure~\ref{fig:gbu_architecture}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/gbu_architecture.png}
+    \caption{GBU Analytics and Machine Learning Architecture}
+    \label{fig:gbu_architecture}
+\end{figure}
+
+\subsection{Data Ingestion}
+
+The data ingestion layer supports multiple methods for collecting data from Oracle SaaS applications and partner systems:
+
+\begin{itemize}
+    \item \textbf{REST Ingestion:} Data can be streamed into the platform using REST endpoints. These endpoints perform inline validation and Personally Identifiable Information (PII) detection during ingestion.
+
+    \item \textbf{Oracle Data Integrator (ODI):} ODI is used to extract and load data from partner Database-as-a-Service (DBaaS) systems. It supports standard Extract, Transform, and Load (ETL) operations.
+
+    \item \textbf{Direct Upload to Object Storage:} Large datasets, such as log files and historical data, can be uploaded directly to Oracle Object Storage for later processing.
+\end{itemize}
+
+\subsection{Data Processing}
+
+The data processing layer provides distributed data processing using Apache Spark. It executes machine learning pipelines and data transformation jobs, storing the processed results in Oracle DBaaS. Spark jobs are tenant-isolated and are designed to periodically retrain machine learning models using historical data stored in Object Storage.
+
+\subsection{Visualization and Data Analysis}
+
+After data has been processed and stored, Oracle Business Intelligence Enterprise Edition (OBIEE) or Oracle Analytics Cloud (OAC) is used for report generation and dashboard visualization. Access is managed through tenant Identity Cloud Service (IDCS), and reports are customized according to user roles. OBIEE also provides self-service analytics capabilities, enabling administrative users with limited SQL or data modeling expertise to create reports and perform data analysis.
+
+\section{DIS Microservices Overview}
+The DIS platform implements a comprehensive microservices-based architecture in which loosely coupled services communicate through RESTful APIs. All services are containerized and deployed on the Oracle Kubernetes Engine (OKE) platform, enabling scalability, fault tolerance, and independent service deployment.
+
+Figure~\ref{fig:dis_microservices} illustrates the high-level microservices architecture of the DIS platform.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/dis_microservices.png}
+    \caption{DIS Microservices Architecture}
+    \label{fig:dis_microservices}
+\end{figure}
+
+\subsection{Orchestration Service}
+
+The \textbf{Orchestration Service} is responsible for automating the entire lifecycle of platform components and tenant environments, including initial deployment, configuration, ongoing management, updates, and rollback operations. It coordinates these tasks using template-driven workflows and internal REST APIs, ensuring that all provisioning activities are executed consistently and reliably.
+
+This microservice serves as the central coordinator of the DIS platform by orchestrating interactions among the different services involved in tenant onboarding and lifecycle management. By automating complex operational workflows, it minimizes manual intervention, improves deployment consistency, and enhances the overall reliability of the platform.
+
+The Orchestration Service is the primary focus of this project, as my work was mainly dedicated to designing, implementing, and enhancing its functionality.
+
+\subsection{Authentication Service}
+
+The \textbf{Authentication Service} is responsible for managing the secure onboarding and provisioning of tenant identities within the DIS platform. It enforces authentication, authorization, and compliance policies by integrating with Oracle Identity Cloud Service (IDCS) and partner platforms through standardized REST APIs.
+
+This service plays a critical role in ensuring that only authenticated and authorized tenants can access DIS resources. Throughout the provisioning and tenant lifecycle management processes, the Orchestration Service interacts with the Authentication Service to validate partner credentials, provision tenant identities, and manage access permissions. This collaboration guarantees secure communication between services while maintaining compliance with the platform's security requirements.
+Required packages
+
+\section*{Conclusion}
+
+This chapter positioned DIS within Oracle's organizational and technical ecosystem. It explained how the platform supports GBUs by providing shared, scalable analytics and machine-learning services across OCI regions. By centralizing these capabilities, DIS reduces duplicated infrastructure, promotes consistent architectural practices, and enables product teams to focus on customer-facing functionality.
