@@ -28,10 +28,10 @@
 \contentsline {section}{\numberline {2.6}DIS Microservices Overview}{10}{section.35}%
 \contentsline {subsection}{\numberline {2.6.1}Orchestration Service}{11}{subsection.37}%
 \contentsline {subsection}{\numberline {2.6.2}Authentication Service}{11}{subsection.38}%
-\contentsline {chapter}{\numberline {3}Chapter 3 title}{13}{chapter.39}%
-\contentsline {chapter}{\numberline {4}Chapter 4 title}{14}{chapter.40}%
-\contentsline {chapter}{General Conclusion and Perspectives}{15}{chapter*.41}%
-\contentsline {chapter}{\numberline {A}Glossary}{16}{appendix.42}%
-\contentsline {chapter}{\numberline {B}Acronyms}{17}{appendix.43}%
-\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{19}{appendix.44}%
-\contentsline {chapter}{Bibliography}{21}{appendix*.73}%
+\contentsline {chapter}{\numberline {3}Chapter 3 title}{13}{chapter.40}%
+\contentsline {chapter}{\numberline {4}Chapter 4 title}{14}{chapter.41}%
+\contentsline {chapter}{General Conclusion and Perspectives}{15}{chapter*.42}%
+\contentsline {chapter}{\numberline {A}Glossary}{16}{appendix.43}%
+\contentsline {chapter}{\numberline {B}Acronyms}{17}{appendix.44}%
+\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{19}{appendix.45}%
+\contentsline {chapter}{Bibliography}{21}{appendix*.74}%

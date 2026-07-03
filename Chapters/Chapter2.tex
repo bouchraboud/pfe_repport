@@ -113,7 +113,12 @@ The Orchestration Service is the primary focus of this project, as my work was m
 The \textbf{Authentication Service} is responsible for managing the secure onboarding and provisioning of tenant identities within the DIS platform. It enforces authentication, authorization, and compliance policies by integrating with Oracle Identity Cloud Service (IDCS) and partner platforms through standardized REST APIs.
 
 This service plays a critical role in ensuring that only authenticated and authorized tenants can access DIS resources. Throughout the provisioning and tenant lifecycle management processes, the Orchestration Service interacts with the Authentication Service to validate partner credentials, provision tenant identities, and manage access permissions. This collaboration guarantees secure communication between services while maintaining compliance with the platform's security requirements.
-Required packages
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/Auth Service Sequence Diagram.png}
+    \caption{Auth Service Sequence Diagram}
+    \label{fig:Auth Service Sequence Diagram}
+\end{figure}
 
 \section*{Conclusion}
 
