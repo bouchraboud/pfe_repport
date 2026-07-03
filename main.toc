@@ -28,10 +28,25 @@
 \contentsline {section}{\numberline {2.6}DIS Microservices Overview}{10}{section.35}%
 \contentsline {subsection}{\numberline {2.6.1}Orchestration Service}{11}{subsection.37}%
 \contentsline {subsection}{\numberline {2.6.2}Authentication Service}{11}{subsection.38}%
-\contentsline {chapter}{\numberline {3}Chapter 3 title}{13}{chapter.40}%
-\contentsline {chapter}{\numberline {4}Chapter 4 title}{14}{chapter.41}%
-\contentsline {chapter}{General Conclusion and Perspectives}{15}{chapter*.42}%
-\contentsline {chapter}{\numberline {A}Glossary}{16}{appendix.43}%
-\contentsline {chapter}{\numberline {B}Acronyms}{17}{appendix.44}%
-\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{19}{appendix.45}%
-\contentsline {chapter}{Bibliography}{21}{appendix*.74}%
+\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{13}{chapter.40}%
+\contentsline {section}{\numberline {3.1}Introduction}{13}{section.41}%
+\contentsline {section}{\numberline {3.2}OAC Cross-Region Disaster Recovery Automation}{13}{section.42}%
+\contentsline {subsection}{\numberline {3.2.1}Overview of the Existing Recovery Context}{13}{subsection.43}%
+\contentsline {subsection}{\numberline {3.2.2}Problem Statement}{14}{subsection.45}%
+\contentsline {subsection}{\numberline {3.2.3}Solution Requirements}{15}{subsection.46}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Functional Requirements}{15}{subsubsection.47}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Non-Functional Requirements}{15}{subsubsection.49}%
+\contentsline {subsection}{\numberline {3.2.4}Proposed Solution Design}{16}{subsection.50}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{16}{subsubsection.51}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}Backup and Cross-Region Preparation}{17}{subsubsection.53}%
+\contentsline {subsubsection}{\numberline {3.2.4.3}Disaster Recovery Workflow}{17}{subsubsection.54}%
+\contentsline {subsubsection}{\numberline {3.2.4.4}Retry and Rollback Strategy}{18}{subsubsection.65}%
+\contentsline {subsubsection}{\numberline {3.2.4.5}Switchback and Cleanup}{18}{subsubsection.66}%
+\contentsline {subsection}{\numberline {3.2.5}Validation}{19}{subsection.68}%
+\contentsline {subsection}{\numberline {3.2.6}Conclusion}{20}{subsection.70}%
+\contentsline {chapter}{\numberline {4}Chapter 4 title}{22}{chapter.71}%
+\contentsline {chapter}{General Conclusion and Perspectives}{23}{chapter*.72}%
+\contentsline {chapter}{\numberline {A}Glossary}{24}{appendix.73}%
+\contentsline {chapter}{\numberline {B}Acronyms}{25}{appendix.74}%
+\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{27}{appendix.75}%
+\contentsline {chapter}{Bibliography}{29}{appendix*.104}%

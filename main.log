@@ -1193,13 +1193,33 @@ Underfull \hbox (badness 1194) in paragraph at lines 115--121
 
 [11]) (Chapters/Chapter3 [12]
 Chapter 3.
-) (Chapters/Chapter4 [13
+[13
 
 ]
-Chapter 4.
-) (Chapters/Conclusion [14
+File: Figures/oac_standby_provisioning.png Graphic file (type bmp)
+<Figures/oac_standby_provisioning.png>
+ [14] [15]
+Underfull \hbox (badness 1048) in paragraph at lines 85--86
+[]\T1/lmr/bx/n/12 Testability: \T1/lmr/m/n/12 success and failure scenarios mus
+t be reproducible in a non-production
+ []
 
-]) (Endmatter/Glossary [15
+[16]
+File: Figures/oac_dr_event.png Graphic file (type bmp)
+<Figures/oac_dr_event.png>
+ [17]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+45.
+ (t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+File: Figures/oac_switchback.png Graphic file (type bmp)
+<Figures/oac_switchback.png>
+ [18] [19]) (Chapters/Chapter4 [20] [21]
+Chapter 4.
+) (Chapters/Conclusion [22
+
+]) (Endmatter/Glossary [23
 
 ]
 Appendix A.
@@ -1218,13 +1238,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-) [16
+) [24
 
 ] (Endmatter/Acronyms
 Appendix B.
-[17
+[25
 
-]) (Endmatter/ComplementaryCodes [18]
+]) (Endmatter/ComplementaryCodes [26]
 Appendix C.
 (lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1233,19 +1253,15 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 11.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-1.
- (t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (lstlang1.sty
+ (lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [19
+) [27
 
-]) [20] [21
+]) [28] [29
 
-]
-(main.aux (Frontmatter/Page_de_Garde_EN.aux))
+] (main.aux
+(Frontmatter/Page_de_Garde_EN.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9A8D75F6395B4AF4BAC1049A9320B8EE;5409.
+(rerunfilecheck)             Checksum: BEEC9379B85882E7D47A3E8F72A0136E;8292.
  )
-Output written on main.xdv (33 pages, 94124 bytes).
+Output written on main.xdv (41 pages, 133836 bytes).

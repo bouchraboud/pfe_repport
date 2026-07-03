@@ -12,6 +12,10 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces DIS Microservices Architecture\relax }}{11}{figure.caption.36}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Auth Service Sequence Diagram\relax }}{12}{figure.caption.39}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{14}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Simplified architecture of the OAC cross-region DR solution\relax }}{16}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{17}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{19}{figure.caption.67}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

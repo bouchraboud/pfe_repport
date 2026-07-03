@@ -1,3 +1,199 @@
 % !TEX root = ../main.tex
-\chapter{Chapter 3 title}
+\chapter{Proposed Solutions and Development}
 \label{chap:chapter3}
+
+\section{Introduction}
+
+The previous chapter introduced the organizational and technical context of Data Intelligence Services (DIS), as well as the role of Oracle Analytics Cloud (OAC) in delivering analytics capabilities to Oracle's Global Business Units. This chapter presents the solutions studied and developed during the internship. For each feature, it describes the initial problem, the expected requirements, the proposed architecture, the development approach, and the validation strategy.
+
+\section{OAC Cross-Region Disaster Recovery Automation}
+
+\subsection{Overview of the Existing Recovery Context}
+
+OAC provides cloud-based analytics capabilities such as dashboards, visualizations, datasets, semantic models, and reporting services. During normal operation, each tenant consumes these capabilities from an OAC environment deployed in a primary Oracle Cloud Infrastructure (OCI) region. Although availability mechanisms protect the service from several infrastructure failures, the loss of the complete region requires a separate cross-region recovery strategy.
+
+In the context studied during this internship, cross-region recovery is coordinated by DIS. A standby region is paired with the primary region and must contain, or be able to recreate, the resources required to restore the analytics service. This includes OAC backups, configuration files, deployment artifacts, credentials, network access, and connectivity to external data sources.
+
+Two complementary approaches can be used to prepare OAC in the standby region:
+
+\begin{itemize}
+    \item \textbf{Pre-provisioned standby:} an OAC instance is created in the standby region during the initial tenant provisioning. Once verified, it is stopped and remains inactive until a DR event occurs. This option reduces activation time but requires maintaining additional standby resources.
+    \item \textbf{On-demand provisioning:} the standby OAC instance is created only after a DR event is declared. This option reduces the resources maintained during normal operation, but the provisioning duration becomes part of the total recovery time.
+\end{itemize}
+
+Figure~\ref{fig:oac-standby-provisioning} illustrates the first approach, in which the DIS provisioning layer creates analytics environments in both regions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/oac_standby_provisioning.png}
+    \caption{OAC provisioning in the primary and standby regions}
+    \label{fig:oac-standby-provisioning}
+\end{figure}
+
+The automated workflow can support both situations. If a valid standby instance already exists, the system activates or updates it. Otherwise, it provisions a new instance when the DR event is triggered.
+
+\subsection{Problem Statement}
+
+Recovering OAC manually becomes complex when a region contains multiple tenants. Each tenant may have a different configuration and may reach a different state during recovery. A failed operation can also leave partially created resources. For example, an OAC instance may have been created successfully even when the calling service receives a timeout. Restarting the complete workflow without inspecting the existing state could then create duplicate resources or produce inconsistent tenant configuration.
+
+The problem addressed by the feature can therefore be formulated as follows:
+
+\begin{quote}
+How can DIS automate the recovery of multiple OAC tenant environments in a standby region while preserving tenant content, tracking recovery progress, avoiding repeated operations, and safely handling partial failures?
+\end{quote}
+
+The main difficulties are related to the asynchronous nature of OAC operations, the availability of backups and configuration in the standby region, the management of several tenants, and the coordination of retry and rollback actions. The solution must consequently treat DR as a stateful tenant-level workflow rather than as a single infrastructure command.
+
+\subsection{Solution Requirements}
+
+\subsubsection{Functional Requirements}
+
+The principal functional requirements are presented in Table~\ref{tab:dr-functional-requirements}.
+
+\begin{table}[H]
+\centering
+\caption{Functional requirements of the OAC DR solution}
+\label{tab:dr-functional-requirements}
+\begin{tabularx}{\textwidth}{@{}p{1.3cm}X@{}}
+\toprule
+\textbf{ID} & \textbf{Requirement} \\
+\midrule
+FR1 & Initiate a DR operation for the tenants affected by a regional outage. \\
+FR2 & Determine whether a standby OAC instance already exists for each tenant. \\
+FR3 & Start an existing standby instance or provision a new instance when required. \\
+FR4 & Restore the appropriate snapshot or BAR backup in the standby environment. \\
+FR5 & Recreate the required platform attachment, data connections, and reporting configuration. \\
+FR6 & Persist the current status, completed steps, failed step, and error information for each tenant. \\
+FR7 & Resume eligible failed tenants without repeating verified completed steps. \\
+FR8 & Identify failures that leave partial resources and therefore require rollback. \\
+FR9 & Support switchback to the primary region and cleanup of standby resources. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Non-Functional Requirements}
+
+The solution must also satisfy the following quality requirements:
+
+\begin{itemize}
+    \item \textbf{Reliability:} a failure affecting one tenant must not invalidate the recovery of other tenants.
+    \item \textbf{Idempotency:} retrying a step must not create duplicate resources or repeat an already verified operation.
+    \item \textbf{Consistency:} the persisted tenant status must correspond to the actual state of the resources.
+    \item \textbf{Scalability:} the workflow must support several tenants without requiring an independent manual procedure for each one.
+    \item \textbf{Security:} credentials, access rights, private connectivity, and network authorization must remain protected in both regions.
+    \item \textbf{Auditability:} recovery, retry, rollback, and cleanup operations must be traceable through status information and logs.
+    \item \textbf{Testability:} success and failure scenarios must be reproducible in a non-production environment.
+\end{itemize}
+
+\subsection{Proposed Solution Design}
+
+\subsubsection{General Architecture}
+
+The proposed solution follows a warm DR model. During normal operation, the primary region serves the tenants, while the standby region receives the information required for recovery. When a regional failure is confirmed, DIS coordinates the recovery of each tenant through three logical responsibilities:
+
+\begin{itemize}
+    \item a \textbf{configuration layer}, which identifies the tenants concerned by the event and initiates recovery;
+    \item an \textbf{orchestration layer}, which controls the order of operations and persists their status;
+    \item an \textbf{execution layer}, which performs OAC-specific provisioning, restoration, configuration, and cleanup operations.
+\end{itemize}
+
+This separation prevents one service from containing the complete DR logic. It also allows the execution layer to report the technical result of an OAC operation while the orchestration layer decides how the global workflow should continue.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\parbox[c][6cm][c]{0.9\textwidth}{\centering
+    \textbf{Placeholder for the simplified global DR architecture}\\[0.4cm]
+    Primary region $\rightarrow$ DIS control plane $\rightarrow$ Standby region\\
+    Include backup replication, configuration, orchestration, OAC execution, and tenant status.}}
+    \caption{Simplified architecture of the OAC cross-region DR solution}
+    \label{fig:oac-dr-global-architecture}
+\end{figure}
+
+The final version of Figure~\ref{fig:oac-dr-global-architecture} should remain intentionally simplified for an external academic reader. Internal URLs, credentials, environment identifiers, and detailed network configuration should not be included.
+
+\subsubsection{Backup and Cross-Region Preparation}
+
+Recovery is possible only if the required tenant information remains available after the loss of the primary region. OAC content is therefore exported regularly as a snapshot or BAR file and stored in Object Storage. The backup and its metadata are then replicated or synchronized to the paired standby region.
+
+The preparation process also covers deployment artifacts, container images, tenant configuration, credentials, access rights, database connectivity, private endpoints, and network allowlists. Storage technologies that do not provide automatic cross-region replication require an explicit synchronization mechanism. These dependencies must be prepared before an incident; provisioning OAC alone would not produce a usable analytics environment.
+
+\subsubsection{Disaster Recovery Workflow}
+
+When a DR event is declared, the recovery workflow is executed for every eligible tenant. Figure~\ref{fig:oac-dr-event} presents the tenant-level provisioning operation in the standby region.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Figures/oac_dr_event.png}
+    \caption{Tenant-level OAC provisioning during a DR event}
+    \label{fig:oac-dr-event}
+\end{figure}
+
+The workflow is composed of the following main steps:
+
+\begin{enumerate}
+    \item The DR operation is initiated for the affected region.
+    \item The configuration layer identifies the tenants requiring recovery.
+    \item The orchestration layer creates a workflow and an initial status for each tenant.
+    \item The system checks whether an OAC instance already exists in the standby region.
+    \item An existing instance is activated or updated; otherwise, a new instance is provisioned.
+    \item The platform attachment is created or updated.
+    \item The selected snapshot or BAR backup is restored.
+    \item Data Visualization connections and BI Publisher configuration are recreated when required.
+    \item The standby OAC endpoint and final tenant status are recorded.
+\end{enumerate}
+
+The operation is asynchronous. Accepting the initial request does not mean that recovery has completed. Status information is therefore persisted for every tenant using states such as \texttt{PENDING}, \texttt{IN\_PROGRESS}, \texttt{SUCCESS}, \texttt{FAILED}, and \texttt{STOPPED}.
+
+\subsubsection{Retry and Rollback Strategy}
+
+A failed tenant should not systematically restart from the beginning. If OAC provisioning and platform attachment have already completed while snapshot restoration fails, repeating the first two steps could create duplicate resources and increase recovery time. The fix-forward strategy stores the last successful step, verifies the corresponding resource, and resumes execution from the failed operation.
+
+Some failures, however, can leave partial resources that must be removed before another attempt. The OAC execution service therefore sends a rollback decision together with the step status. The value is false by default and becomes true only when a rollback-sensitive operation fails. In the current design, OAC provisioning and platform-attachment creation are classified as rollback-sensitive steps.
+
+The rollback indicator does not perform the deletion itself. It informs the orchestration layer that a simple retry may be unsafe. The orchestration layer can then trigger the appropriate rollback workflow or expose the required recovery action to the operations team.
+
+\subsubsection{Switchback and Cleanup}
+
+The standby region is used until the primary region has been restored and validated. Service is then returned through a controlled switchback, illustrated in Figure~\ref{fig:oac-switchback}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Figures/oac_switchback.png}
+    \caption{Switchback to the primary region and cleanup of standby resources}
+    \label{fig:oac-switchback}
+\end{figure}
+
+Switchback consists of three phases. First, configuration, tenant status, and required artifacts are synchronized with the primary region. Second, the OAC environments in the primary region are provisioned or updated and their availability is verified. Finally, temporary resources in the standby region are stopped or deleted. Cleanup must occur only after the primary service and the required backups have been confirmed as available.
+
+\subsection{Validation}
+
+The validation strategy covers the complete recovery lifecycle, from DR initiation to switchback. Table~\ref{tab:dr-validation} summarizes the principal scenarios.
+
+\begin{table}[H]
+\centering
+\caption{Principal validation scenarios for OAC cross-region DR}
+\label{tab:dr-validation}
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+\toprule
+\textbf{Scenario} & \textbf{Expected result} \\
+\midrule
+A DR request is accepted & A tenant workflow is created and its status becomes pending or in progress. \\
+A standby OAC instance already exists & The existing instance is activated or updated without creating a duplicate. \\
+No standby OAC instance exists & A new instance is provisioned in the standby region. \\
+A step fails after previous steps completed & The failure is persisted and verified completed steps are skipped during retry. \\
+Provisioning leaves a partial resource & The tenant is marked as failed and rollback is requested before an unsafe retry. \\
+All recovery steps succeed & The tenant is marked as successful and the standby OAC endpoint is recorded. \\
+The primary region becomes available again & Configuration is synchronized, service is restored in the primary region, and standby cleanup is initiated. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Validation combines unit testing of individual recovery rules, integration testing of communication between services, and end-to-end testing in a non-production region pair. The complete test process must verify actual resource state, backup availability, tenant-level progress, retry, rollback, and switchback.
+
+Some elements remain dependent on the wider platform and operational strategy, including regional-failure detection, DNS redirection, database switchover, and cross-region synchronization of storage systems. These dependencies must be considered when validating the global solution.
+
+\subsection{Conclusion}
+
+The OAC cross-region DR feature transforms regional recovery from a set of manual infrastructure operations into a coordinated tenant-level workflow. The proposed warm DR model combines backup preparation, standby provisioning, status persistence, fix-forward retry, selective rollback, and controlled switchback.
+
+The distinction between fix-forward retry and rollback reduces the risk of repeating completed work or retrying over partially created resources. Together with status tracking and controlled cleanup, it contributes to a more reliable and auditable recovery process. This chapter will be extended as additional OAC features are addressed during the internship.
