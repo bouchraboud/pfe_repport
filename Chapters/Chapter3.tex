@@ -111,6 +111,14 @@ This separation prevents one service from containing the complete DR logic. It a
 
 The final version of Figure~\ref{fig:oac-dr-global-architecture} should remain intentionally simplified for an external academic reader. Internal URLs, credentials, environment identifiers, and detailed network configuration should not be included.
 
+\subsubsection{DR Request Routing and Validation}
+
+A Disaster Recovery operation enters the platform through a secured service gateway. The gateway forwards the request to the configuration layer, which coordinates the recovery at partner level. For every affected tenant, an internal request is then sent to the orchestration layer to create and start a tenant-level workflow.
+
+Before accepting a recovery request, the orchestration layer performs several validations. It verifies that the request has a valid structure, that OAC is included among the requested components, that the tenant has already been onboarded, and that the tenant configuration contains an OAC environment. It also checks that no onboarding, update, or DR operation is already running for the same tenant.
+
+These controls prevent unsupported requests and concurrent operations from modifying the same tenant simultaneously. Once the validations succeed, the tenant DR status is changed to in progress and the information required to resume the workflow is persisted. The service then returns an acceptance response without waiting for the complete provisioning process. This asynchronous model is necessary because creating and restoring an analytics environment can take significantly longer than a standard API request.
+
 \subsubsection{Backup and Cross-Region Preparation}
 
 Recovery is possible only if the required tenant information remains available after the loss of the primary region. OAC content is therefore exported regularly as a snapshot or BAR file and stored in Object Storage. The backup and its metadata are then replicated or synchronized to the paired standby region.
@@ -137,12 +145,38 @@ The workflow is composed of the following main steps:
     \item The system checks whether an OAC instance already exists in the standby region.
     \item An existing instance is activated or updated; otherwise, a new instance is provisioned.
     \item The platform attachment is created or updated.
-    \item The selected snapshot or BAR backup is restored.
+    \item The latest valid hourly snapshot or BAR backup is selected and restored.
     \item Data Visualization connections and BI Publisher configuration are recreated when required.
     \item The standby OAC endpoint and final tenant status are recorded.
 \end{enumerate}
 
 The operation is asynchronous. Accepting the initial request does not mean that recovery has completed. Status information is therefore persisted for every tenant using states such as \texttt{PENDING}, \texttt{IN\_PROGRESS}, \texttt{SUCCESS}, \texttt{FAILED}, and \texttt{STOPPED}.
+
+\subsubsection{Snapshot Restoration During a DR Event}
+
+The post-deployment workflow contains a dedicated branch for DR restoration. A tenant-level \texttt{dr\_event.json} control file indicates that artifact deployment is being executed as part of a Disaster Recovery operation. When this file is present, the standard update or migration backup logic is bypassed and the DR snapshot restoration flow is selected.
+
+Figure~\ref{fig:oac-dr-snapshot-restoration} illustrates how the most recent valid tenant backup is selected and restored in the standby OAC environment.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/oac-dr-snapshot-restoration.png}
+    \caption{Selection and restoration of an OAC snapshot
+    during a Disaster Recovery event}
+    \label{fig:oac-dr-snapshot-restoration}
+\end{figure}
+The restoration workflow performs the following operations:
+\begin{enumerate}
+    \item It locates the tenant's hourly DR backup area in Object Storage.
+    \item It lists the available objects and retains only BAR files that follow the expected tenant-specific naming convention.
+    \item It extracts the timestamp encoded using the \texttt{YYYYMMDDHH} format and ignores entries with an invalid timestamp.
+    \item It compares the valid timestamps and selects the most recent hourly backup.
+    \item It downloads the selected BAR file to the local artifact workspace of the OAC execution service.
+    \item It extracts the security metadata required by the restoration process and adds the required bundle information.
+    \item It installs and deploys the recovered snapshot to the standby OAC instance before deploying the application-module artifacts.
+\end{enumerate}
+
+This selection mechanism avoids depending on the order returned by Object Storage and ensures that the most recent valid hourly recovery point is used. If no valid hourly backup is found, or if the selected object cannot be downloaded, the restoration step fails explicitly. The failure is then propagated through the tenant workflow so that it can be reported and retried according to the DR recovery strategy.
 
 \subsubsection{Retry and Rollback Strategy}
 
@@ -151,6 +185,18 @@ A failed tenant should not systematically restart from the beginning. If OAC pro
 Some failures, however, can leave partial resources that must be removed before another attempt. The OAC execution service therefore sends a rollback decision together with the step status. The value is false by default and becomes true only when a rollback-sensitive operation fails. In the current design, OAC provisioning and platform-attachment creation are classified as rollback-sensitive steps.
 
 The rollback indicator does not perform the deletion itself. It informs the orchestration layer that a simple retry may be unsafe. The orchestration layer can then trigger the appropriate rollback workflow or expose the required recovery action to the operations team.
+The recovery strategy depends on the state left by the failed
+operation. Figure~\ref{fig:dr-recovery-strategy} summarizes the
+decision process used to select the appropriate recovery action.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]
+    {Figures/oac_dr_recovery_strategy.png}
+    \caption{Failure assessment and recovery strategy for the OAC
+    Disaster Recovery workflow}
+    \label{fig:dr-recovery-strategy}
+\end{figure}
+When the resource remains in a consistent state, the workflow can resume directly from the failed step. If the failure leaves a partial or inconsistent resource, this resource must first be removed or reconciled before execution resumes. When the resulting state cannot be determined safely, automatic retry is disabled and an operator must investigate the problem. After any authorized retry, the workflow either continues from the next step or persists the latest failure for further intervention.
 
 \subsubsection{Switchback and Cleanup}
 
@@ -165,6 +211,38 @@ The standby region is used until the primary region has been restored and valida
 
 Switchback consists of three phases. First, configuration, tenant status, and required artifacts are synchronized with the primary region. Second, the OAC environments in the primary region are provisioned or updated and their availability is verified. Finally, temporary resources in the standby region are stopped or deleted. Cleanup must occur only after the primary service and the required backups have been confirmed as available.
 
+\subsubsection{Tenant Cleanup Execution}
+
+Standby cleanup is coordinated at partner level and executed independently for each tenant. Before starting a new cleanup, the coordination layer checks the existing overall status. This prevents a second request from starting while cleanup is already running or after a previous execution has reached a terminal state without an explicit recovery decision. Once accepted, tenant cleanup requests are launched asynchronously and their individual results can be aggregated into an overall status such as successful, failed, or partially failed.
+
+Before deleting any resource, the execution layer reconstructs the tenant context from the active OAC configuration. If the active configuration is no longer available, the previously stored configuration is used as a fallback. Cleanup is rejected when neither version contains the information required to identify the OAC instance.
+
+At the beginning of the operation, a tenant-level cleanup document is created with the status \texttt{IN-PROGRESS}. The document records the external tenant identifier, start and end times, an overall status, an optional error message, and the result of every cleanup step. It is updated in Object Storage after each operation, allowing the progress of a long-running cleanup to remain observable even if a later step fails.
+
+The main cleanup steps are summarized in Table~\ref{tab:dr-cleanup-steps}.
+
+\begin{table}[H]
+\centering
+\caption{Tenant-level cleanup operations in the standby region}
+\label{tab:dr-cleanup-steps}
+\begin{tabularx}{\textwidth}{@{}p{1.2cm}X X@{}}
+\toprule
+\textbf{Step} & \textbf{Resource} & \textbf{Expected behaviour} \\
+\midrule
+1 & Standby OAC instance & Delete the instance when it exists; otherwise record the step as skipped. \\
+2 & Tenant identity configuration & Remove the identity resources associated with the standby OAC instance. \\
+3 & Instance details & Delete the instance metadata maintained by the platform. \\
+4 & Deployed-version information & Delete the stored version object when it exists; otherwise skip it safely. \\
+5 & Database wallet & Delete the wallet object associated with the instance when present. \\
+6 & OAC tenant status file & Remove the tenant-level OAC status object when present. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Each deletion is isolated in its own failure-handling block. If one resource cannot be deleted, the failure is recorded and the service continues with the remaining resources. This best-effort strategy avoids leaving all subsequent resources untouched because of one independent failure. Operations that target an already absent resource are marked as skipped instead of failed, which makes the cleanup workflow safe to retry.
+
+After all steps have been attempted, the final tenant status is set to \texttt{SUCCESS} when no failure has occurred. Otherwise, it is set to \texttt{FAILED} and includes the list of unsuccessful cleanup steps. The end time is then persisted, and the temporary restart-status information associated with the cleanup execution is removed. This status model allows an upper-level service to aggregate cleanup results across tenants and to retry only those that require further intervention.
+
 \subsection{Validation}
 
 The validation strategy covers the complete recovery lifecycle, from DR initiation to switchback. Table~\ref{tab:dr-validation} summarizes the principal scenarios.
@@ -178,12 +256,15 @@ The validation strategy covers the complete recovery lifecycle, from DR initiati
 \textbf{Scenario} & \textbf{Expected result} \\
 \midrule
 A DR request is accepted & A tenant workflow is created and its status becomes pending or in progress. \\
+The request is malformed or does not target OAC & The request is rejected without creating a recovery workflow. \\
+The tenant is not onboarded or another operation is running & The request is rejected to protect tenant consistency. \\
 A standby OAC instance already exists & The existing instance is activated or updated without creating a duplicate. \\
 No standby OAC instance exists & A new instance is provisioned in the standby region. \\
 A step fails after previous steps completed & The failure is persisted and verified completed steps are skipped during retry. \\
 Provisioning leaves a partial resource & The tenant is marked as failed and rollback is requested before an unsafe retry. \\
 All recovery steps succeed & The tenant is marked as successful and the standby OAC endpoint is recorded. \\
 The primary region becomes available again & Configuration is synchronized, service is restored in the primary region, and standby cleanup is initiated. \\
+A second cleanup request is submitted while cleanup is active & The duplicate request is rejected and the existing cleanup continues. \\
 \bottomrule
 \end{tabularx}
 \end{table}

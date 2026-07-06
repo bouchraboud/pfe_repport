@@ -33,8 +33,8 @@
 \@writefile{toc}{\contentsline {chapter}{List of Figures}{vi}{chapter*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{List of Tables}{vii}{chapter*.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{List of Listings}{viii}{chapter*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Table of Contents}{x}{chapter*.9}\protected@file@percent }
-\HyPL@Entry{12<</S/D>>}
+\@writefile{toc}{\contentsline {chapter}{Table of Contents}{xi}{chapter*.9}\protected@file@percent }
+\HyPL@Entry{13<</S/D>>}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}General Project Context}{1}{chapter.10}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -104,47 +104,56 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{16}{subsubsection.51}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Simplified architecture of the OAC cross-region DR solution\relax }}{16}{figure.caption.52}\protected@file@percent }
 \newlabel{fig:oac-dr-global-architecture}{{3.2}{16}{Simplified architecture of the OAC cross-region DR solution\relax }{figure.caption.52}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.2}Backup and Cross-Region Preparation}{17}{subsubsection.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.3}Disaster Recovery Workflow}{17}{subsubsection.54}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{17}{figure.caption.55}\protected@file@percent }
-\newlabel{fig:oac-dr-event}{{3.3}{17}{Tenant-level OAC provisioning during a DR event\relax }{figure.caption.55}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.4}Retry and Rollback Strategy}{18}{subsubsection.65}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.5}Switchback and Cleanup}{18}{subsubsection.66}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{19}{figure.caption.67}\protected@file@percent }
-\newlabel{fig:oac-switchback}{{3.4}{19}{Switchback to the primary region and cleanup of standby resources\relax }{figure.caption.67}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Validation}{19}{subsection.68}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{20}{table.caption.69}\protected@file@percent }
-\newlabel{tab:dr-validation}{{3.2}{20}{Principal validation scenarios for OAC cross-region DR\relax }{table.caption.69}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}Conclusion}{20}{subsection.70}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Chapter 4 title}{22}{chapter.71}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.2}DR Request Routing and Validation}{17}{subsubsection.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.3}Backup and Cross-Region Preparation}{17}{subsubsection.54}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.4}Disaster Recovery Workflow}{17}{subsubsection.55}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{18}{figure.caption.56}\protected@file@percent }
+\newlabel{fig:oac-dr-event}{{3.3}{18}{Tenant-level OAC provisioning during a DR event\relax }{figure.caption.56}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.5}Snapshot Restoration During a DR Event}{19}{subsubsection.66}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{19}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:oac-dr-snapshot-restoration}{{3.4}{19}{Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.6}Retry and Rollback Strategy}{20}{subsubsection.75}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Failure assessment and recovery strategy for the OAC Disaster Recovery workflow\relax }}{22}{figure.caption.76}\protected@file@percent }
+\newlabel{fig:dr-recovery-strategy}{{3.5}{22}{Failure assessment and recovery strategy for the OAC Disaster Recovery workflow\relax }{figure.caption.76}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.7}Switchback and Cleanup}{23}{subsubsection.77}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{23}{figure.caption.78}\protected@file@percent }
+\newlabel{fig:oac-switchback}{{3.6}{23}{Switchback to the primary region and cleanup of standby resources\relax }{figure.caption.78}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4.8}Tenant Cleanup Execution}{23}{subsubsection.79}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Tenant-level cleanup operations in the standby region\relax }}{24}{table.caption.80}\protected@file@percent }
+\newlabel{tab:dr-cleanup-steps}{{3.2}{24}{Tenant-level cleanup operations in the standby region\relax }{table.caption.80}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Validation}{25}{subsection.81}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{25}{table.caption.82}\protected@file@percent }
+\newlabel{tab:dr-validation}{{3.3}{25}{Principal validation scenarios for OAC cross-region DR\relax }{table.caption.82}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.6}Conclusion}{26}{subsection.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Chapter 4 title}{27}{chapter.84}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:chapter4}{{4}{22}{Chapter 4 title}{chapter.71}{}}
-\@writefile{toc}{\contentsline {chapter}{General Conclusion and Perspectives}{23}{chapter*.72}\protected@file@percent }
-\newlabel{chap:general-conclusion}{{4}{23}{General Conclusion and Perspectives}{chapter*.72}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Glossary}{24}{appendix.73}\protected@file@percent }
+\newlabel{chap:chapter4}{{4}{27}{Chapter 4 title}{chapter.84}{}}
+\@writefile{toc}{\contentsline {chapter}{General Conclusion and Perspectives}{28}{chapter*.85}\protected@file@percent }
+\newlabel{chap:general-conclusion}{{4}{28}{General Conclusion and Perspectives}{chapter*.85}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Glossary}{29}{appendix.86}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:Glossary}{{A}{24}{Glossary}{appendix.73}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Acronyms}{25}{appendix.74}\protected@file@percent }
+\newlabel{chap:Glossary}{{A}{29}{Glossary}{appendix.86}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Acronyms}{30}{appendix.87}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{27}{appendix.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{32}{appendix.88}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:Some subject you want to expand on}{{C}{27}{Some subject you want to expand on}{appendix.75}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {C.1}{\ignorespaces Bash example}}{27}{lstlisting.76}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {C.2}{\ignorespaces Python example}}{27}{lstlisting.81}\protected@file@percent }
+\newlabel{chap:Some subject you want to expand on}{{C}{32}{Some subject you want to expand on}{appendix.88}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {C.1}{\ignorespaces Bash example}}{32}{lstlisting.89}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {C.2}{\ignorespaces Python example}}{32}{lstlisting.94}\protected@file@percent }
 \gdef \LT@i {\LT@entry 
     {1}{137.99193pt}\LT@entry 
     {1}{325.3803pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Table Example\relax }}{28}{table.caption.102}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Long table Example\relax }}{28}{table.103}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Table Example\relax }}{33}{table.caption.115}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces Long table Example\relax }}{33}{table.116}\protected@file@percent }
 \bibcite{ref1}{1}
 \bibcite{ref2}{2}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{29}{appendix*.104}\protected@file@percent }
-\gdef \@abspage@last{41}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{34}{appendix*.117}\protected@file@percent }
+\gdef \@abspage@last{47}

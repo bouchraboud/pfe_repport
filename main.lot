@@ -3,10 +3,11 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces Functional requirements of the OAC DR solution\relax }}{15}{table.caption.48}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{20}{table.caption.69}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Tenant-level cleanup operations in the standby region\relax }}{24}{table.caption.80}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{25}{table.caption.82}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Table Example\relax }}{28}{table.caption.102}%
-\contentsline {table}{\numberline {C.2}{\ignorespaces Long table Example\relax }}{28}{table.103}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Table Example\relax }}{33}{table.caption.115}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces Long table Example\relax }}{33}{table.116}%

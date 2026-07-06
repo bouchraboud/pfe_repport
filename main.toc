@@ -7,7 +7,7 @@
 \contentsline {chapter}{List of Figures}{vi}{chapter*.6}%
 \contentsline {chapter}{List of Tables}{vii}{chapter*.7}%
 \contentsline {chapter}{List of Listings}{viii}{chapter*.8}%
-\contentsline {chapter}{Table of Contents}{x}{chapter*.9}%
+\contentsline {chapter}{Table of Contents}{xi}{chapter*.9}%
 \contentsline {chapter}{\numberline {1}General Project Context}{1}{chapter.10}%
 \contentsline {section}{\numberline {1.1}Host Organization}{1}{section.11}%
 \contentsline {section}{\numberline {1.2}Oracle Corporation}{1}{section.12}%
@@ -38,15 +38,18 @@
 \contentsline {subsubsection}{\numberline {3.2.3.2}Non-Functional Requirements}{15}{subsubsection.49}%
 \contentsline {subsection}{\numberline {3.2.4}Proposed Solution Design}{16}{subsection.50}%
 \contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{16}{subsubsection.51}%
-\contentsline {subsubsection}{\numberline {3.2.4.2}Backup and Cross-Region Preparation}{17}{subsubsection.53}%
-\contentsline {subsubsection}{\numberline {3.2.4.3}Disaster Recovery Workflow}{17}{subsubsection.54}%
-\contentsline {subsubsection}{\numberline {3.2.4.4}Retry and Rollback Strategy}{18}{subsubsection.65}%
-\contentsline {subsubsection}{\numberline {3.2.4.5}Switchback and Cleanup}{18}{subsubsection.66}%
-\contentsline {subsection}{\numberline {3.2.5}Validation}{19}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.6}Conclusion}{20}{subsection.70}%
-\contentsline {chapter}{\numberline {4}Chapter 4 title}{22}{chapter.71}%
-\contentsline {chapter}{General Conclusion and Perspectives}{23}{chapter*.72}%
-\contentsline {chapter}{\numberline {A}Glossary}{24}{appendix.73}%
-\contentsline {chapter}{\numberline {B}Acronyms}{25}{appendix.74}%
-\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{27}{appendix.75}%
-\contentsline {chapter}{Bibliography}{29}{appendix*.104}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}DR Request Routing and Validation}{17}{subsubsection.53}%
+\contentsline {subsubsection}{\numberline {3.2.4.3}Backup and Cross-Region Preparation}{17}{subsubsection.54}%
+\contentsline {subsubsection}{\numberline {3.2.4.4}Disaster Recovery Workflow}{17}{subsubsection.55}%
+\contentsline {subsubsection}{\numberline {3.2.4.5}Snapshot Restoration During a DR Event}{19}{subsubsection.66}%
+\contentsline {subsubsection}{\numberline {3.2.4.6}Retry and Rollback Strategy}{20}{subsubsection.75}%
+\contentsline {subsubsection}{\numberline {3.2.4.7}Switchback and Cleanup}{23}{subsubsection.77}%
+\contentsline {subsubsection}{\numberline {3.2.4.8}Tenant Cleanup Execution}{23}{subsubsection.79}%
+\contentsline {subsection}{\numberline {3.2.5}Validation}{25}{subsection.81}%
+\contentsline {subsection}{\numberline {3.2.6}Conclusion}{26}{subsection.83}%
+\contentsline {chapter}{\numberline {4}Chapter 4 title}{27}{chapter.84}%
+\contentsline {chapter}{General Conclusion and Perspectives}{28}{chapter*.85}%
+\contentsline {chapter}{\numberline {A}Glossary}{29}{appendix.86}%
+\contentsline {chapter}{\numberline {B}Acronyms}{30}{appendix.87}%
+\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{32}{appendix.88}%
+\contentsline {chapter}{Bibliography}{34}{appendix*.117}%

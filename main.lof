@@ -14,8 +14,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{14}{figure.caption.44}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Simplified architecture of the OAC cross-region DR solution\relax }}{16}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{17}{figure.caption.55}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{19}{figure.caption.67}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{18}{figure.caption.56}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{19}{figure.caption.67}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Failure assessment and recovery strategy for the OAC Disaster Recovery workflow\relax }}{22}{figure.caption.76}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{23}{figure.caption.78}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
