@@ -1,2 +1,2 @@
-\contentsline {lstlisting}{\numberline {C.1}{\ignorespaces Bash example}}{32}{lstlisting.89}%
-\contentsline {lstlisting}{\numberline {C.2}{\ignorespaces Python example}}{32}{lstlisting.94}%
+\contentsline {lstlisting}{\numberline {2.1}{\ignorespaces Simplified tenant onboarding request}}{12}{lstlisting.39}%
+\contentsline {lstlisting}{\numberline {2.2}{\ignorespaces Simplified successful onboarding response}}{13}{lstlisting.67}%

@@ -1,24 +1,26 @@
 \babel@toc {nil}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Oracle logo\relax }}{1}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Location of Oracle MADC\relax }}{2}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Oracle logo\relax }}{2}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Location of Oracle MADC\relax }}{3}{figure.caption.16}%
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Major milestones of Oracle MADC\relax }}{3}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Oracle Labs logo\relax }}{3}{figure.caption.19}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Oracle Labs logo\relax }}{4}{figure.caption.19}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Oracle entities\relax }}{7}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces DIS Region Availability\relax }}{7}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces DIS Region Availability\relax }}{8}{figure.caption.26}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Data intelligence logo\relax }}{8}{figure.caption.28}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces GBU Analytics and Machine Learning Architecture\relax }}{9}{figure.caption.31}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces DIS Microservices Architecture\relax }}{11}{figure.caption.36}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Auth Service Sequence Diagram\relax }}{12}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Difference between an OCI tenancy and a DIS tenant\relax }}{10}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Tenant Onboarding Workflow\relax }}{12}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces GBU Analytics and Machine Learning Architecture\relax }}{15}{figure.caption.96}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Principal components of cloud-native architecture\relax }}{17}{figure.caption.101}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces DIS Microservices Architecture\relax }}{18}{figure.caption.103}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Auth Service Sequence Diagram\relax }}{19}{figure.caption.106}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{14}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Simplified architecture of the OAC cross-region DR solution\relax }}{16}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{18}{figure.caption.56}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{19}{figure.caption.67}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Failure assessment and recovery strategy for the OAC Disaster Recovery workflow\relax }}{22}{figure.caption.76}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{23}{figure.caption.78}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{21}{figure.caption.111}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Roles and interactions of the main microservices involved in OAC disaster recovery\relax }}{24}{figure.caption.119}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Periodic creation and cross-region synchronization of OAC backups\relax }}{25}{figure.caption.122}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{26}{figure.caption.126}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{28}{figure.caption.137}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Failure assessment and recovery strategy for the OAC Disaster Recovery workflow\relax }}{30}{figure.caption.146}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{31}{figure.caption.149}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

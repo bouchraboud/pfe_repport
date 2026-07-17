@@ -10,46 +10,50 @@
 \contentsline {chapter}{Table of Contents}{xi}{chapter*.9}%
 \contentsline {chapter}{\numberline {1}General Project Context}{1}{chapter.10}%
 \contentsline {section}{\numberline {1.1}Host Organization}{1}{section.11}%
-\contentsline {section}{\numberline {1.2}Oracle Corporation}{1}{section.12}%
+\contentsline {section}{\numberline {1.2}Oracle Corporation}{2}{section.12}%
 \contentsline {subsection}{\numberline {1.2.1}History}{2}{subsection.14}%
-\contentsline {subsection}{\numberline {1.2.2}Oracle MADC}{2}{subsection.15}%
+\contentsline {subsection}{\numberline {1.2.2}Oracle MADC}{3}{subsection.15}%
 \contentsline {subsection}{\numberline {1.2.3}Oracle Labs}{3}{subsection.18}%
-\contentsline {subsection}{\numberline {1.2.4}Organizational Structure}{3}{subsection.20}%
+\contentsline {subsection}{\numberline {1.2.4}Organizational Structure}{4}{subsection.20}%
 \contentsline {subsection}{\numberline {1.2.5}Organizational Culture}{4}{subsection.21}%
 \contentsline {chapter}{\numberline {2}Technical and Organizational Context}{6}{chapter.22}%
 \contentsline {section}{\numberline {2.1}Organizational Context within Oracle}{6}{section.23}%
 \contentsline {section}{\numberline {2.2}DIS Region Availability and Status}{7}{section.25}%
 \contentsline {section}{\numberline {2.3}What Is Data Intelligence?}{8}{section.27}%
 \contentsline {section}{\numberline {2.4}DIS Purpose and Role}{8}{section.29}%
-\contentsline {section}{\numberline {2.5}DIS Architecture Overview}{9}{section.30}%
-\contentsline {subsection}{\numberline {2.5.1}Data Ingestion}{9}{subsection.32}%
-\contentsline {subsection}{\numberline {2.5.2}Data Processing}{10}{subsection.33}%
-\contentsline {subsection}{\numberline {2.5.3}Visualization and Data Analysis}{10}{subsection.34}%
-\contentsline {section}{\numberline {2.6}DIS Microservices Overview}{10}{section.35}%
-\contentsline {subsection}{\numberline {2.6.1}Orchestration Service}{11}{subsection.37}%
-\contentsline {subsection}{\numberline {2.6.2}Authentication Service}{11}{subsection.38}%
-\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{13}{chapter.40}%
-\contentsline {section}{\numberline {3.1}Introduction}{13}{section.41}%
-\contentsline {section}{\numberline {3.2}OAC Cross-Region Disaster Recovery Automation}{13}{section.42}%
-\contentsline {subsection}{\numberline {3.2.1}Overview of the Existing Recovery Context}{13}{subsection.43}%
-\contentsline {subsection}{\numberline {3.2.2}Problem Statement}{14}{subsection.45}%
-\contentsline {subsection}{\numberline {3.2.3}Solution Requirements}{15}{subsection.46}%
-\contentsline {subsubsection}{\numberline {3.2.3.1}Functional Requirements}{15}{subsubsection.47}%
-\contentsline {subsubsection}{\numberline {3.2.3.2}Non-Functional Requirements}{15}{subsubsection.49}%
-\contentsline {subsection}{\numberline {3.2.4}Proposed Solution Design}{16}{subsection.50}%
-\contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{16}{subsubsection.51}%
-\contentsline {subsubsection}{\numberline {3.2.4.2}DR Request Routing and Validation}{17}{subsubsection.53}%
-\contentsline {subsubsection}{\numberline {3.2.4.3}Backup and Cross-Region Preparation}{17}{subsubsection.54}%
-\contentsline {subsubsection}{\numberline {3.2.4.4}Disaster Recovery Workflow}{17}{subsubsection.55}%
-\contentsline {subsubsection}{\numberline {3.2.4.5}Snapshot Restoration During a DR Event}{19}{subsubsection.66}%
-\contentsline {subsubsection}{\numberline {3.2.4.6}Retry and Rollback Strategy}{20}{subsubsection.75}%
-\contentsline {subsubsection}{\numberline {3.2.4.7}Switchback and Cleanup}{23}{subsubsection.77}%
-\contentsline {subsubsection}{\numberline {3.2.4.8}Tenant Cleanup Execution}{23}{subsubsection.79}%
-\contentsline {subsection}{\numberline {3.2.5}Validation}{25}{subsection.81}%
-\contentsline {subsection}{\numberline {3.2.6}Conclusion}{26}{subsection.83}%
-\contentsline {chapter}{\numberline {4}Chapter 4 title}{27}{chapter.84}%
-\contentsline {chapter}{General Conclusion and Perspectives}{28}{chapter*.85}%
-\contentsline {chapter}{\numberline {A}Glossary}{29}{appendix.86}%
-\contentsline {chapter}{\numberline {B}Acronyms}{30}{appendix.87}%
-\contentsline {chapter}{\numberline {C}Some subject you want to expand on}{32}{appendix.88}%
-\contentsline {chapter}{Bibliography}{34}{appendix*.117}%
+\contentsline {subsection}{\numberline {2.4.1}Multi-Tenancy and Resource Isolation}{9}{subsection.30}%
+\contentsline {subsection}{\numberline {2.4.2}Partner and Tenant Provisioning Lifecycle}{10}{subsection.32}%
+\contentsline {subsubsection}{\numberline {2.4.2.1}Partner Artifact Packaging}{11}{subsubsection.37}%
+\contentsline {section}{\numberline {2.5}DIS Architecture Overview}{14}{section.95}%
+\contentsline {subsection}{\numberline {2.5.1}Data Ingestion}{15}{subsection.97}%
+\contentsline {subsection}{\numberline {2.5.2}Data Processing}{15}{subsection.98}%
+\contentsline {subsection}{\numberline {2.5.3}Visualization and Data Analysis}{16}{subsection.99}%
+\contentsline {section}{\numberline {2.6}Cloud-Native Architecture of DIS}{16}{section.100}%
+\contentsline {section}{\numberline {2.7}DIS Microservices Overview}{17}{section.102}%
+\contentsline {subsection}{\numberline {2.7.1}Orchestration Service}{18}{subsection.104}%
+\contentsline {subsection}{\numberline {2.7.2}Authentication Service}{18}{subsection.105}%
+\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{20}{chapter.107}%
+\contentsline {section}{\numberline {3.1}Introduction}{20}{section.108}%
+\contentsline {section}{\numberline {3.2}OAC Cross-Region Disaster Recovery Automation}{20}{section.109}%
+\contentsline {subsection}{\numberline {3.2.1}Overview of the Existing Recovery Context}{20}{subsection.110}%
+\contentsline {subsection}{\numberline {3.2.2}Problem Statement}{21}{subsection.112}%
+\contentsline {subsection}{\numberline {3.2.3}Solution Requirements}{22}{subsection.113}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}Functional Requirements}{22}{subsubsection.114}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}Non-Functional Requirements}{22}{subsubsection.116}%
+\contentsline {subsection}{\numberline {3.2.4}Proposed Solution Design}{23}{subsection.117}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{23}{subsubsection.118}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}DR Request Routing and Validation}{24}{subsubsection.120}%
+\contentsline {subsubsection}{\numberline {3.2.4.3}Backup and Cross-Region Preparation}{25}{subsubsection.121}%
+\contentsline {subsubsection}{\numberline {3.2.4.4}Backup Retention Management}{25}{subsubsection.123}%
+\contentsline {subsubsection}{\numberline {3.2.4.5}Disaster Recovery Workflow}{26}{subsubsection.125}%
+\contentsline {subsubsection}{\numberline {3.2.4.6}Snapshot Restoration During a DR Event}{27}{subsubsection.136}%
+\contentsline {subsubsection}{\numberline {3.2.4.7}Retry and Rollback Strategy}{29}{subsubsection.145}%
+\contentsline {subsubsection}{\numberline {3.2.4.8}DR Status Monitoring}{31}{subsubsection.147}%
+\contentsline {subsubsection}{\numberline {3.2.4.9}Switchback and Cleanup}{31}{subsubsection.148}%
+\contentsline {subsubsection}{\numberline {3.2.4.10}Tenant Cleanup Execution}{32}{subsubsection.150}%
+\contentsline {subsubsection}{\numberline {3.2.4.11}Cleanup Status Monitoring}{33}{subsubsection.152}%
+\contentsline {subsection}{\numberline {3.2.5}Validation}{33}{subsection.154}%
+\contentsline {subsection}{\numberline {3.2.6}Conclusion}{35}{subsection.156}%
+\contentsline {chapter}{\numberline {4}Chapter 4 title}{36}{chapter.157}%
+\contentsline {chapter}{\numberline {A}Acronyms}{37}{appendix.158}%
+\contentsline {chapter}{Bibliography}{39}{appendix*.160}%

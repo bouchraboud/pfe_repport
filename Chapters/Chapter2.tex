@@ -9,7 +9,7 @@ Because this internship focused on identifying and addressing integration challe
 \section{Organizational Context within Oracle}
 Oracle Corporation is structured around two major pillars:
 \begin{itemize}
-    \item The broader Oracle organization, which focuses primarily on infrastructure and platform services such as OCI.
+    \item the greater Oracle organization, which focuses primarily on infrastructure and platform services such as OCI.
     \item Global Business Units (GBUs), which deliver SaaS solutions tailored to specific industry domains such as healthcare, finance, hospitality, and retail.
 \end{itemize}
 \begin{figure}[H]
@@ -55,6 +55,176 @@ By leveraging DIS for analytics-intensive workloads, partners benefit from the f
     \item Maintain full control and flexibility over data ingestion, storage, processing, and visualization.
     \item Reduce Cloud Service Security Approval Process (CSSAP) overhead by adopting DIS's pre-approved architectural patterns.
 \end{itemize}
+
+\subsection{Multi-Tenancy and Resource Isolation}
+
+Multi-tenancy allows DIS to serve several partners and customer
+environments while sharing common platform services. In this context, a
+\textbf{tenant} represents an isolated logical environment with its own
+identifier, configuration, enabled services, identities, analytics
+resources, connections, and operational status. A \textbf{partner}
+represents the GBU or SaaS application that uses DIS and may manage several
+tenants.
+
+An OCI tenancy is different from a DIS tenant. The OCI tenancy is the
+cloud-account and root-resource boundary containing infrastructure such as
+compartments, networks, Kubernetes clusters, databases, and Object Storage.
+A DIS tenant is created at the application-platform level and represents
+one logically isolated customer or application environment. Figure~\ref{fig:oci-tenancy-dis-tenant}
+illustrates these different levels.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]
+    {Figures/oci_tenancy_vs_dis_tenant.png}
+    \caption{Difference between an OCI tenancy and a DIS tenant}
+    \label{fig:oci-tenancy-dis-tenant}
+\end{figure}
+
+During onboarding, DIS provisions only the components declared in each
+tenant's deployment template, such as a data lake, OAS, or OAC. Isolation
+is enforced through tenant-specific identities and permissions, controlled
+resource organization, network rules, and separate data and configuration
+contexts. Consequently, operations performed for one tenant should not
+affect the resources or data of another tenant.
+
+\subsection{Partner and Tenant Provisioning Lifecycle}
+
+Before a tenant can consume analytics services, DIS follows a controlled
+provisioning lifecycle. This lifecycle separates the configuration shared
+by a partner from the resources dedicated to each tenant:
+
+\begin{enumerate}
+    \item \textbf{Partner registration:} the partner is declared in DIS
+    together with its authorized products, deployment templates, service
+    limits, and infrastructure configuration.
+
+    \item \textbf{Partner onboarding:} versioned application artifacts and
+    container images are validated and stored so that they can later be
+    deployed consistently for the partner's tenants.
+
+    \item \textbf{Tenant registration:} a tenant identifier is created and
+    associated with the corresponding partner. This identifier isolates the
+    tenant's configuration and tracks subsequent lifecycle operations.
+
+    \item \textbf{Tenant onboarding:} the partner submits an onboarding
+    request that specifies the required products and deployment templates.
+    The Orchestration Service validates the request and coordinates the
+    services that provision and configure the requested resources.
+\end{enumerate}
+
+\subsubsection{Partner Artifact Packaging}
+
+Before tenant provisioning, the partner prepares product-specific
+configuration and analytics resources, such as semantic models,
+visualization content, metadata, and deployment configuration. These
+resources are packaged into a versioned container image based on a
+platform-approved base image.
+
+A continuous integration pipeline builds and publishes the image to an
+authorized container registry. The DIS partner-artifact onboarding pipeline
+then retrieves the image, validates its structure and metadata, and stores
+its contents in the platform's artifact repository. The validated artifacts
+can subsequently be used during tenant onboarding and upgrade operations.
+This mechanism provides consistent packaging, traceable versioning, and
+repeatable deployment across tenant environments.
+
+Figure~\ref{fig:tenant-onboarding-workflow} summarizes the tenant onboarding
+workflow, from submission of the request to the creation and configuration
+of the tenant environment.
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{Figures/tenant_onboarding_workflow.png}{%
+        \includegraphics[width=0.6\textwidth]
+        {Figures/tenant_onboarding_workflow.png}%
+    }{%
+        \fbox{\parbox[c][5cm][c]{0.88\textwidth}{\centering
+        Insert the sanitized Tenant Onboarding Workflow figure here.}}%
+    }
+    \caption{Tenant Onboarding Workflow}
+    \label{fig:tenant-onboarding-workflow}
+\end{figure}
+
+Listing~\ref{lst:tenant-onboarding-request} presents a simplified tenant
+onboarding request. Sensitive values are replaced with generic placeholders,
+while the main structure is preserved. The deployment template determines
+which platform components must be provisioned for the tenant.
+
+\begin{lstlisting}[style=mystyle,
+caption={Simplified tenant onboarding request},
+label={lst:tenant-onboarding-request}]
+{
+  "identityProviderUrl": "https://identity.example.com",
+  "applicationClientId": "CLIENT_ID_PLACEHOLDER",
+  "applicationSecret": "SECRET_PLACEHOLDER",
+  "products": [
+    {
+      "name": "analytics-product",
+      "version": "1.0.0"
+    }
+  ],
+  "deploymentTemplate": [
+    "dataLake",
+    "oac"
+  ],
+  "dataLake": [
+    "managedDatabase",
+    "objectStorage"
+  ],
+  "oac": [
+    {
+      "instanceId": "analytics-instance",
+      "capacity": {
+        "ocpus": 2
+      }
+    }
+  ]
+}
+\end{lstlisting}
+
+After the workflow completes, DIS returns the provisioning status and the
+non-sensitive information needed to access the enabled services. A simplified
+response is shown in Listing~\ref{lst:tenant-onboarding-response}.
+
+\begin{lstlisting}[style=mystyle,
+caption={Simplified successful onboarding response},
+label={lst:tenant-onboarding-response}]
+{
+  "status": "SUCCESS",
+  "message": "Tenant onboarding completed",
+  "lastUpdatedTimestamp": "YYYY-MM-DD HH:MM:SS",
+  "platformVersion": "PLATFORM_VERSION",
+  "products": [
+    {
+      "name": "analytics-product",
+      "version": "1.0.0"
+    }
+  ],
+  "oac": [
+    {
+      "instanceId": "analytics-instance",
+      "analyticsUrl": "https://analytics.example.com",
+      "status": "ACTIVE"
+    }
+  ],
+  "dataLake": {
+    "database": {
+      "status": "AVAILABLE"
+    },
+    "objectStorage": {
+      "status": "AVAILABLE"
+    }
+  }
+}
+\end{lstlisting}
+
+If a provisioning step fails, the platform records the failed step and the
+resulting resource state. According to that state, the workflow can resume
+from a safe step, roll back partially created resources before resuming, or
+require manual review. This recovery behavior is examined in
+Chapter~\ref{chap:chapter3} in the context of cross-region disaster recovery.
+
 \section{DIS Architecture Overview}
 
 Oracle Global Business Unit Analytics (GBUA), also known as the Data Intelligence Service (DIS), is a managed service platform focused on delivering scalable, cloud-native data analytics and machine learning capabilities for Oracle SaaS applications. It enables business units to integrate and leverage machine learning (ML)-based insights without managing the underlying infrastructure or analytics tooling.
@@ -87,6 +257,52 @@ The data processing layer provides distributed data processing using Apache Spar
 \subsection{Visualization and Data Analysis}
 
 After data has been processed and stored, Oracle Business Intelligence Enterprise Edition (OBIEE) or Oracle Analytics Cloud (OAC) is used for report generation and dashboard visualization. Access is managed through tenant Identity Cloud Service (IDCS), and reports are customized according to user roles. OBIEE also provides self-service analytics capabilities, enabling administrative users with limited SQL or data modeling expertise to create reports and perform data analysis.
+
+\section{Cloud-Native Architecture of DIS}
+
+Cloud-native architecture refers to designing applications specifically
+for cloud environments using independently deployable services,
+containers, automated orchestration, and API-based communication. These
+principles improve scalability, resilience, deployment flexibility, and
+operational automation.
+
+DIS applies these principles through the following elements:
+
+\begin{itemize}
+    \item \textbf{Microservices:} platform responsibilities are divided
+    among focused services that can evolve and scale independently.
+
+    \item \textbf{Containers:} services and their dependencies are
+    packaged consistently for deployment across environments.
+
+    \item \textbf{Kubernetes orchestration:} Oracle Kubernetes Engine
+    manages service deployment, scaling, availability, and recovery.
+
+    \item \textbf{API-based communication:} REST APIs provide controlled
+    communication between platform services.
+
+    \item \textbf{CI/CD automation:} automated pipelines build, test,
+    and deploy individual services with limited impact on the rest of the
+    platform.
+\end{itemize}
+
+Figure~\ref{fig:cloud-native-architecture} summarizes the principal
+building blocks of a cloud-native platform and their relationship with
+automated software delivery and operations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]
+    {Figures/cloud-native-architecture.jpg}
+    \caption{Principal components of cloud-native architecture}
+    \label{fig:cloud-native-architecture}
+\end{figure}
+
+DIS combines OCI infrastructure and managed services, including
+networking, Object Storage, databases, and identity services, with custom
+microservices deployed on Kubernetes. This architecture allows the
+platform to support different analytics workloads while maintaining
+scalability, tenant isolation, and operational reliability.
 
 \section{DIS Microservices Overview}
 The DIS platform implements a comprehensive microservices-based architecture in which loosely coupled services communicate through RESTful APIs. All services are containerized and deployed on the Oracle Kubernetes Engine (OKE) platform, enabling scalability, fault tolerance, and independent service deployment.
