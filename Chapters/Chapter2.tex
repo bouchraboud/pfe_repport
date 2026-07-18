@@ -322,7 +322,10 @@ The \textbf{Orchestration Service} is responsible for automating the entire life
 
 This microservice serves as the central coordinator of the DIS platform by orchestrating interactions among the different services involved in tenant onboarding and lifecycle management. By automating complex operational workflows, it minimizes manual intervention, improves deployment consistency, and enhances the overall reliability of the platform.
 
-The Orchestration Service is the primary focus of this project, as my work was mainly dedicated to designing, implementing, and enhancing its functionality.
+The features studied in this project involve the Orchestration Service together
+with the configuration and OAC execution services. Their interaction is
+examined in Chapter~\ref{chap:chapter3} through the cross-region disaster
+recovery workflow.
 
 \subsection{Authentication Service}
 
@@ -335,6 +338,113 @@ This service plays a critical role in ensuring that only authenticated and autho
     \caption{Auth Service Sequence Diagram}
     \label{fig:Auth Service Sequence Diagram}
 \end{figure}
+
+\section{Development Environment and Tools}
+
+The development workflow combines local source-code tools, API validation
+utilities, continuous-integration services, container technologies, and
+Kubernetes operational tools. Together, they support the complete engineering
+cycle from source-code analysis to deployment verification in a non-production
+environment. A compact illustration is reserved for every tool or technology
+presented below. Official logos or sanitized interface captures can be added
+without modifying the surrounding text.
+
+\newcommand{\toolfigure}[4]{%
+\begin{figure}[H]
+    \centering
+    \IfFileExists{Figures/#1}{%
+        \includegraphics[width=#2\textwidth]{Figures/#1}%
+    }{%
+        \fbox{\parbox[c][2.8cm][c]{0.55\textwidth}{\centering
+        Reserved space for the #3 illustration.}}%
+    }
+    \caption{#3}
+    \label{#4}
+\end{figure}%
+}
+
+\subsection{Code Editors and Integrated Development Environments}
+
+\textbf{PyCharm.} PyCharm is an integrated development environment used for
+Python development, code navigation, debugging, refactoring, and test
+execution.
+\toolfigure{tool_pycharm.png}{0.15}{PyCharm integrated development environment}{fig:tool-pycharm}
+
+\textbf{Visual Studio Code.} Visual Studio Code is a cross-platform source-code
+editor used to inspect and modify Python, JSON, YAML, shell, and LaTeX files
+with the support of language-specific extensions.
+\toolfigure{tool_vscode.png}{0.15}{Visual Studio Code editor}{fig:tool-vscode}
+
+\subsection{Programming, Web Services, and Testing}
+
+\textbf{Python.} Python is the principal programming language of the OAC
+onboarding service and several related DIS microservices.
+\toolfigure{tool_python.png}{0.15}{Python programming language}{fig:tool-python}
+
+\textbf{Flask.} Flask is the lightweight web framework used to initialize the
+service application and expose HTTP endpoints.
+\toolfigure{tool_flask.png}{0.2}{Flask web framework}{fig:tool-flask}
+
+
+\textbf{pytest.} pytest is the automated testing framework used for unit tests,
+fixtures, parameterized scenarios, mocking, and coverage measurement.
+\toolfigure{tool_pytest.png}{0.2}{pytest testing framework}{fig:tool-pytest}
+
+\subsection{Version Control, Continuous Integration, and Containers}
+
+\textbf{Git.} Git is the distributed version-control system used to track
+changes and manage feature branches.
+\toolfigure{tool_git.png}{0.18}{Git version-control system}{fig:tool-git}
+
+\textbf{GitLab.} GitLab hosts the repositories and supports merge requests,
+peer review, branch comparison, and implementation history.
+\toolfigure{tool_gitlab.png}{0.3}{GitLab source-code collaboration platform}{fig:tool-gitlab}
+
+\textbf{Jenkins.} Jenkins installs dependencies, executes quality checks and
+tests, builds packages, and publishes deployable container images.
+\toolfigure{tool_jenkins.png}{0.3}{Jenkins continuous-integration service}{fig:tool-jenkins}
+
+\textbf{Docker.} Docker defines the service container image and packages the
+application with its runtime files and dependencies.
+\toolfigure{tool_docker.png}{0.25}{Docker container technology}{fig:tool-docker}
+
+\textbf{Podman.} Podman provides daemonless container build and publication
+operations used by the project pipelines.
+\toolfigure{tool_podman.png}{0.2}{Podman container engine}{fig:tool-podman}
+
+\textbf{Oracle Cloud Infrastructure Registry.} The private registry stores
+versioned service images before they are deployed to Kubernetes.
+\toolfigure{tool_ocir.png}{0.22}{Oracle Cloud Infrastructure Registry}{fig:tool-ocir}
+
+\subsection{API Development and Validation}
+
+\textbf{Bruno.} Bruno is the API client used to prepare authenticated requests,
+manage environment variables, submit onboarding payloads, and inspect API
+responses.
+\toolfigure{tool_bruno.png}{0.4}{Bruno API client}{fig:tool-bruno}
+
+\textbf{cURL.} cURL is a command-line utility used to invoke REST endpoints
+from terminals and automation scripts.
+\toolfigure{tool_curl.png}{0.2}{cURL command-line API client}{fig:tool-curl}
+
+\textbf{Swagger/OpenAPI.} Swagger provides an interactive representation of the
+OpenAPI contract used to inspect endpoints, parameters, models, and status
+codes.
+\toolfigure{tool_swagger_openapi.png}{0.3}{Swagger and OpenAPI documentation interface}{fig:tool-swagger}
+
+\subsection{Deployment and Operational Validation}
+
+\textbf{Kubernetes.} Kubernetes deploys and operates DIS microservices,
+Deployments, Pods, ConfigMaps, Secrets, persistent volumes, and CronJobs.
+\toolfigure{tool_kubernetes.png}{0.3}{Kubernetes container-orchestration platform}{fig:tool-kubernetes}
+
+\textbf{Linux bastion host.} The bastion is the controlled administrative entry
+point used to access the development Kubernetes environment.
+\toolfigure{tool_linux_bastion.png}{0.3}{Linux bastion environment}{fig:tool-linux-bastion}
+
+\textbf{OCI Object Storage.} Object Storage contains tenant artifacts, status
+information, configuration objects, and OAC snapshot or BAR backups.
+\toolfigure{tool_oci_object_storage.png}{0.2}{OCI Object Storage}{fig:tool-object-storage}
 
 \section*{Conclusion}
 

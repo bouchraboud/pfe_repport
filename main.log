@@ -1108,32 +1108,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--93
 
 [5
 
-] (main.lof)
+] (main.lof [6
+
+])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [6
-
-] (main.lot)
+ [7] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [7
+ [8
 
 ] (main.lol)
 \tf@lol=\write7
 \openout7 = `main.lol'.
 
- [8
+ [9
 
-] (main.toc [9
+] (main.toc [10
 
-] [10])
+] [11])
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
- [11]
-(Chapters/Chapter1
+
+[12] (Chapters/Chapter1
 Chapter 1.
 File: Logos/Logo_oracle1.png Graphic file (type bmp)
 <Logos/Logo_oracle1.png>
@@ -1149,19 +1149,92 @@ File: Figures/MADC Major milestones.png Graphic file (type bmp)
  [3]
 File: Logos/oracle labs logo.png Graphic file (type bmp)
 <Logos/oracle labs logo.png>
- [4]) (Chapters/Chapter2 [5]
+ [4] [5]
+File: Figures/internship-organizational-chart.png Graphic file (type bmp)
+<Figures/internship-organizational-chart.png>
+ [6]
+File: Figures/dis_team_scrumban_board.png Graphic file (type bmp)
+<Figures/dis_team_scrumban_board.png>
+ [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Integration
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+\T1/lmr/m/n/12 and knowledge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Understanding of DIS, OAS, OAC, tenant onboarding,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Functional analysis
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 OAC feature
+ []
+
+
+Underfull \hbox (badness 2617) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Design and implementation of cross-region disaster-recovery
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Integration and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+\T1/lmr/m/n/12 verification, and end-to-end validation in non-production
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 242--242
+[]|\T1/lmr/m/n/12 Documentation and
+ []
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 242--242
+\T1/lmr/m/n/12 of limitations, and integration of additional OAC features
+ []
+
+[9]
+File: Figures/slack.png Graphic file (type bmp)
+<Figures/slack.png>
+File: Figures/outlook_calendar.png Graphic file (type bmp)
+<Figures/outlook_calendar.png>
+ [10]
+File: Figures/zoom.png Graphic file (type bmp)
+<Figures/zoom.png>
+ [11]
+File: Figures/jira_ticket_example.png Graphic file (type bmp)
+<Figures/jira_ticket_example.png>
+ [12]
+File: Figures/jira_workflow.png Graphic file (type bmp)
+<Figures/jira_workflow.png>
+ [13]
+File: Figures/confluence_design_document.png Graphic file (type bmp)
+<Figures/confluence_design_document.png>
+) [14] (Chapters/Chapter2 [15]
 Chapter 2.
 File: Figures/oracle entities.png Graphic file (type bmp)
 <Figures/oracle entities.png>
-[6
+[16
 
 ]
 File: Figures/DIS Region Availability.png Graphic file (type bmp)
 <Figures/DIS Region Availability.png>
- [7]
+ [17]
 File: Logos/data intelegence logo.png Graphic file (type bmp)
 <Logos/data intelegence logo.png>
- [8]
+ [18]
 Underfull \hbox (badness 1014) in paragraph at lines 49--50
 []\T1/lmr/m/n/12 By leveraging DIS for analytics-intensive workloads, partners 
 benefit from the following
@@ -1169,20 +1242,20 @@ benefit from the following
 
 File: Figures/oci_tenancy_vs_dis_tenant.png Graphic file (type bmp)
 <Figures/oci_tenancy_vs_dis_tenant.png>
-[9] [10]
+[19] [20]
 File: Figures/tenant_onboarding_workflow.png Graphic file (type bmp)
 <Figures/tenant_onboarding_workflow.png>
- [11]
+ [21]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 156.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 56.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [12] [13]
+) [22] [23]
 File: Figures/gbu_architecture.png Graphic file (type bmp)
 <Figures/gbu_architecture.png>
- [14] [15]
+ [24] [25]
 Underfull \hbox (badness 1072) in paragraph at lines 263--268
 \T1/lmr/m/n/12 communication. These principles improve scalability, resilience,
  deployment flexibility, and
@@ -1190,10 +1263,10 @@ Underfull \hbox (badness 1072) in paragraph at lines 263--268
 
 File: Figures/cloud-native-architecture.jpg Graphic file (type bmp)
 <Figures/cloud-native-architecture.jpg>
-[16]
+[26]
 File: Figures/dis_microservices.png Graphic file (type bmp)
 <Figures/dis_microservices.png>
- [17]
+ [27]
 Underfull \hbox (badness 1097) in paragraph at lines 321--322
 \T1/lmr/m/n/12 The \T1/lmr/bx/n/12 Orchestration Service \T1/lmr/m/n/12 is resp
 onsible for automating the entire lifecycle of platform
@@ -1205,23 +1278,68 @@ Underfull \hbox (badness 2050) in paragraph at lines 321--322
 , configuration, ongoing
  []
 
-[18]
+[28]
 File: Figures/Auth Service Sequence Diagram.png Graphic file (type bmp)
 <Figures/Auth Service Sequence Diagram.png>
 
-Underfull \hbox (badness 1194) in paragraph at lines 331--337
+Underfull \hbox (badness 1194) in paragraph at lines 334--340
 \T1/lmr/m/n/12 provision tenant identities, and manage access permissions. This
  collaboration guarantees
  []
 
-) (Chapters/Chapter3 [19]
+[29]
+File: Figures/tool_pycharm.png Graphic file (type bmp)
+<Figures/tool_pycharm.png>
+File: Figures/tool_vscode.png Graphic file (type bmp)
+<Figures/tool_vscode.png>
+File: Figures/tool_python.png Graphic file (type bmp)
+<Figures/tool_python.png>
+File: Figures/tool_flask.png Graphic file (type bmp)
+<Figures/tool_flask.png>
+ [30]
+File: Figures/tool_pytest.png Graphic file (type bmp)
+<Figures/tool_pytest.png>
+File: Figures/tool_git.png Graphic file (type bmp)
+<Figures/tool_git.png>
+File: Figures/tool_gitlab.png Graphic file (type bmp)
+<Figures/tool_gitlab.png>
+File: Figures/tool_jenkins.png Graphic file (type bmp)
+<Figures/tool_jenkins.png>
+ [31]
+File: Figures/tool_docker.png Graphic file (type bmp)
+<Figures/tool_docker.png>
+File: Figures/tool_podman.png Graphic file (type bmp)
+<Figures/tool_podman.png>
+File: Figures/tool_ocir.png Graphic file (type bmp)
+<Figures/tool_ocir.png>
+File: Figures/tool_bruno.png Graphic file (type bmp)
+<Figures/tool_bruno.png>
+ [32]
+File: Figures/tool_curl.png Graphic file (type bmp)
+<Figures/tool_curl.png>
+File: Figures/tool_swagger_openapi.png Graphic file (type bmp)
+<Figures/tool_swagger_openapi.png>
+File: Figures/tool_kubernetes.png Graphic file (type bmp)
+<Figures/tool_kubernetes.png>
+ [33]
+File: Figures/tool_linux_bastion.png Graphic file (type bmp)
+<Figures/tool_linux_bastion.png>
+File: Figures/tool_oci_object_storage.png Graphic file (type bmp)
+<Figures/tool_oci_object_storage.png>
+
+Underfull \hbox (badness 1533) in paragraph at lines 445--447
+[]\T1/lmr/bx/n/12 OCI Object Storage. \T1/lmr/m/n/12 Object Storage contains te
+nant artifacts, status information,
+ []
+
+) (Chapters/Chapter3 [34]
 Chapter 3.
-[20
+[35
 
 ]
 File: Figures/oac_standby_provisioning.png Graphic file (type bmp)
 <Figures/oac_standby_provisioning.png>
- [21] [22]
+ [36] [37]
 Underfull \hbox (badness 1048) in paragraph at lines 85--86
 []\T1/lmr/bx/n/12 Testability: \T1/lmr/m/n/12 success and failure scenarios mus
 t be reproducible in a non-production
@@ -1233,10 +1351,10 @@ Underfull \hbox (badness 1412) in paragraph at lines 102--110
 tributed among the principal DIS
  []
 
-[23]
+[38]
 File: Figures/oac_dr_microservices_architecture.png Graphic file (type bmp)
 <Figures/oac_dr_microservices_architecture.png>
- [24]
+ [39]
 File: Figures/oac_periodic_backup_cronjob.png Graphic file (type bmp)
 <Figures/oac_periodic_backup_cronjob.png>
 
@@ -1244,44 +1362,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--169
 []|\T1/lmr/m/n/12 Older than 60
  []
 
-[25]
+[40]
 File: Figures/oac_dr_event.png Graphic file (type bmp)
 <Figures/oac_dr_event.png>
- [26]
+ [41]
 File: Figures/oac-dr-snapshot-restoration.png Graphic file (type bmp)
 <Figures/oac-dr-snapshot-restoration.png>
- [27] [28]
-File: Figures/oac_dr_recovery_strategy.png Graphic file (type bmp)
-<Figures/oac_dr_recovery_strategy.png>
- [29]
-Overfull \vbox (1.8064pt too high) has occurred while \output is active []
-
-
-[30]
+ [42] [43]
+File: Figures/dr_recovery_strategies.png Graphic file (type bmp)
+<Figures/dr_recovery_strategies.png>
+ [44]
 File: Figures/oac_switchback.png Graphic file (type bmp)
 <Figures/oac_switchback.png>
- [31] [32]
-Underfull \hbox (badness 2529) in paragraph at lines 356--356
+ [45] [46] [47]
+Underfull \hbox (badness 2529) in paragraph at lines 377--377
 []|\T1/lmr/m/n/12 The request is rejected without creating a
  []
 
 
-Underfull \hbox (badness 4366) in paragraph at lines 356--356
+Underfull \hbox (badness 4366) in paragraph at lines 377--377
 []|\T1/lmr/m/n/12 The request is rejected to protect tenant
  []
 
-[33] [34]) (Chapters/Chapter4 [35]
-Chapter 4.
-) (Endmatter/Acronyms [36
-
-]
+[48] [49]) (Endmatter/Acronyms [50]
 Appendix A.
-[37
+[51
 
-]) [38] [39
+]) [52] [53
 
 ] (main.aux (Frontmatter/Page_de_Garde_EN.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BA17FEB9033CA4FF4CD51B4195CE553C;10009.
+(rerunfilecheck)             Checksum: 22D10CD1767A45ED01838FAE9572DA69;14513.
  )
-Output written on main.xdv (52 pages, 177936 bytes).
+Output written on main.xdv (67 pages, 244788 bytes).
