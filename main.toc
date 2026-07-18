@@ -7,7 +7,7 @@
 \contentsline {chapter}{List of Figures}{vii}{chapter*.6}%
 \contentsline {chapter}{List of Tables}{viii}{chapter*.7}%
 \contentsline {chapter}{List of Listings}{ix}{chapter*.8}%
-\contentsline {chapter}{Table of Contents}{xii}{chapter*.9}%
+\contentsline {chapter}{Table of Contents}{xiii}{chapter*.9}%
 \contentsline {chapter}{\numberline {1}General Project Context}{1}{chapter.10}%
 \contentsline {section}{\numberline {1.1}Host Organization}{1}{section.11}%
 \contentsline {section}{\numberline {1.2}Oracle Corporation}{2}{section.12}%
@@ -52,31 +52,36 @@
 \contentsline {subsection}{\numberline {2.7.2}Authentication Service}{29}{subsection.132}%
 \contentsline {section}{\numberline {2.8}Development Environment and Tools}{29}{section.134}%
 \contentsline {subsection}{\numberline {2.8.1}Code Editors and Integrated Development Environments}{30}{subsection.135}%
-\contentsline {subsection}{\numberline {2.8.2}Programming, Web Services, and Testing}{30}{subsection.138}%
-\contentsline {subsection}{\numberline {2.8.3}Version Control, Continuous Integration, and Containers}{31}{subsection.142}%
-\contentsline {subsection}{\numberline {2.8.4}API Development and Validation}{33}{subsection.149}%
-\contentsline {subsection}{\numberline {2.8.5}Deployment and Operational Validation}{33}{subsection.153}%
-\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{35}{chapter.157}%
-\contentsline {section}{\numberline {3.1}Introduction}{35}{section.158}%
-\contentsline {section}{\numberline {3.2}OAC Cross-Region Disaster Recovery Automation}{35}{section.159}%
-\contentsline {subsection}{\numberline {3.2.1}Overview of the Existing Recovery Context}{35}{subsection.160}%
-\contentsline {subsection}{\numberline {3.2.2}Problem Statement}{36}{subsection.162}%
-\contentsline {subsection}{\numberline {3.2.3}Solution Requirements}{37}{subsection.163}%
-\contentsline {subsubsection}{\numberline {3.2.3.1}Functional Requirements}{37}{subsubsection.164}%
-\contentsline {subsubsection}{\numberline {3.2.3.2}Non-Functional Requirements}{37}{subsubsection.166}%
-\contentsline {subsection}{\numberline {3.2.4}Proposed Solution Design}{38}{subsection.167}%
-\contentsline {subsubsection}{\numberline {3.2.4.1}General Architecture}{38}{subsubsection.168}%
-\contentsline {subsubsection}{\numberline {3.2.4.2}DR Request Routing and Validation}{39}{subsubsection.170}%
-\contentsline {subsubsection}{\numberline {3.2.4.3}Backup and Cross-Region Preparation}{40}{subsubsection.171}%
-\contentsline {subsubsection}{\numberline {3.2.4.4}Backup Retention Management}{40}{subsubsection.173}%
-\contentsline {subsubsection}{\numberline {3.2.4.5}Disaster Recovery Workflow}{41}{subsubsection.175}%
-\contentsline {subsubsection}{\numberline {3.2.4.6}Snapshot Restoration During a DR Event}{42}{subsubsection.186}%
-\contentsline {subsubsection}{\numberline {3.2.4.7}Retry and Rollback Strategy}{44}{subsubsection.195}%
-\contentsline {subsubsection}{\numberline {3.2.4.8}DR Status Monitoring}{45}{subsubsection.197}%
-\contentsline {subsubsection}{\numberline {3.2.4.9}Switchback and Cleanup}{45}{subsubsection.198}%
-\contentsline {subsubsection}{\numberline {3.2.4.10}Tenant Cleanup Execution}{46}{subsubsection.200}%
-\contentsline {subsubsection}{\numberline {3.2.4.11}Cleanup Status Monitoring}{48}{subsubsection.202}%
-\contentsline {subsection}{\numberline {3.2.5}Validation}{48}{subsection.204}%
-\contentsline {subsection}{\numberline {3.2.6}Conclusion}{50}{subsection.206}%
-\contentsline {chapter}{\numberline {A}Acronyms}{51}{appendix.207}%
-\contentsline {chapter}{Bibliography}{53}{appendix*.209}%
+\contentsline {subsection}{\numberline {2.8.2}Programming, Web Services, and Testing}{30}{subsection.137}%
+\contentsline {subsection}{\numberline {2.8.3}Version Control, Continuous Integration, and Containers}{31}{subsection.139}%
+\contentsline {subsection}{\numberline {2.8.4}API Development and Validation}{31}{subsection.141}%
+\contentsline {subsection}{\numberline {2.8.5}Deployment and Operational Validation}{32}{subsection.143}%
+\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{33}{chapter.145}%
+\contentsline {section}{\numberline {3.1}Introduction}{33}{section.146}%
+\contentsline {section}{\numberline {3.2}OAC Cross-Region Disaster Recovery Automation}{33}{section.147}%
+\contentsline {subsection}{\numberline {3.2.1}Context and Problem Analysis}{33}{subsection.148}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Existing Recovery Context}{33}{subsubsection.149}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}Problem Statement}{34}{subsubsection.151}%
+\contentsline {subsection}{\numberline {3.2.2}Requirements Analysis}{35}{subsection.152}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Functional Requirements}{35}{subsubsection.153}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Non-Functional Requirements}{35}{subsubsection.155}%
+\contentsline {subsection}{\numberline {3.2.3}Architecture and Request Coordination}{36}{subsection.156}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}General Architecture}{36}{subsubsection.157}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}DR Request Routing and Validation}{37}{subsubsection.159}%
+\contentsline {subsection}{\numberline {3.2.4}Backup and Cross-Region Readiness}{38}{subsection.160}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}Periodic Backup Creation and Replication}{38}{subsubsection.161}%
+\contentsline {subsubsection}{\numberline {3.2.4.2}Backup Retention Management}{38}{subsubsection.163}%
+\contentsline {subsection}{\numberline {3.2.5}Recovery Workflow and Content Restoration}{39}{subsection.165}%
+\contentsline {subsubsection}{\numberline {3.2.5.1}Tenant Recovery Workflow}{39}{subsubsection.166}%
+\contentsline {subsubsection}{\numberline {3.2.5.2}Snapshot Restoration During a DR Event}{41}{subsubsection.177}%
+\contentsline {subsection}{\numberline {3.2.6}Failure Handling and Operational Monitoring}{43}{subsection.186}%
+\contentsline {subsubsection}{\numberline {3.2.6.1}Retry and Rollback Strategy}{43}{subsubsection.187}%
+\contentsline {subsubsection}{\numberline {3.2.6.2}DR Status Monitoring}{44}{subsubsection.189}%
+\contentsline {subsection}{\numberline {3.2.7}Switchback and Standby Cleanup}{45}{subsection.190}%
+\contentsline {subsubsection}{\numberline {3.2.7.1}Controlled Switchback}{45}{subsubsection.191}%
+\contentsline {subsubsection}{\numberline {3.2.7.2}Tenant Cleanup Execution}{45}{subsubsection.193}%
+\contentsline {subsubsection}{\numberline {3.2.7.3}Cleanup Status Monitoring}{47}{subsubsection.195}%
+\contentsline {subsection}{\numberline {3.2.8}Validation Strategy}{47}{subsection.197}%
+\contentsline {subsection}{\numberline {3.2.9}Conclusion}{49}{subsection.199}%
+\contentsline {chapter}{\numberline {A}Acronyms}{50}{appendix.200}%
+\contentsline {chapter}{Bibliography}{52}{appendix*.202}%

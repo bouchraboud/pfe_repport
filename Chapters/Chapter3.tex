@@ -8,7 +8,9 @@ The previous chapter introduced the organizational and technical context of Data
 
 \section{OAC Cross-Region Disaster Recovery Automation}
 
-\subsection{Overview of the Existing Recovery Context}
+\subsection{Context and Problem Analysis}
+
+\subsubsection{Existing Recovery Context}
 
 OAC provides cloud-based analytics capabilities such as dashboards, visualizations, datasets, semantic models, and reporting services. During normal operation, each tenant consumes these capabilities from an OAC environment deployed in a primary Oracle Cloud Infrastructure (OCI) region. Although availability mechanisms protect the service from several infrastructure failures, the loss of the complete region requires a separate cross-region recovery strategy.
 
@@ -32,7 +34,7 @@ Figure~\ref{fig:oac-standby-provisioning} illustrates the first approach, in whi
 
 The automated workflow can support both situations. If a valid standby instance already exists, the system activates or updates it. Otherwise, it provisions a new instance when the DR event is triggered.
 
-\subsection{Problem Statement}
+\subsubsection{Problem Statement}
 
 Recovering OAC manually becomes complex when a region contains multiple tenants. Each tenant may have a different configuration and may reach a different state during recovery. A failed operation can also leave partially created resources. For example, an OAC instance may have been created successfully even when the calling service receives a timeout. Restarting the complete workflow without inspecting the existing state could then create duplicate resources or produce inconsistent tenant configuration.
 
@@ -44,7 +46,7 @@ How can DIS automate the recovery of multiple OAC tenant environments in a stand
 
 The main difficulties are related to the asynchronous nature of OAC operations, the availability of backups and configuration in the standby region, the management of several tenants, and the coordination of retry and rollback actions. The solution must consequently treat DR as a stateful tenant-level workflow rather than as a single infrastructure command.
 
-\subsection{Solution Requirements}
+\subsection{Requirements Analysis}
 
 \subsubsection{Functional Requirements}
 
@@ -85,7 +87,7 @@ The solution must also satisfy the following quality requirements:
     \item \textbf{Testability:} success and failure scenarios must be reproducible in a non-production environment.
 \end{itemize}
 
-\subsection{Proposed Solution Design}
+\subsection{Architecture and Request Coordination}
 
 \subsubsection{General Architecture}
 
@@ -125,7 +127,9 @@ Before accepting a recovery request, the orchestration layer performs several va
 
 These controls prevent unsupported requests and concurrent operations from modifying the same tenant simultaneously. Once the validations succeed, the tenant DR status is changed to in progress and the information required to resume the workflow is persisted. The service then returns an acceptance response without waiting for the complete provisioning process. This asynchronous model is necessary because creating and restoring an analytics environment can take significantly longer than a standard API request.
 
-\subsubsection{Backup and Cross-Region Preparation}
+\subsection{Backup and Cross-Region Readiness}
+
+\subsubsection{Periodic Backup Creation and Replication}
 
 Recovery is possible only if the required tenant information remains
 available after the loss of the primary region. A scheduled CronJob
@@ -175,7 +179,9 @@ deletion, verifies that another retained backup exists in the same daily or
 monthly group, and only then removes them. Each lifecycle decision is logged
 to keep the process auditable and reduce the risk of accidental data loss.
 
-\subsubsection{Disaster Recovery Workflow}
+\subsection{Recovery Workflow and Content Restoration}
+
+\subsubsection{Tenant Recovery Workflow}
 
 When a DR event is declared, the recovery workflow is executed for every eligible tenant. Figure~\ref{fig:oac-dr-event} presents the tenant-level provisioning operation in the standby region.
 
@@ -228,6 +234,8 @@ The restoration workflow performs the following operations:
 
 This selection mechanism avoids depending on the order returned by Object Storage and ensures that the most recent valid hourly recovery point is used. If no valid hourly backup is found, or if the selected object cannot be downloaded, the restoration step fails explicitly. The failure is then propagated through the tenant workflow so that it can be reported and retried according to the DR recovery strategy.
 
+\subsection{Failure Handling and Operational Monitoring}
+
 \subsubsection{Retry and Rollback Strategy}
 
 A failed tenant should not systematically restart from the beginning. If OAC provisioning and platform attachment have already completed while snapshot restoration fails, repeating the first two steps could create duplicate resources and increase recovery time. The fix-forward strategy stores the last successful step, verifies the corresponding resource, and resumes execution from the failed operation.
@@ -270,7 +278,9 @@ operations team to monitor the regional recovery and determine whether a
 failed tenant can be resumed, requires rollback, or needs manual
 investigation.
 
-\subsubsection{Switchback and Cleanup}
+\subsection{Switchback and Standby Cleanup}
+
+\subsubsection{Controlled Switchback}
 
 The standby region is used until the primary region has been restored and validated. Service is then returned through a controlled switchback, illustrated in Figure~\ref{fig:oac-switchback}.
 
@@ -351,7 +361,7 @@ Per-tenant details & Status, execution period, message, and result of each clean
 \end{tabularx}
 \end{table}
 
-\subsection{Validation}
+\subsection{Validation Strategy}
 
 The validation strategy covers the complete recovery lifecycle, from DR initiation to switchback. Table~\ref{tab:dr-validation} summarizes the principal scenarios.
 

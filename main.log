@@ -1128,12 +1128,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--93
 
 ] (main.toc [10
 
-] [11])
+] [11]
+[12])
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
-
-[12] (Chapters/Chapter1
+ [13] (Chapters/Chapter1
 Chapter 1.
 File: Logos/Logo_oracle1.png Graphic file (type bmp)
 <Logos/Logo_oracle1.png>
@@ -1288,110 +1288,82 @@ Underfull \hbox (badness 1194) in paragraph at lines 334--340
  []
 
 [29]
-File: Figures/tool_pycharm.png Graphic file (type bmp)
-<Figures/tool_pycharm.png>
-File: Figures/tool_vscode.png Graphic file (type bmp)
-<Figures/tool_vscode.png>
-File: Figures/tool_python.png Graphic file (type bmp)
-<Figures/tool_python.png>
-File: Figures/tool_flask.png Graphic file (type bmp)
-<Figures/tool_flask.png>
+File: Figures/tools_code_editors.png Graphic file (type bmp)
+<Figures/tools_code_editors.png>
+File: Figures/tools_programming_testing.png Graphic file (type bmp)
+<Figures/tools_programming_testing.png>
  [30]
-File: Figures/tool_pytest.png Graphic file (type bmp)
-<Figures/tool_pytest.png>
-File: Figures/tool_git.png Graphic file (type bmp)
-<Figures/tool_git.png>
-File: Figures/tool_gitlab.png Graphic file (type bmp)
-<Figures/tool_gitlab.png>
-File: Figures/tool_jenkins.png Graphic file (type bmp)
-<Figures/tool_jenkins.png>
+File: Figures/tools_cicd_containers.png Graphic file (type bmp)
+<Figures/tools_cicd_containers.png>
+File: Figures/tools_api_development.png Graphic file (type bmp)
+<Figures/tools_api_development.png>
  [31]
-File: Figures/tool_docker.png Graphic file (type bmp)
-<Figures/tool_docker.png>
-File: Figures/tool_podman.png Graphic file (type bmp)
-<Figures/tool_podman.png>
-File: Figures/tool_ocir.png Graphic file (type bmp)
-<Figures/tool_ocir.png>
-File: Figures/tool_bruno.png Graphic file (type bmp)
-<Figures/tool_bruno.png>
- [32]
-File: Figures/tool_curl.png Graphic file (type bmp)
-<Figures/tool_curl.png>
-File: Figures/tool_swagger_openapi.png Graphic file (type bmp)
-<Figures/tool_swagger_openapi.png>
-File: Figures/tool_kubernetes.png Graphic file (type bmp)
-<Figures/tool_kubernetes.png>
- [33]
-File: Figures/tool_linux_bastion.png Graphic file (type bmp)
-<Figures/tool_linux_bastion.png>
-File: Figures/tool_oci_object_storage.png Graphic file (type bmp)
-<Figures/tool_oci_object_storage.png>
-
-Underfull \hbox (badness 1533) in paragraph at lines 445--447
+Underfull \hbox (badness 1533) in paragraph at lines 436--438
 []\T1/lmr/bx/n/12 OCI Object Storage. \T1/lmr/m/n/12 Object Storage contains te
 nant artifacts, status information,
  []
 
-) (Chapters/Chapter3 [34]
+File: Figures/tools_deployment_operations.png Graphic file (type bmp)
+<Figures/tools_deployment_operations.png>
+) (Chapters/Chapter3 [32]
 Chapter 3.
-[35
+[33
 
 ]
 File: Figures/oac_standby_provisioning.png Graphic file (type bmp)
 <Figures/oac_standby_provisioning.png>
- [36] [37]
-Underfull \hbox (badness 1048) in paragraph at lines 85--86
+ [34] [35]
+Underfull \hbox (badness 1048) in paragraph at lines 87--88
 []\T1/lmr/bx/n/12 Testability: \T1/lmr/m/n/12 success and failure scenarios mus
 t be reproducible in a non-production
  []
 
 
-Underfull \hbox (badness 1412) in paragraph at lines 102--110
+Underfull \hbox (badness 1412) in paragraph at lines 104--112
 []\T1/lmr/m/n/12 Figure [][]3.2[][] presents how these responsibilities are dis
 tributed among the principal DIS
  []
 
-[38]
+[36]
 File: Figures/oac_dr_microservices_architecture.png Graphic file (type bmp)
 <Figures/oac_dr_microservices_architecture.png>
- [39]
+ [37]
 File: Figures/oac_periodic_backup_cronjob.png Graphic file (type bmp)
 <Figures/oac_periodic_backup_cronjob.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--169
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 []|\T1/lmr/m/n/12 Older than 60
  []
 
-[40]
 File: Figures/oac_dr_event.png Graphic file (type bmp)
 <Figures/oac_dr_event.png>
- [41]
+[39] [40]
 File: Figures/oac-dr-snapshot-restoration.png Graphic file (type bmp)
 <Figures/oac-dr-snapshot-restoration.png>
- [42] [43]
+ [41] [42]
 File: Figures/dr_recovery_strategies.png Graphic file (type bmp)
 <Figures/dr_recovery_strategies.png>
- [44]
+ [43]
 File: Figures/oac_switchback.png Graphic file (type bmp)
 <Figures/oac_switchback.png>
- [45] [46] [47]
-Underfull \hbox (badness 2529) in paragraph at lines 377--377
+ [44] [45] [46]
+Underfull \hbox (badness 2529) in paragraph at lines 387--387
 []|\T1/lmr/m/n/12 The request is rejected without creating a
  []
 
 
-Underfull \hbox (badness 4366) in paragraph at lines 377--377
+Underfull \hbox (badness 4366) in paragraph at lines 387--387
 []|\T1/lmr/m/n/12 The request is rejected to protect tenant
  []
 
-[48] [49]) (Endmatter/Acronyms [50]
+[47] [48]) (Endmatter/Acronyms [49]
 Appendix A.
-[51
+[50
 
-]) [52] [53
+]) [51] [52
 
 ] (main.aux (Frontmatter/Page_de_Garde_EN.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 22D10CD1767A45ED01838FAE9572DA69;14513.
+(rerunfilecheck)             Checksum: FFD8CA810D1F9179BEEA46053F873E2B;15788.
  )
-Output written on main.xdv (67 pages, 244788 bytes).
+Output written on main.xdv (67 pages, 238396 bytes).
