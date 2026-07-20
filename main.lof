@@ -1,38 +1,6 @@
 \babel@toc {nil}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Oracle logo\relax }}{2}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Location of Oracle MADC\relax }}{3}{figure.caption.16}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Major milestones of Oracle MADC\relax }}{3}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Oracle Labs logo\relax }}{4}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Simplified organizational chart of the internship within DIS\relax }}{6}{figure.caption.23}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces DIS Team Scrumban Board\relax }}{8}{figure.caption.28}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Example of team communication through Slack\relax }}{10}{figure.caption.36}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Meeting organization using Outlook Calendar\relax }}{11}{figure.caption.38}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Remote collaboration through Zoom\relax }}{12}{figure.caption.40}%
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Example of a project story managed in Jira\relax }}{13}{figure.caption.43}%
-\contentsline {figure}{\numberline {1.11}{\ignorespaces Principal states of the Jira story workflow\relax }}{13}{figure.caption.44}%
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Example of technical documentation maintained in Confluence\relax }}{14}{figure.caption.47}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Oracle entities\relax }}{17}{figure.caption.51}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces DIS Region Availability\relax }}{18}{figure.caption.53}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Data intelligence logo\relax }}{18}{figure.caption.55}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Difference between an OCI tenancy and a DIS tenant\relax }}{20}{figure.caption.58}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Tenant Onboarding Workflow\relax }}{22}{figure.caption.65}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces GBU Analytics and Machine Learning Architecture\relax }}{25}{figure.caption.123}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Principal components of cloud-native architecture\relax }}{27}{figure.caption.128}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces DIS Microservices Architecture\relax }}{28}{figure.caption.130}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Auth Service Sequence Diagram\relax }}{29}{figure.caption.133}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Code editors used during development\relax }}{30}{figure.caption.136}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Programming and testing technologies\relax }}{30}{figure.caption.138}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Version control, continuous integration, and container tools\relax }}{31}{figure.caption.140}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces API development, documentation, and validation tools\relax }}{32}{figure.caption.142}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Deployment and operational tools\relax }}{32}{figure.caption.144}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{34}{figure.caption.150}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Roles and interactions of the main microservices involved in OAC disaster recovery\relax }}{37}{figure.caption.158}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Periodic creation and cross-region synchronization of OAC backups\relax }}{38}{figure.caption.162}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{40}{figure.caption.167}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{42}{figure.caption.178}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Recovery strategies following an OAC Disaster Recovery workflow failure\relax }}{44}{figure.caption.188}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{45}{figure.caption.192}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Oracle corporate logo\relax }}{1}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Simplified organizational chart of the internship within DIS\relax }}{4}{figure.caption.18}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces DIS Team Scrumban Board\relax }}{7}{figure.caption.28}%
 \addvspace {10\p@ }

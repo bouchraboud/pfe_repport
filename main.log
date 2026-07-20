@@ -1033,47 +1033,49 @@ Package caption Info: End \AtBeginDocument code.
  (Frontmatter/Page_de_Garde_EN.tex
 File: Logos/Logo_INPT.png Graphic file (type bmp)
 <Logos/Logo_INPT.png>
-File: Logos/image.png Graphic file (type bmp)
-<Logos/image.png>
+File: Logos/anrt_logo.png Graphic file (type bmp)
+<Logos/anrt_logo.png>
+File: Logos/Logo_oracle.png Graphic file (type bmp)
+<Logos/Logo_oracle.png>
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-2.
+6.
  (ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-2.
+6.
  (omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-32.
+36.
 
 (omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-32.
+36.
  (omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 32.
+(Font)              <12> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 32.
+(Font)              <8> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 32.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+(Font)              <6> on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
 
  (umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 
  (umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-File: Logos/ZLAFA.png Graphic file (type bmp)
-<Logos/ZLAFA.png>
+File: Logos/zlafa_logo.png Graphic file (type bmp)
+<Logos/zlafa_logo.png>
 ) [1
 
 
@@ -1108,262 +1110,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--93
 
 [5
 
-] (main.lof [6
-
-])
+] (main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [7] (main.lot)
+ [6
+
+] (main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [8
+ [7
 
 ] (main.lol)
 \tf@lol=\write7
 \openout7 = `main.lol'.
 
- [9
+ [8
 
-] (main.toc [10
+] (main.toc [9
 
-] [11]
-[12])
+])
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
- [13] (Chapters/Chapter1
+ [10]
+(Chapters/Chapter1
 Chapter 1.
-File: Logos/Logo_oracle1.png Graphic file (type bmp)
-<Logos/Logo_oracle1.png>
+File: Logos/Logo_oracle.png Graphic file (type bmp)
+<Logos/Logo_oracle.png>
 [1
 
 
-]
-File: Figures/Oracle MADC Location.png Graphic file (type bmp)
-<Figures/Oracle MADC Location.png>
- [2]
-File: Figures/MADC Major milestones.png Graphic file (type bmp)
-<Figures/MADC Major milestones.png>
- [3]
-File: Logos/oracle labs logo.png Graphic file (type bmp)
-<Logos/oracle labs logo.png>
- [4] [5]
+] [2]
 File: Figures/internship-organizational-chart.png Graphic file (type bmp)
 <Figures/internship-organizational-chart.png>
- [6]
+ [3] [4]
+Underfull \hbox (badness 2165) in paragraph at lines 169--171
+[]\T1/lmr/m/n/12 provide tenant-level and partner-level status information for 
+monitoring long-running
+ []
+
+[5] [6]
 File: Figures/dis_team_scrumban_board.png Graphic file (type bmp)
 <Figures/dis_team_scrumban_board.png>
- [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+ [7]
+File: Figures/logo_slack.png Graphic file (type bmp)
+<Figures/logo_slack.png>
+ [8]
+File: Figures/logo_outlook.png Graphic file (type bmp)
+<Figures/logo_outlook.png>
+
+Underfull \hbox (badness 1142) in paragraph at lines 327--327
+\T1/lmr/m/n/12 meeting organization. Calendar invitations were used to coordina
+te daily
+ []
+
+File: Figures/logo_zoom.png Graphic file (type bmp)
+<Figures/logo_zoom.png>
+
+Underfull \hbox (badness 1968) in paragraph at lines 332--332
+[]\T1/lmr/m/n/12 Zoom supported remote meetings and screen sharing. It was used
+ for
+ []
+
+File: Figures/logo_jira.png Graphic file (type bmp)
+<Figures/logo_jira.png>
+File: Figures/logo_confluence.png Graphic file (type bmp)
+<Figures/logo_confluence.png>
+
+Underfull \hbox (badness 5189) in paragraph at lines 350--350
+[]\T1/lmr/m/n/12 Confluence served as the team's shared documentation platform.
+ It
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 Integration
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 \T1/lmr/m/n/12 and knowledge
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 Understanding of DIS, OAS, OAC, tenant onboarding,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 Functional analysis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 OAC feature
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 242--242
-[]|\T1/lmr/m/n/12 Design and implementation of cross-region disaster-recovery
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 Integration and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 \T1/lmr/m/n/12 verification, and end-to-end validation in non-production
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 242--242
+Underfull \hbox (badness 3568) in paragraph at lines 374--374
 []|\T1/lmr/m/n/12 Documentation and
  []
 
 
-Underfull \hbox (badness 2326) in paragraph at lines 242--242
+Underfull \hbox (badness 2326) in paragraph at lines 374--374
 \T1/lmr/m/n/12 of limitations, and integration of additional OAC features
  []
 
-[9]
-File: Figures/slack.png Graphic file (type bmp)
-<Figures/slack.png>
-File: Figures/outlook_calendar.png Graphic file (type bmp)
-<Figures/outlook_calendar.png>
- [10]
-File: Figures/zoom.png Graphic file (type bmp)
-<Figures/zoom.png>
- [11]
-File: Figures/jira_ticket_example.png Graphic file (type bmp)
-<Figures/jira_ticket_example.png>
- [12]
-File: Figures/jira_workflow.png Graphic file (type bmp)
-<Figures/jira_workflow.png>
- [13]
-File: Figures/confluence_design_document.png Graphic file (type bmp)
-<Figures/confluence_design_document.png>
-) [14] (Chapters/Chapter2 [15]
-Chapter 2.
-File: Figures/oracle entities.png Graphic file (type bmp)
-<Figures/oracle entities.png>
-[16
-
-]
-File: Figures/DIS Region Availability.png Graphic file (type bmp)
-<Figures/DIS Region Availability.png>
- [17]
-File: Logos/data intelegence logo.png Graphic file (type bmp)
-<Logos/data intelegence logo.png>
- [18]
-Underfull \hbox (badness 1014) in paragraph at lines 49--50
-[]\T1/lmr/m/n/12 By leveraging DIS for analytics-intensive workloads, partners 
-benefit from the following
- []
-
-File: Figures/oci_tenancy_vs_dis_tenant.png Graphic file (type bmp)
-<Figures/oci_tenancy_vs_dis_tenant.png>
-[19] [20]
-File: Figures/tenant_onboarding_workflow.png Graphic file (type bmp)
-<Figures/tenant_onboarding_workflow.png>
- [21]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 156.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-56.
- (t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [22] [23]
-File: Figures/gbu_architecture.png Graphic file (type bmp)
-<Figures/gbu_architecture.png>
- [24] [25]
-Underfull \hbox (badness 1072) in paragraph at lines 263--268
-\T1/lmr/m/n/12 communication. These principles improve scalability, resilience,
- deployment flexibility, and
- []
-
-File: Figures/cloud-native-architecture.jpg Graphic file (type bmp)
-<Figures/cloud-native-architecture.jpg>
-[26]
-File: Figures/dis_microservices.png Graphic file (type bmp)
-<Figures/dis_microservices.png>
- [27]
-Underfull \hbox (badness 1097) in paragraph at lines 321--322
-\T1/lmr/m/n/12 The \T1/lmr/bx/n/12 Orchestration Service \T1/lmr/m/n/12 is resp
-onsible for automating the entire lifecycle of platform
- []
-
-
-Underfull \hbox (badness 2050) in paragraph at lines 321--322
-\T1/lmr/m/n/12 components and tenant environments, including initial deployment
-, configuration, ongoing
- []
-
-[28]
-File: Figures/Auth Service Sequence Diagram.png Graphic file (type bmp)
-<Figures/Auth Service Sequence Diagram.png>
-
-Underfull \hbox (badness 1194) in paragraph at lines 334--340
-\T1/lmr/m/n/12 provision tenant identities, and manage access permissions. This
- collaboration guarantees
- []
-
-[29]
-File: Figures/tools_code_editors.png Graphic file (type bmp)
-<Figures/tools_code_editors.png>
-File: Figures/tools_programming_testing.png Graphic file (type bmp)
-<Figures/tools_programming_testing.png>
- [30]
-File: Figures/tools_cicd_containers.png Graphic file (type bmp)
-<Figures/tools_cicd_containers.png>
-File: Figures/tools_api_development.png Graphic file (type bmp)
-<Figures/tools_api_development.png>
- [31]
-Underfull \hbox (badness 1533) in paragraph at lines 436--438
-[]\T1/lmr/bx/n/12 OCI Object Storage. \T1/lmr/m/n/12 Object Storage contains te
-nant artifacts, status information,
- []
-
-File: Figures/tools_deployment_operations.png Graphic file (type bmp)
-<Figures/tools_deployment_operations.png>
-) (Chapters/Chapter3 [32]
-Chapter 3.
-[33
-
-]
-File: Figures/oac_standby_provisioning.png Graphic file (type bmp)
-<Figures/oac_standby_provisioning.png>
- [34] [35]
-Underfull \hbox (badness 1048) in paragraph at lines 87--88
-[]\T1/lmr/bx/n/12 Testability: \T1/lmr/m/n/12 success and failure scenarios mus
-t be reproducible in a non-production
- []
-
-
-Underfull \hbox (badness 1412) in paragraph at lines 104--112
-[]\T1/lmr/m/n/12 Figure [][]3.2[][] presents how these responsibilities are dis
-tributed among the principal DIS
- []
-
-[36]
-File: Figures/oac_dr_microservices_architecture.png Graphic file (type bmp)
-<Figures/oac_dr_microservices_architecture.png>
- [37]
-File: Figures/oac_periodic_backup_cronjob.png Graphic file (type bmp)
-<Figures/oac_periodic_backup_cronjob.png>
- [38]
-Underfull \hbox (badness 10000) in paragraph at lines 173--173
-[]|\T1/lmr/m/n/12 Older than 60
- []
-
-File: Figures/oac_dr_event.png Graphic file (type bmp)
-<Figures/oac_dr_event.png>
-[39] [40]
-File: Figures/oac-dr-snapshot-restoration.png Graphic file (type bmp)
-<Figures/oac-dr-snapshot-restoration.png>
- [41] [42]
-File: Figures/dr_recovery_strategies.png Graphic file (type bmp)
-<Figures/dr_recovery_strategies.png>
- [43]
-File: Figures/oac_switchback.png Graphic file (type bmp)
-<Figures/oac_switchback.png>
- [44] [45] [46]
-Underfull \hbox (badness 2529) in paragraph at lines 387--387
-[]|\T1/lmr/m/n/12 The request is rejected without creating a
- []
-
-
-Underfull \hbox (badness 4366) in paragraph at lines 387--387
-[]|\T1/lmr/m/n/12 The request is rejected to protect tenant
- []
-
-[47] [48]) (Endmatter/Acronyms [49]
+[9]) (Endmatter/Acronyms [10]
 Appendix A.
-[50
+[11
 
-]) [51] [52
+]) [12] [13
 
 ] (main.aux (Frontmatter/Page_de_Garde_EN.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FFD8CA810D1F9179BEEA46053F873E2B;15788.
+(rerunfilecheck)             Checksum: 596DE0D951897FBE81792A54773B3C44;4686.
  )
-Output written on main.xdv (67 pages, 238396 bytes).
+Output written on main.xdv (25 pages, 66508 bytes).

@@ -1,11 +1,4 @@
 \babel@toc {nil}{}\relax 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Main phases of the internship\relax }}{9}{table.caption.32}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Functional requirements of the OAC DR solution\relax }}{35}{table.caption.154}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces OAC backup retention policy\relax }}{39}{table.caption.164}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Tenant-level cleanup operations in the standby region\relax }}{46}{table.caption.194}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Information provided by the cleanup status API\relax }}{47}{table.caption.196}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{48}{table.caption.198}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Main phases of the internship\relax }}{10}{table.caption.33}%
 \addvspace {10\p@ }

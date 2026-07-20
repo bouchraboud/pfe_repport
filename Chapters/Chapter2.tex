@@ -365,14 +365,21 @@ avoid repeating a separate logo after every description.
 \subsection{Code Editors and Integrated Development Environments}
 
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi} --}
-\item \textbf{PyCharm.} PyCharm is an integrated development environment used for
-Python development, code navigation, debugging, refactoring, and test
-execution.
+\renewcommand{\labelenumi}{\alph{enumi}}
+\item \textbf{PyCharm}\par
+PyCharm is an integrated development environment specialized in Python. It
+provides code completion, navigation, debugging, refactoring, dependency
+management, and direct test execution. These capabilities help developers
+understand an existing microservice and modify its Python modules while
+detecting syntax and type-related problems early.
 
-\item \textbf{Visual Studio Code.} Visual Studio Code is a cross-platform source-code
-editor used to inspect and modify Python, JSON, YAML, shell, and LaTeX files
-with the support of language-specific extensions.
+\item \textbf{Visual Studio Code}\par
+Visual Studio Code is a lightweight, cross-platform source-code editor that can
+be extended for different languages and file formats. It was useful for
+working with Python source code, JSON payloads, YAML deployment templates,
+shell scripts, and LaTeX report files from the same interface. Its integrated
+terminal and source-control view also simplify navigation between code changes
+and command-line verification.
 \end{enumerate}
 
 \toolfigure{tools_code_editors.png}{0.4}{Code editors used during development}{fig:tools-code-editors}
@@ -380,15 +387,27 @@ with the support of language-specific extensions.
 \subsection{Programming, Web Services, and Testing}
 
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi} --}
-\item \textbf{Python.} Python is the principal programming language of the OAC
-onboarding service and several related DIS microservices.
+\renewcommand{\labelenumi}{\alph{enumi}}
+\item \textbf{Python}\par
+Python is a high-level programming language valued for its readable syntax and
+large software ecosystem. It is the principal implementation language of the
+OAC onboarding service and several related DIS microservices. In this work, it
+supports REST request processing, workflow decisions, cloud-service
+integration, status management, and automated tests.
 
-\item \textbf{Flask.} Flask is the lightweight web framework used to initialize the
-service application and expose HTTP endpoints.
+\item \textbf{Flask}\par
+Flask is a lightweight Python web framework used to create HTTP services
+without imposing a large application structure. It initializes the service,
+maps REST endpoints to Python handlers, processes incoming requests, and
+returns structured responses. Its modular design is suitable for
+microservices, where each service exposes a focused set of responsibilities.
 
-\item \textbf{pytest.} pytest is the automated testing framework used for unit tests,
-fixtures, parameterized scenarios, mocking, and coverage measurement.
+\item \textbf{pytest}\par
+pytest is a Python testing framework used to verify individual functions and
+service behaviours automatically. It supports reusable fixtures,
+parameterized scenarios, exception assertions, and mocking of external
+dependencies. This makes it possible to test success, failure, retry, and
+rollback decisions without provisioning real cloud resources for every test.
 \end{enumerate}
 
 \toolfigure{tools_programming_testing.png}{0.5}{Programming and testing technologies}{fig:tools-programming-testing}
@@ -396,24 +415,48 @@ fixtures, parameterized scenarios, mocking, and coverage measurement.
 \subsection{Version Control, Continuous Integration, and Containers}
 
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi} --}
-\item \textbf{Git.} Git is the distributed version-control system used to track
-changes and manage feature branches.
+\renewcommand{\labelenumi}{\alph{enumi}}
+\item \textbf{Git}\par
+Git is a distributed version-control system that records the history of source
+files and allows changes to be developed independently. Feature branches were
+used to isolate each story, while commits documented incremental
+implementation steps. Git also enables comparison, review, and controlled
+integration of changes into a shared codebase.
 
-\item \textbf{GitLab.} GitLab hosts the repositories and supports merge requests,
-peer review, branch comparison, and implementation history.
+\item \textbf{GitLab}\par
+GitLab is the collaborative platform used to host Git repositories and manage
+the software review process. Merge requests present the differences between a
+feature branch and its target branch, allowing reviewers to add comments and
+request corrections. It also preserves links between source changes,
+pipelines, approvals, and implementation history.
 
-\item \textbf{Jenkins.} Jenkins installs dependencies, executes quality checks and
-tests, builds packages, and publishes deployable container images.
+\item \textbf{Jenkins}\par
+Jenkins is an automation server used to implement continuous-integration and
+delivery pipelines. A pipeline installs dependencies, performs syntax and
+quality checks, executes automated tests, builds the application package, and
+creates a deployable container image. Successful automation provides a
+repeatable path from reviewed source code to an image that can be validated in
+a Kubernetes environment.
 
-\item \textbf{Docker.} Docker defines the service container image and packages the
-application with its runtime files and dependencies.
+\item \textbf{Docker}\par
+Docker provides the image format and build instructions used to package an
+application with its runtime, dependencies, configuration paths, and required
+resources. The resulting image offers a consistent execution environment
+across developer, integration, and deployment systems. This reduces problems
+caused by differences between the machines on which the service runs.
 
-\item \textbf{Podman.} Podman provides daemonless container build and publication
-operations used by the project pipelines.
+\item \textbf{Podman}\par
+Podman is a daemonless container engine compatible with common container-image
+workflows. It can build images from a Dockerfile, run containers, assign tags,
+and publish images to a registry. The project pipelines use these operations
+to build service images in an automated and security-conscious environment.
 
-\item \textbf{Oracle Cloud Infrastructure Registry.} The private registry stores
-versioned service images before they are deployed to Kubernetes.
+\item \textbf{Oracle Cloud Infrastructure Registry}\par
+Oracle Cloud Infrastructure Registry is a managed private registry for storing
+and distributing container images. Each pipeline publication is identified by
+a repository path and version tag, allowing Kubernetes deployments to select
+a precise service build. Registry access controls also prevent unauthorized
+users or environments from pulling or publishing internal images.
 \end{enumerate}
 
 \toolfigure{tools_cicd_containers.png}{0.3}{Version control, continuous integration, and container tools}{fig:tools-cicd-containers}
@@ -421,17 +464,26 @@ versioned service images before they are deployed to Kubernetes.
 \subsection{API Development and Validation}
 
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi} --}
-\item \textbf{Bruno.} Bruno is the API client used to prepare authenticated requests,
-manage environment variables, submit onboarding payloads, and inspect API
-responses.
+\renewcommand{\labelenumi}{\alph{enumi}}
+\item \textbf{Bruno}\par
+Bruno is an API client used to organize and execute HTTP requests. Request
+collections can contain endpoint paths, headers, JSON payloads, authentication
+information, and environment variables. During validation, it was used to
+submit onboarding and operational requests and inspect their status codes and
+response bodies in a reproducible way.
 
-\item \textbf{cURL.} cURL is a command-line utility used to invoke REST endpoints
-from terminals and automation scripts.
+\item \textbf{cURL}\par
+cURL is a command-line data-transfer utility commonly used to call REST APIs.
+It can specify the HTTP method, URL, request headers, authentication token, and
+JSON body in a single command. It is useful for quick endpoint verification,
+debugging from a bastion host, and integration into shell-based automation.
 
-\item \textbf{Swagger/OpenAPI.} Swagger provides an interactive representation of the
-OpenAPI contract used to inspect endpoints, parameters, models, and status
-codes.
+\item \textbf{Swagger/OpenAPI}\par
+OpenAPI defines a machine-readable contract describing a REST service, while
+Swagger tools render that contract as interactive documentation. The interface
+shows available endpoints, parameters, request models, response models, and
+status codes. It helps developers confirm the expected API contract and test
+requests without reading the complete service implementation.
 \end{enumerate}
 
 
@@ -440,15 +492,29 @@ codes.
 \subsection{Deployment and Operational Validation}
 
 \begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi} --}
-\item \textbf{Kubernetes.} Kubernetes deploys and operates DIS microservices,
-Deployments, Pods, ConfigMaps, Secrets, persistent volumes, and CronJobs.
+\renewcommand{\labelenumi}{\alph{enumi}}
+\item \textbf{Kubernetes}\par
+Kubernetes is a container-orchestration platform that automates deployment,
+scheduling, health monitoring, and replacement of containerized services. DIS
+uses Kubernetes resources such as Deployments, Pods, Services, ConfigMaps,
+Secrets, persistent volumes, and CronJobs. It therefore provides the runtime
+environment in which a new service image is deployed and operationally
+validated.
 
-\item \textbf{Linux bastion host.} The bastion is the controlled administrative entry
-point used to access the development Kubernetes environment.
+\item \textbf{Linux bastion host}\par
+A Linux bastion host is a controlled administrative entry point placed between
+an engineer and private cloud resources. After authentication, it provides a
+terminal from which authorized Kubernetes commands and diagnostic operations
+can be executed. This approach limits direct exposure of the cluster and
+centralizes operational access through a protected environment.
 
-\item \textbf{OCI Object Storage.} Object Storage contains tenant artifacts, status
-information, configuration objects, and OAC snapshot or BAR backups.
+\item \textbf{OCI Object Storage}\par
+Oracle Cloud Infrastructure Object Storage is a durable service for storing
+files as objects inside logical buckets. Within DIS workflows, it stores
+tenant artifacts, configuration objects, execution-status information, and
+OAC snapshot or BAR backups. Its object-based model and cross-region
+capabilities make it important for both routine platform operations and
+Disaster Recovery preparation.
 \end{enumerate}
 
 \toolfigure{tools_deployment_operations.png}{0.3}{Deployment and operational tools}{fig:tools-deployment-operations}
