@@ -1,10 +1,163 @@
 % !TEX root = ../main.tex
-\chapter{Proposed Solutions and Development}
+\chapter{Development Environment and Proposed Solutions}
 \label{chap:chapter3}
 
 \section{Introduction}
 
-The previous chapter introduced the organizational and technical context of Data Intelligence Services (DIS), as well as the role of Oracle Analytics Cloud (OAC) in delivering analytics capabilities to Oracle's Global Business Units. This chapter presents the solutions studied and developed during the internship. For each feature, it describes the initial problem, the expected requirements, the proposed architecture, the development approach, and the validation strategy.
+The previous chapter introduced the purpose, operating model, and architecture
+of Data Intelligence Services (DIS). This chapter first presents the
+development technologies and engineering tools used during the internship. It
+then describes the solutions studied and developed, including their initial
+problems, requirements, architecture, implementation approach, and validation
+strategy.
+
+\section{Development Environment and Tools}
+
+The development workflow combines source-code editors, programming and testing
+technologies, version-control and delivery platforms, API clients, and
+operational tools. Together, they support the complete engineering cycle from
+code analysis and implementation to deployment verification in a
+non-production environment.
+
+\newcommand{\developmenttool}[3]{%
+    \par\medskip
+    \noindent\textbf{#1}\par\smallskip
+    \noindent
+    \begin{minipage}[c]{0.14\textwidth}
+        \centering
+        \includegraphics[width=0.70\linewidth]{Figures/#2}
+    \end{minipage}%
+    \hspace{0.02\textwidth}%
+    \begin{minipage}[c]{0.82\textwidth}
+        #3
+    \end{minipage}
+    \par\vspace{0.75cm}
+}
+
+\subsection{Code Editors and Integrated Development Environments}
+
+\developmenttool{PyCharm}{tool_pycharm.png}{%
+PyCharm is an integrated development environment specialized in Python. It
+provides code completion, navigation, debugging, refactoring, dependency
+management, and direct test execution. These capabilities help developers
+understand existing microservices and modify their Python modules while
+detecting syntax and type-related problems early.}
+
+\developmenttool{Visual Studio Code}{tool_vscode.png}{%
+Visual Studio Code is a lightweight, cross-platform source-code editor that can
+be extended for different languages and file formats. It was used to work with
+Python, JSON payloads, YAML deployment templates, shell scripts, and LaTeX
+files. Its integrated terminal and source-control view also simplify
+command-line verification and change review.}
+
+\subsection{Programming, Web Services, and Testing}
+
+\developmenttool{Python}{tool_python.png}{%
+Python is a high-level programming language valued for its readable syntax and
+large software ecosystem. It is the principal implementation language of the
+OAC onboarding service and several related DIS microservices. In this work, it
+supports REST request processing, workflow decisions, cloud-service
+integration, status management, and automated tests.}
+
+\developmenttool{Flask}{flask.png}{%
+Flask is a lightweight Python web framework used to create HTTP services
+without imposing a large application structure. It maps REST endpoints to
+Python handlers, processes incoming requests, and returns structured
+responses. Its modular design is suitable for microservices exposing focused
+platform responsibilities.}
+
+\developmenttool{pytest}{pytest.png}{%
+pytest is a Python testing framework used to verify individual functions and
+service behaviour automatically. It supports reusable fixtures, parameterized
+scenarios, exception assertions, and mocking of external dependencies. These
+features make it possible to test success, failure, retry, and rollback
+decisions without provisioning real cloud resources for every test.}
+
+\subsection{Version Control, Continuous Integration, and Containers}
+
+\developmenttool{Git}{tool_git.png}{%
+Git is a distributed version-control system that records source-file history
+and allows changes to be developed independently. Feature branches isolate
+work associated with each story, while commits document incremental
+implementation steps. Git also supports comparison, review, and controlled
+integration into the shared codebase.}
+
+\developmenttool{GitLab}{gitlab.png}{%
+GitLab hosts the Git repositories and supports collaborative source-code
+review. Merge requests present the differences between a feature branch and
+its target branch, allowing reviewers to comment and request corrections. The
+platform also preserves links between changes, pipelines, approvals, and
+implementation history.}
+
+\developmenttool{Jenkins}{jenkins.jpeg}{%
+Jenkins is an automation server used for continuous-integration and delivery
+pipelines. A pipeline installs dependencies, performs quality checks, executes
+tests, builds the application package, and creates a deployable container
+image. This automation provides a repeatable path from reviewed code to a build
+that can be validated in Kubernetes.}
+
+\developmenttool{Docker}{docker.jpg}{%
+Docker provides the image format and build instructions used to package an
+application with its runtime, dependencies, configuration paths, and required
+resources. The resulting image provides a consistent execution environment
+across development, integration, and deployment systems.}
+
+\developmenttool{Podman}{podman.png}{%
+Podman is a daemonless container engine compatible with common container-image
+workflows. It can build images from a Dockerfile, run containers, assign tags,
+and publish images to a registry. Project pipelines use these operations to
+produce service images in an automated environment.}
+
+\developmenttool{OCI Registry}{ocir.png}{%
+Oracle Cloud Infrastructure Registry is a managed private registry for storing
+and distributing container images. Pipeline publications are identified by a
+repository path and version tag, allowing Kubernetes deployments to select a
+precise service build. Access controls protect internal image publication and
+distribution.}
+
+\subsection{API Development and Validation}
+
+\developmenttool{Bruno}{bruno.png}{%
+Bruno is an API client used to organize and execute HTTP requests. Collections
+can contain endpoint paths, headers, JSON payloads, authentication settings,
+and environment variables. During validation, it was used to submit onboarding
+and operational requests and inspect their status codes and response bodies.}
+
+\developmenttool{cURL}{tool_curl.png}{%
+cURL is a command-line data-transfer utility commonly used to call REST APIs.
+It can specify the HTTP method, URL, headers, authentication token, and JSON
+body in a single command. It is useful for quick endpoint verification,
+diagnostics from a bastion host, and shell-based automation.}
+
+\developmenttool{Swagger and OpenAPI}{openapi.png}{%
+OpenAPI defines a machine-readable contract for a REST service, while Swagger
+tools render that contract as interactive documentation. The interface
+presents endpoints, parameters, request models, response models, and status
+codes. It helps developers confirm API behaviour and test requests without
+reading the complete implementation.}
+
+\subsection{Deployment and Operational Validation}
+
+\developmenttool{Kubernetes}{tool_kubernetes.png}{%
+Kubernetes is a container-orchestration platform that automates deployment,
+scheduling, health monitoring, and replacement of containerized services. DIS
+uses resources such as Deployments, Pods, Services, ConfigMaps, Secrets,
+persistent volumes, and CronJobs. It provides the runtime environment in which
+new service images are deployed and operationally validated.}
+
+\developmenttool{Linux Bastion Host}{bastion.png}{%
+A Linux bastion host is a controlled administrative entry point between an
+engineer and private cloud resources. After authentication, it provides a
+terminal from which authorized Kubernetes commands and diagnostic operations
+can be executed. This approach limits direct cluster exposure and centralizes
+operational access through a protected environment.}
+
+\developmenttool{OCI OS}{tool_oci_object_storage.png}{%
+Oracle Cloud Infrastructure Object Storage is a durable service for storing
+files as objects inside logical buckets. Within DIS workflows, it stores tenant
+artifacts, configuration objects, execution-status information, and OAC
+snapshot or BAR backups. Its object-based model and cross-region capabilities
+support both routine operations and Disaster Recovery preparation.}
 
 \section{OAC Cross-Region Disaster Recovery Automation}
 

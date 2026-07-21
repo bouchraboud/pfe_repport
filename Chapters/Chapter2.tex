@@ -1,13 +1,22 @@
 % !TEX root = ../main.tex
-\chapter{Technical and Organizational Context}
+\chapter{DIS Platform Context and Architecture}
 \label{chap:chapter2}
 \section*{Introduction}
-As Oracle continues to expand the adoption of the Data Intelligence Services (DIS) platform across its Global Business Units (GBUs), the choice of tools, technologies, and infrastructure becomes increasingly important. This chapter provides the technical foundation necessary to understand the rationale behind the design and implementation of the DIS platform. It introduces the problem domain, presents a high-level overview of the system, discusses key architectural considerations, and highlights the core technologies that underpin DIS.
+This chapter presents the background required to understand the solutions
+developed during the internship. It first positions Data Intelligence Services
+(DIS) within Oracle and explains the platform's purpose. It then introduces the
+partner and tenant operating model, the principal functional layers, and the
+cloud-native software architecture. Development technologies and engineering
+tools are presented separately in Chapter~\ref{chap:chapter3}, where they are
+directly related to the implemented solution.
 
-Because this internship focused on identifying and addressing integration challenges encountered by GBUs, the chapter first explains their role within Oracle. It then presents the position of DIS within the organization, its regional availability, and its purpose as a shared analytics platform. This background establishes the context required to understand the work carried out during the internship.
+\section{Data Intelligence Services Foundations}
 
-\section{Organizational Context within Oracle}
-Oracle Corporation is structured around two major pillars:
+\subsection{Position within Oracle}
+Chapter~\ref{chap:general-project-context} introduced Oracle and the DIS team
+from an organizational perspective. At platform level, the relevant
+relationship is between Oracle's infrastructure organization and its Global
+Business Units:
 \begin{itemize}
     \item the greater Oracle organization, which focuses primarily on infrastructure and platform services such as OCI.
     \item Global Business Units (GBUs), which deliver SaaS solutions tailored to specific industry domains such as healthcare, finance, hospitality, and retail.
@@ -19,11 +28,13 @@ Oracle Corporation is structured around two major pillars:
     \label{fig:oracle-entities}
 \end{figure}
 
-To support these GBUs with shared tools and infrastructure, Oracle established Shared Services. This organization includes Cloud Development Services (CDS), which develops common platforms and capabilities used across GBUs. The Data Intelligence Services team is part of CDS and helps bridge the infrastructure and application domains.
+Shared Services connects these two domains by providing common capabilities to
+GBU product teams. Within this structure, DIS acts as the managed analytics
+platform between industry-specific SaaS applications and the OCI services on
+which their data workloads depend. Figure~\ref{fig:oracle-entities} summarizes
+this positioning.
 
-DIS provides a managed machine-learning and analytics platform for use across Oracle's GBUs. Instead of requiring each GBU to build and operate a separate data and AI platform, DIS offers centralized, reusable services. SaaS products can therefore integrate machine-learning and analytics capabilities without having to manage the underlying infrastructure independently. This shared approach improves consistency, reduces duplicated effort, and accelerates innovation across Oracle's industry-specific SaaS offerings.
-
-\section{DIS Region Availability and Status}
+\subsection{Regional Availability}
 DIS is intended to be deployed in the OCI regions where the required supporting services are available. Deployment priorities are determined according to forecast demand from GBU partners and their regional requirements. Figure~\ref{fig:dis-region-availability} presents the planned availability of DIS across the relevant regions.
 \begin{figure}[H]
     \centering
@@ -32,16 +43,10 @@ DIS is intended to be deployed in the OCI regions where the required supporting 
     \label{fig:dis-region-availability}
 \end{figure}
 
-\section{What Is Data Intelligence?}
+\subsection{Data Intelligence Concepts}
 Data intelligence refers to an organization's ability to collect, process, analyze, and interpret data in order to generate actionable insights. It combines tools, technologies, governance practices, and analytical methods that transform raw data into information that supports decision-making. By using their data assets effectively, organizations can improve operational efficiency, identify opportunities, and support strategic initiatives. In a data-driven environment, these capabilities are important for sustaining innovation and delivering value across business units.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{Logos/data intelegence logo.png}
-    \caption{Data intelligence logo}
-    \label{fig:data-intelligence-logo}
-\end{figure}
 
-\section{DIS Purpose and Role}
+\subsection{Purpose and Role}
 DIS is an internal Oracle platform that provides product teams with a reusable analytics stack. Instead of requiring each GBU to build its analytics infrastructure from the ground up, DIS provides shared capabilities for data ingestion, storage, processing, machine learning, and visualization. A partner SaaS application can therefore integrate dashboards, reports, predictive models, and analytics pages through DIS rather than developing and operating each capability independently.
 
 From a business perspective, Oracle's GBUs deliver SaaS solutions to their customers, while DIS provides the analytics layer embedded within those offerings. The platform provisions and manages services such as Oracle Analytics Server (OAS), Autonomous Data Warehouse (ADW), and Apache Spark, together with other analytics and data-processing components. End users access these capabilities through the corresponding SaaS applications.
@@ -55,6 +60,8 @@ By leveraging DIS for analytics-intensive workloads, partners benefit from the f
     \item Maintain full control and flexibility over data ingestion, storage, processing, and visualization.
     \item Reduce Cloud Service Security Approval Process (CSSAP) overhead by adopting DIS's pre-approved architectural patterns.
 \end{itemize}
+
+\section{Platform Operating Model}
 
 \subsection{Multi-Tenancy and Resource Isolation}
 
@@ -146,90 +153,12 @@ of the tenant environment.
     \label{fig:tenant-onboarding-workflow}
 \end{figure}
 
-Listing~\ref{lst:tenant-onboarding-request} presents a simplified tenant
-onboarding request. Sensitive values are replaced with generic placeholders,
-while the main structure is preserved. The deployment template determines
-which platform components must be provisioned for the tenant.
+\section{Functional Architecture}
 
-\begin{lstlisting}[style=mystyle,
-caption={Simplified tenant onboarding request},
-label={lst:tenant-onboarding-request}]
-{
-  "identityProviderUrl": "https://identity.example.com",
-  "applicationClientId": "CLIENT_ID_PLACEHOLDER",
-  "applicationSecret": "SECRET_PLACEHOLDER",
-  "products": [
-    {
-      "name": "analytics-product",
-      "version": "1.0.0"
-    }
-  ],
-  "deploymentTemplate": [
-    "dataLake",
-    "oac"
-  ],
-  "dataLake": [
-    "managedDatabase",
-    "objectStorage"
-  ],
-  "oac": [
-    {
-      "instanceId": "analytics-instance",
-      "capacity": {
-        "ocpus": 2
-      }
-    }
-  ]
-}
-\end{lstlisting}
-
-After the workflow completes, DIS returns the provisioning status and the
-non-sensitive information needed to access the enabled services. A simplified
-response is shown in Listing~\ref{lst:tenant-onboarding-response}.
-
-\begin{lstlisting}[style=mystyle,
-caption={Simplified successful onboarding response},
-label={lst:tenant-onboarding-response}]
-{
-  "status": "SUCCESS",
-  "message": "Tenant onboarding completed",
-  "lastUpdatedTimestamp": "YYYY-MM-DD HH:MM:SS",
-  "platformVersion": "PLATFORM_VERSION",
-  "products": [
-    {
-      "name": "analytics-product",
-      "version": "1.0.0"
-    }
-  ],
-  "oac": [
-    {
-      "instanceId": "analytics-instance",
-      "analyticsUrl": "https://analytics.example.com",
-      "status": "ACTIVE"
-    }
-  ],
-  "dataLake": {
-    "database": {
-      "status": "AVAILABLE"
-    },
-    "objectStorage": {
-      "status": "AVAILABLE"
-    }
-  }
-}
-\end{lstlisting}
-
-If a provisioning step fails, the platform records the failed step and the
-resulting resource state. According to that state, the workflow can resume
-from a safe step, roll back partially created resources before resuming, or
-require manual review. This recovery behavior is examined in
-Chapter~\ref{chap:chapter3} in the context of cross-region disaster recovery.
-
-\section{DIS Architecture Overview}
-
-Oracle Global Business Unit Analytics (GBUA), also known as the Data Intelligence Service (DIS), is a managed service platform focused on delivering scalable, cloud-native data analytics and machine learning capabilities for Oracle SaaS applications. It enables business units to integrate and leverage machine learning (ML)-based insights without managing the underlying infrastructure or analytics tooling.
-
-The DIS platform architecture can be logically divided into three core layers, as shown in Figure~\ref{fig:gbu_architecture}.
+From a functional perspective, DIS organizes the analytics lifecycle into
+three complementary layers: data ingestion, data storage and processing, and
+visualization. Their relationship is shown in
+Figure~\ref{fig:gbu_architecture}.
 
 \begin{figure}[H]
     \centering
@@ -250,7 +179,7 @@ The data ingestion layer supports multiple methods for collecting data from Orac
     \item \textbf{Direct Upload to Object Storage:} Large datasets, such as log files and historical data, can be uploaded directly to Oracle Object Storage for later processing.
 \end{itemize}
 
-\subsection{Data Processing}
+\subsection{Data Storage and Processing}
 
 The data processing layer provides distributed data processing using Apache Spark. It executes machine learning pipelines and data transformation jobs, storing the processed results in Oracle DBaaS. Spark jobs are tenant-isolated and are designed to periodically retrain machine learning models using historical data stored in Object Storage.
 
@@ -258,7 +187,9 @@ The data processing layer provides distributed data processing using Apache Spar
 
 After data has been processed and stored, Oracle Business Intelligence Enterprise Edition (OBIEE) or Oracle Analytics Cloud (OAC) is used for report generation and dashboard visualization. Access is managed through tenant Identity Cloud Service (IDCS), and reports are customized according to user roles. OBIEE also provides self-service analytics capabilities, enabling administrative users with limited SQL or data modeling expertise to create reports and perform data analysis.
 
-\section{Cloud-Native Architecture of DIS}
+\section{Software Architecture}
+
+\subsection{Cloud-Native Principles}
 
 Cloud-native architecture refers to designing applications specifically
 for cloud environments using independently deployable services,
@@ -304,7 +235,7 @@ microservices deployed on Kubernetes. This architecture allows the
 platform to support different analytics workloads while maintaining
 scalability, tenant isolation, and operational reliability.
 
-\section{DIS Microservices Overview}
+\subsection{Microservices Overview}
 The DIS platform implements a comprehensive microservices-based architecture in which loosely coupled services communicate through RESTful APIs. All services are containerized and deployed on the Oracle Kubernetes Engine (OKE) platform, enabling scalability, fault tolerance, and independent service deployment.
 
 Figure~\ref{fig:dis_microservices} illustrates the high-level microservices architecture of the DIS platform.
@@ -316,7 +247,7 @@ Figure~\ref{fig:dis_microservices} illustrates the high-level microservices arch
     \label{fig:dis_microservices}
 \end{figure}
 
-\subsection{Orchestration Service}
+\subsubsection{Orchestration Service}
 
 The \textbf{Orchestration Service} is responsible for automating the entire lifecycle of platform components and tenant environments, including initial deployment, configuration, ongoing management, updates, and rollback operations. It coordinates these tasks using template-driven workflows and internal REST APIs, ensuring that all provisioning activities are executed consistently and reliably.
 
@@ -327,7 +258,7 @@ with the configuration and OAC execution services. Their interaction is
 examined in Chapter~\ref{chap:chapter3} through the cross-region disaster
 recovery workflow.
 
-\subsection{Authentication Service}
+\subsubsection{Authentication Service}
 
 The \textbf{Authentication Service} is responsible for managing the secure onboarding and provisioning of tenant identities within the DIS platform. It enforces authentication, authorization, and compliance policies by integrating with Oracle Identity Cloud Service (IDCS) and partner platforms through standardized REST APIs.
 
@@ -339,186 +270,11 @@ This service plays a critical role in ensuring that only authenticated and autho
     \label{fig:Auth Service Sequence Diagram}
 \end{figure}
 
-\section{Development Environment and Tools}
-
-The development workflow combines local source-code tools, API validation
-utilities, continuous-integration services, container technologies, and
-Kubernetes operational tools. Together, they support the complete engineering
-cycle from source-code analysis to deployment verification in a non-production
-environment. Each tool category is summarized by a compact illustration to
-avoid repeating a separate logo after every description.
-
-\newcommand{\toolfigure}[4]{%
-\begin{figure}[H]
-    \centering
-    \IfFileExists{Figures/#1}{%
-        \includegraphics[width=#2\textwidth]{Figures/#1}%
-    }{%
-        \fbox{\parbox[c][2.8cm][c]{0.55\textwidth}{\centering
-        Reserved space for the #3 illustration.}}%
-    }
-    \caption{#3}
-    \label{#4}
-\end{figure}%
-}
-
-\subsection{Code Editors and Integrated Development Environments}
-
-\begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\item \textbf{PyCharm}\par
-PyCharm is an integrated development environment specialized in Python. It
-provides code completion, navigation, debugging, refactoring, dependency
-management, and direct test execution. These capabilities help developers
-understand an existing microservice and modify its Python modules while
-detecting syntax and type-related problems early.
-
-\item \textbf{Visual Studio Code}\par
-Visual Studio Code is a lightweight, cross-platform source-code editor that can
-be extended for different languages and file formats. It was useful for
-working with Python source code, JSON payloads, YAML deployment templates,
-shell scripts, and LaTeX report files from the same interface. Its integrated
-terminal and source-control view also simplify navigation between code changes
-and command-line verification.
-\end{enumerate}
-
-\toolfigure{tools_code_editors.png}{0.4}{Code editors used during development}{fig:tools-code-editors}
-
-\subsection{Programming, Web Services, and Testing}
-
-\begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\item \textbf{Python}\par
-Python is a high-level programming language valued for its readable syntax and
-large software ecosystem. It is the principal implementation language of the
-OAC onboarding service and several related DIS microservices. In this work, it
-supports REST request processing, workflow decisions, cloud-service
-integration, status management, and automated tests.
-
-\item \textbf{Flask}\par
-Flask is a lightweight Python web framework used to create HTTP services
-without imposing a large application structure. It initializes the service,
-maps REST endpoints to Python handlers, processes incoming requests, and
-returns structured responses. Its modular design is suitable for
-microservices, where each service exposes a focused set of responsibilities.
-
-\item \textbf{pytest}\par
-pytest is a Python testing framework used to verify individual functions and
-service behaviours automatically. It supports reusable fixtures,
-parameterized scenarios, exception assertions, and mocking of external
-dependencies. This makes it possible to test success, failure, retry, and
-rollback decisions without provisioning real cloud resources for every test.
-\end{enumerate}
-
-\toolfigure{tools_programming_testing.png}{0.5}{Programming and testing technologies}{fig:tools-programming-testing}
-
-\subsection{Version Control, Continuous Integration, and Containers}
-
-\begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\item \textbf{Git}\par
-Git is a distributed version-control system that records the history of source
-files and allows changes to be developed independently. Feature branches were
-used to isolate each story, while commits documented incremental
-implementation steps. Git also enables comparison, review, and controlled
-integration of changes into a shared codebase.
-
-\item \textbf{GitLab}\par
-GitLab is the collaborative platform used to host Git repositories and manage
-the software review process. Merge requests present the differences between a
-feature branch and its target branch, allowing reviewers to add comments and
-request corrections. It also preserves links between source changes,
-pipelines, approvals, and implementation history.
-
-\item \textbf{Jenkins}\par
-Jenkins is an automation server used to implement continuous-integration and
-delivery pipelines. A pipeline installs dependencies, performs syntax and
-quality checks, executes automated tests, builds the application package, and
-creates a deployable container image. Successful automation provides a
-repeatable path from reviewed source code to an image that can be validated in
-a Kubernetes environment.
-
-\item \textbf{Docker}\par
-Docker provides the image format and build instructions used to package an
-application with its runtime, dependencies, configuration paths, and required
-resources. The resulting image offers a consistent execution environment
-across developer, integration, and deployment systems. This reduces problems
-caused by differences between the machines on which the service runs.
-
-\item \textbf{Podman}\par
-Podman is a daemonless container engine compatible with common container-image
-workflows. It can build images from a Dockerfile, run containers, assign tags,
-and publish images to a registry. The project pipelines use these operations
-to build service images in an automated and security-conscious environment.
-
-\item \textbf{Oracle Cloud Infrastructure Registry}\par
-Oracle Cloud Infrastructure Registry is a managed private registry for storing
-and distributing container images. Each pipeline publication is identified by
-a repository path and version tag, allowing Kubernetes deployments to select
-a precise service build. Registry access controls also prevent unauthorized
-users or environments from pulling or publishing internal images.
-\end{enumerate}
-
-\toolfigure{tools_cicd_containers.png}{0.3}{Version control, continuous integration, and container tools}{fig:tools-cicd-containers}
-
-\subsection{API Development and Validation}
-
-\begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\item \textbf{Bruno}\par
-Bruno is an API client used to organize and execute HTTP requests. Request
-collections can contain endpoint paths, headers, JSON payloads, authentication
-information, and environment variables. During validation, it was used to
-submit onboarding and operational requests and inspect their status codes and
-response bodies in a reproducible way.
-
-\item \textbf{cURL}\par
-cURL is a command-line data-transfer utility commonly used to call REST APIs.
-It can specify the HTTP method, URL, request headers, authentication token, and
-JSON body in a single command. It is useful for quick endpoint verification,
-debugging from a bastion host, and integration into shell-based automation.
-
-\item \textbf{Swagger/OpenAPI}\par
-OpenAPI defines a machine-readable contract describing a REST service, while
-Swagger tools render that contract as interactive documentation. The interface
-shows available endpoints, parameters, request models, response models, and
-status codes. It helps developers confirm the expected API contract and test
-requests without reading the complete service implementation.
-\end{enumerate}
-
-
-\toolfigure{tools_api_development.png}{0.4}{API development, documentation, and validation tools}{fig:tools_api_development}
-
-\subsection{Deployment and Operational Validation}
-
-\begin{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-\item \textbf{Kubernetes}\par
-Kubernetes is a container-orchestration platform that automates deployment,
-scheduling, health monitoring, and replacement of containerized services. DIS
-uses Kubernetes resources such as Deployments, Pods, Services, ConfigMaps,
-Secrets, persistent volumes, and CronJobs. It therefore provides the runtime
-environment in which a new service image is deployed and operationally
-validated.
-
-\item \textbf{Linux bastion host}\par
-A Linux bastion host is a controlled administrative entry point placed between
-an engineer and private cloud resources. After authentication, it provides a
-terminal from which authorized Kubernetes commands and diagnostic operations
-can be executed. This approach limits direct exposure of the cluster and
-centralizes operational access through a protected environment.
-
-\item \textbf{OCI Object Storage}\par
-Oracle Cloud Infrastructure Object Storage is a durable service for storing
-files as objects inside logical buckets. Within DIS workflows, it stores
-tenant artifacts, configuration objects, execution-status information, and
-OAC snapshot or BAR backups. Its object-based model and cross-region
-capabilities make it important for both routine platform operations and
-Disaster Recovery preparation.
-\end{enumerate}
-
-\toolfigure{tools_deployment_operations.png}{0.3}{Deployment and operational tools}{fig:tools-deployment-operations}
-
 \section*{Conclusion}
 
-This chapter positioned DIS within Oracle's organizational and technical ecosystem. It explained how the platform supports GBUs by providing shared, scalable analytics and machine-learning services across OCI regions. By centralizing these capabilities, DIS reduces duplicated infrastructure, promotes consistent architectural practices, and enables product teams to focus on customer-facing functionality.
+This chapter positioned DIS within Oracle and explained its role as a shared
+analytics platform. It presented the partner and tenant operating model, the
+provisioning lifecycle, the functional data flow, and the cloud-native
+microservices architecture. These concepts establish the system context needed
+to understand the technologies and OAC recovery solution presented in the next
+chapter.

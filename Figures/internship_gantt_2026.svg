@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="940" viewBox="0 0 1800 940">
+  <rect width="1800" height="940" fill="#ffffff"/>
+
+  <text x="70" y="70" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#172033">Internship Project Planning</text>
+  <text x="70" y="108" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#596579">Data Intelligence Services - 2 April to October 2026</text>
+
+  <rect x="55" y="145" width="1690" height="690" rx="6" fill="#ffffff" stroke="#cbd2dc" stroke-width="2"/>
+  <rect x="55" y="145" width="1690" height="70" rx="6" fill="#eef1f5"/>
+  <rect x="55" y="205" width="1690" height="10" fill="#eef1f5"/>
+
+  <text x="80" y="190" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#273248">Activity</text>
+
+  <!-- Month headers -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#273248" text-anchor="middle">
+    <text x="695" y="190">Apr</text>
+    <text x="855" y="190">May</text>
+    <text x="1015" y="190">Jun</text>
+    <text x="1175" y="190">Jul</text>
+    <text x="1335" y="190">Aug</text>
+    <text x="1495" y="190">Sep</text>
+    <text x="1655" y="190">Oct</text>
+  </g>
+
+  <!-- Alternating rows -->
+  <g fill="#f8f9fb">
+    <rect x="56" y="215" width="1688" height="75"/>
+    <rect x="56" y="365" width="1688" height="75"/>
+    <rect x="56" y="515" width="1688" height="75"/>
+    <rect x="56" y="665" width="1688" height="75"/>
+  </g>
+
+  <!-- Grid -->
+  <g stroke="#d8dde5" stroke-width="1">
+    <line x1="615" y1="145" x2="615" y2="835"/>
+    <line x1="775" y1="145" x2="775" y2="835"/>
+    <line x1="935" y1="145" x2="935" y2="835"/>
+    <line x1="1095" y1="145" x2="1095" y2="835"/>
+    <line x1="1255" y1="145" x2="1255" y2="835"/>
+    <line x1="1415" y1="145" x2="1415" y2="835"/>
+    <line x1="1575" y1="145" x2="1575" y2="835"/>
+    <line x1="1745" y1="145" x2="1745" y2="835"/>
+    <line x1="55" y1="215" x2="1745" y2="215"/>
+    <line x1="55" y1="290" x2="1745" y2="290"/>
+    <line x1="55" y1="365" x2="1745" y2="365"/>
+    <line x1="55" y1="440" x2="1745" y2="440"/>
+    <line x1="55" y1="515" x2="1745" y2="515"/>
+    <line x1="55" y1="590" x2="1745" y2="590"/>
+    <line x1="55" y1="665" x2="1745" y2="665"/>
+    <line x1="55" y1="740" x2="1745" y2="740"/>
+    <line x1="55" y1="835" x2="1745" y2="835"/>
+  </g>
+
+  <!-- Activity labels -->
+  <g font-family="Arial, Helvetica, sans-serif" fill="#202a3b">
+    <text x="80" y="252" font-size="20" font-weight="700">Organizational onboarding and access</text>
+    <text x="80" y="278" font-size="16" fill="#667085">Training, compliance, accounts and environment permissions</text>
+
+    <text x="80" y="327" font-size="20" font-weight="700">DIS and visualization knowledge acquisition</text>
+    <text x="80" y="353" font-size="16" fill="#667085">Platform architecture, OAS, OAC and tenant workflows</text>
+
+    <text x="80" y="402" font-size="20" font-weight="700">OAS-to-OAC migration analysis and validation</text>
+    <text x="80" y="428" font-size="16" fill="#667085">Onboarding, artifact upgrade, datasets and workbooks</text>
+
+    <text x="80" y="477" font-size="20" font-weight="700">Migration continuity and backup investigations</text>
+    <text x="80" y="503" font-size="16" fill="#667085">BAR content, map layers and BI Publisher job continuity</text>
+
+    <text x="80" y="552" font-size="20" font-weight="700">OAC cross-region disaster recovery</text>
+    <text x="80" y="578" font-size="16" fill="#667085">Design, implementation, retry, rollback and restoration</text>
+
+    <text x="80" y="627" font-size="20" font-weight="700">Additional OAC platform enhancements</text>
+    <text x="80" y="653" font-size="16" fill="#667085">Operational diagnostics and configuration improvements</text>
+
+    <text x="80" y="702" font-size="20" font-weight="700">Integration testing and quality assurance</text>
+    <text x="80" y="728" font-size="16" fill="#667085">Unit tests, pipelines, deployments and end-to-end validation</text>
+
+    <text x="80" y="777" font-size="20" font-weight="700">Documentation and academic report</text>
+    <text x="80" y="803" font-size="16" fill="#667085">Technical synthesis, results and final presentation</text>
+  </g>
+
+  <!-- Completed work -->
+  <g fill="#287a5b">
+    <rect x="628" y="237" width="294" height="30" rx="5"/>
+    <rect x="628" y="312" width="294" height="30" rx="5"/>
+    <rect x="788" y="387" width="294" height="30" rx="5"/>
+    <rect x="948" y="462" width="294" height="30" rx="5"/>
+  </g>
+
+  <!-- Ongoing work -->
+  <g fill="#2764a5">
+    <rect x="948" y="537" width="454" height="30" rx="5"/>
+    <rect x="1108" y="612" width="294" height="30" rx="5"/>
+    <rect x="1268" y="687" width="134" height="30" rx="5"/>
+    <rect x="948" y="762" width="454" height="30" rx="5"/>
+  </g>
+
+  <!-- Planned work -->
+  <g fill="#8a95a5">
+    <rect x="1402" y="537" width="160" height="30" rx="5"/>
+    <rect x="1402" y="612" width="160" height="30" rx="5"/>
+    <rect x="1402" y="687" width="160" height="30" rx="5"/>
+    <rect x="1402" y="762" width="326" height="30" rx="5"/>
+  </g>
+
+  <!-- Current date marker -->
+  <line x1="1202" y1="145" x2="1202" y2="835" stroke="#c43d3d" stroke-width="3" stroke-dasharray="8 7"/>
+  <rect x="1147" y="125" width="110" height="27" rx="4" fill="#c43d3d"/>
+  <text x="1202" y="145" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">20 Jul 2026</text>
+
+  <!-- Legend -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#344054">
+    <rect x="70" y="875" width="25" height="18" rx="3" fill="#287a5b"/>
+    <text x="105" y="890">Completed</text>
+    <rect x="245" y="875" width="25" height="18" rx="3" fill="#2764a5"/>
+    <text x="280" y="890">In progress</text>
+    <rect x="435" y="875" width="25" height="18" rx="3" fill="#8a95a5"/>
+    <text x="470" y="890">Planned</text>
+  </g>
+</svg>

@@ -66,37 +66,37 @@ section.
 
 \subsection{The Data Intelligence Services Team}
 
-The Data Intelligence Services (DIS) team is an engineering group within
-Oracle that delivers reusable data analytics and machine-learning capabilities
-for SaaS applications running on Oracle Cloud Infrastructure. By providing a
-standardized platform, DIS allows product teams to focus on industry-specific
-business use cases without independently building and operating the underlying
-analytics infrastructure. This approach encourages consistency, efficiency,
-and reuse across Oracle's Global Business Units.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\textwidth]
+    {Logos/data intelegence logo.png}
+    \caption{Data Intelligence Services}
+    \label{fig:data-intelligence-logo}
+\end{figure}
 
-The team designs, develops, and maintains the platform components that support
-data ingestion, storage, processing, visualization, and machine-learning
-workloads. These components integrate with cloud services such as Autonomous
-Database, Oracle Analytics Cloud, Object Storage, and other OCI data and AI
-services. The team also applies Oracle's security, architectural, and
-cloud-native engineering practices and collaborates with service owners and GBU
-partners to analyze requirements, deliver platform capabilities, and resolve
-integration issues.
+The Data Intelligence Services (DIS) team is the engineering group in which
+the internship was conducted. It brings together architects, software
+engineers, quality specialists, and operational contributors responsible for
+developing and maintaining a shared Oracle platform used by several Global
+Business Units. Its activities include requirements analysis, microservice
+development, release coordination, platform support, and the investigation of
+integration issues reported by partner teams.
+
+Work is distributed among specialized service owners while remaining
+coordinated through common design reviews, delivery processes, and operational
+standards. Chapter~\ref{chap:chapter2} presents the purpose and technical
+architecture of the platform itself; this section focuses only on the team and
+the internship's organizational setting.
 
 \subsection{Visualization Domain}
 
-The visualization domain provides analytics and reporting capabilities through
-Oracle Analytics Server and Oracle Analytics Cloud. These platforms allow
-tenant users to create dashboards, workbooks, datasets, semantic models, and
-operational reports. DIS integrates them into a managed lifecycle that covers
-tenant onboarding, configuration, artifact deployment, backup, migration,
-recovery, upgrade, and deletion.
-
-The internship focuses principally on this domain. The activities include
-analyzing OAS and OAC onboarding and migration workflows, validating analytics
-artifacts, investigating integration issues, and contributing to OAC
-cross-region Disaster Recovery automation. This scope requires collaboration
-with the owners of configuration, orchestration, execution, and cloud-platform
+Within the team, the internship was assigned to the visualization domain,
+which owns the integration and lifecycle management of Oracle Analytics Server
+and Oracle Analytics Cloud within DIS. The internship activities included
+analyzing onboarding and migration workflows, validating analytics artifacts,
+investigating integration issues, and contributing to OAC cross-region
+Disaster Recovery automation. This scope required collaboration with the
+owners of configuration, orchestration, execution, and cloud-platform
 services.
 
 \subsection{Team Organization and Internship Integration}
@@ -131,12 +131,10 @@ reconstructed in a standby cloud region when the primary region becomes
 unavailable. The project also remains open to related OAC lifecycle and
 configuration enhancements addressed during the internship.
 
-The work is performed in an existing cloud-native platform composed of several
-microservices. Consequently, each feature requires understanding service
-responsibilities, API contracts, workflow state, cloud resources, deployment
-configuration, and operational constraints. The expected result is not an
-isolated prototype, but a capability that integrates with the platform's
-established engineering and delivery processes.
+The expected result is not an isolated prototype, but a capability integrated
+into the platform's established services, workflows, and delivery process. The
+technical structure of this environment is introduced in
+Chapter~\ref{chap:chapter2}.
 
 \subsection{Existing Context and Limitations}
 
@@ -351,28 +349,6 @@ reference during implementation and review.}
 
 \subsection{Project Planning}
 
-The internship was organized into progressive and partially overlapping
-phases. Since the work is integrated into the team's evolving backlog, the
-planning remains adaptable to new OAC features and external dependencies.
-Table~\ref{tab:internship-planning} presents the principal phases and their
-expected outputs.
-
-\begin{table}[H]
-\centering
-\caption{Main phases of the internship}
-\label{tab:internship-planning}
-\begin{tabularx}{\textwidth}{@{}p{1.5cm}p{3.8cm}X@{}}
-\toprule
-\textbf{Phase} & \textbf{Focus} & \textbf{Principal outputs} \\
-\midrule
-1 & Integration and knowledge acquisition & Understanding of DIS, OAS, OAC, tenant onboarding, development practices, and operational tools. \\
-2 & Functional analysis and validation & Analysis of migration and visualization workflows, execution of proofs of concept, and identification of integration issues. \\
-3 & OAC feature development & Design and implementation of cross-region Disaster Recovery capabilities, including recovery status, retry, rollback, restoration, and cleanup behaviour. \\
-4 & Integration and quality assurance & Unit tests, code review, continuous-integration builds, deployment verification, and end-to-end validation in non-production environments. \\
-5 & Documentation and consolidation & Academic report preparation, synthesis of results, documentation of limitations, and integration of additional OAC features addressed later in the internship. \\
-\bottomrule
-\end{tabularx}
-\end{table}
 
 \section*{Conclusion}
 
