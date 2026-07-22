@@ -10,16 +10,21 @@ cloud-native software architecture. Development technologies and engineering
 tools are presented separately in Chapter~\ref{chap:chapter3}, where they are
 directly related to the implemented solution.
 
-\section{Data Intelligence Services Foundations}
+\section{DIS Platform Overview}
 
-\subsection{Position within Oracle}
+\subsection{Purpose and Scope}
 Chapter~\ref{chap:general-project-context} introduced Oracle and the DIS team
-from an organizational perspective. At platform level, the relevant
-relationship is between Oracle's infrastructure organization and its Global
-Business Units:
+from an organizational perspective. From a technical perspective, DIS is a
+managed platform that provides reusable data, analytics, machine-learning, and
+visualization capabilities to Oracle's Global Business Units (GBUs). The
+relationship between the principal entities can be summarized as follows:
 \begin{itemize}
-    \item the greater Oracle organization, which focuses primarily on infrastructure and platform services such as OCI.
-    \item Global Business Units (GBUs), which deliver SaaS solutions tailored to specific industry domains such as healthcare, finance, hospitality, and retail.
+    \item the greater Oracle organization, which provides infrastructure and
+    platform services such as Oracle Cloud Infrastructure (OCI);
+    \item GBUs, which deliver Software as a Service (SaaS) solutions tailored
+    to domains such as healthcare, finance, hospitality, and retail;
+    \item DIS, which supplies common data and analytics capabilities that can
+    be integrated into these industry-specific applications.
 \end{itemize}
 \begin{figure}[H]
     \centering
@@ -34,6 +39,19 @@ platform between industry-specific SaaS applications and the OCI services on
 which their data workloads depend. Figure~\ref{fig:oracle-entities} summarizes
 this positioning.
 
+Instead of requiring each GBU to build its analytics infrastructure from the
+ground up, DIS provides shared capabilities for data ingestion, storage,
+processing, machine learning, and visualization. Partner applications can
+therefore integrate dashboards, reports, predictive models, and analytics
+pages without independently developing and operating every supporting service.
+
+The platform provisions and manages components such as Oracle Analytics Server
+(OAS), Oracle Analytics Cloud (OAC), Autonomous Data Warehouse (ADW), and
+Apache Spark. It also standardizes deployment, security, monitoring, and
+integration practices. This reduces operational complexity and allows partner
+teams to concentrate on business-oriented analytics and machine-learning use
+cases.
+
 \subsection{Regional Availability}
 DIS is intended to be deployed in the OCI regions where the required supporting services are available. Deployment priorities are determined according to forecast demand from GBU partners and their regional requirements. Figure~\ref{fig:dis-region-availability} presents the planned availability of DIS across the relevant regions.
 \begin{figure}[H]
@@ -43,23 +61,20 @@ DIS is intended to be deployed in the OCI regions where the required supporting 
     \label{fig:dis-region-availability}
 \end{figure}
 
-\subsection{Data Intelligence Concepts}
-Data intelligence refers to an organization's ability to collect, process, analyze, and interpret data in order to generate actionable insights. It combines tools, technologies, governance practices, and analytical methods that transform raw data into information that supports decision-making. By using their data assets effectively, organizations can improve operational efficiency, identify opportunities, and support strategic initiatives. In a data-driven environment, these capabilities are important for sustaining innovation and delivering value across business units.
+\subsection{Analytics Capabilities}
+Data intelligence refers to the ability to collect, process, analyze, and
+interpret data in order to produce actionable information. DIS supports this
+lifecycle through capabilities for collecting and validating data, storing it
+in managed data platforms, processing it with scalable engines, and presenting
+the results through reports, dashboards, and interactive visualizations.
 
-\subsection{Purpose and Role}
-DIS is an internal Oracle platform that provides product teams with a reusable analytics stack. Instead of requiring each GBU to build its analytics infrastructure from the ground up, DIS provides shared capabilities for data ingestion, storage, processing, machine learning, and visualization. A partner SaaS application can therefore integrate dashboards, reports, predictive models, and analytics pages through DIS rather than developing and operating each capability independently.
-
-From a business perspective, Oracle's GBUs deliver SaaS solutions to their customers, while DIS provides the analytics layer embedded within those offerings. The platform provisions and manages services such as Oracle Analytics Server (OAS), Autonomous Data Warehouse (ADW), and Apache Spark, together with other analytics and data-processing components. End users access these capabilities through the corresponding SaaS applications.
-
-By leveraging DIS for analytics-intensive workloads, partners benefit from the following advantages:
-
-\begin{itemize}
-    \item Avoid building and maintaining a custom analytics technology stack.
-    \item Gain access to a cost-effective and scalable architecture tailored to analytics requirements.
-    \item Focus on developing advanced machine learning capabilities using built-in frameworks and libraries.
-    \item Maintain full control and flexibility over data ingestion, storage, processing, and visualization.
-    \item Reduce Cloud Service Security Approval Process (CSSAP) overhead by adopting DIS's pre-approved architectural patterns.
-\end{itemize}
+The platform combines Apache Kafka for event-oriented data movement, Apache
+Spark for distributed processing and machine-learning workloads, Oracle Object
+Storage for durable data and artifact storage, managed databases for structured
+information, and Oracle Analytics for visualization and reporting. These
+capabilities are exposed through controlled Application Programming Interfaces
+(APIs) and automated pipelines, making platform operations repeatable and
+suitable for enterprise use.
 
 \section{Platform Operating Model}
 
@@ -95,32 +110,20 @@ resource organization, network rules, and separate data and configuration
 contexts. Consequently, operations performed for one tenant should not
 affect the resources or data of another tenant.
 
-\subsection{Partner and Tenant Provisioning Lifecycle}
+\subsection{Provisioning Lifecycle}
 
 Before a tenant can consume analytics services, DIS follows a controlled
-provisioning lifecycle. This lifecycle separates the configuration shared
-by a partner from the resources dedicated to each tenant:
+provisioning lifecycle. The lifecycle separates partner-level configuration
+and reusable artifacts from the resources dedicated to each tenant.
 
-\begin{enumerate}
-    \item \textbf{Partner registration:} the partner is declared in DIS
-    together with its authorized products, deployment templates, service
-    limits, and infrastructure configuration.
+\subsubsection*{a\quad Partner Registration}
 
-    \item \textbf{Partner onboarding:} versioned application artifacts and
-    container images are validated and stored so that they can later be
-    deployed consistently for the partner's tenants.
+The partner is first declared in DIS together with its authorized products,
+deployment templates, service limits, and infrastructure configuration. This
+registration establishes which platform capabilities the partner is allowed
+to request for its tenants.
 
-    \item \textbf{Tenant registration:} a tenant identifier is created and
-    associated with the corresponding partner. This identifier isolates the
-    tenant's configuration and tracks subsequent lifecycle operations.
-
-    \item \textbf{Tenant onboarding:} the partner submits an onboarding
-    request that specifies the required products and deployment templates.
-    The Orchestration Service validates the request and coordinates the
-    services that provision and configure the requested resources.
-\end{enumerate}
-
-\subsubsection{Partner Artifact Packaging}
+\subsubsection*{b\quad Partner Artifact Packaging}
 
 Before tenant provisioning, the partner prepares product-specific
 configuration and analytics resources, such as semantic models,
@@ -136,24 +139,35 @@ can subsequently be used during tenant onboarding and upgrade operations.
 This mechanism provides consistent packaging, traceable versioning, and
 repeatable deployment across tenant environments.
 
+\subsubsection*{c\quad Tenant Registration}
+
+A tenant identifier is created and associated with the corresponding partner.
+This identifier establishes the tenant's logical boundary, isolates its
+configuration, and is used to track subsequent onboarding, update, recovery,
+and deletion operations.
+
+\subsubsection*{d\quad Tenant Onboarding}
+
+The partner submits an onboarding request that specifies the required products
+and deployment templates. The Orchestration Service validates the request and
+coordinates the platform services responsible for provisioning and configuring
+the requested tenant resources.
+
 Figure~\ref{fig:tenant-onboarding-workflow} summarizes the tenant onboarding
 workflow, from submission of the request to the creation and configuration
 of the tenant environment.
 
+
 \begin{figure}[H]
     \centering
-    \IfFileExists{Figures/tenant_onboarding_workflow.png}{%
-        \includegraphics[width=0.6\textwidth]
-        {Figures/tenant_onboarding_workflow.png}%
-    }{%
-        \fbox{\parbox[c][5cm][c]{0.88\textwidth}{\centering
-        Insert the sanitized Tenant Onboarding Workflow figure here.}}%
-    }
+    \includegraphics[width=0.8\textwidth]{Figures/onboarding_workflow.png}
     \caption{Tenant Onboarding Workflow}
     \label{fig:tenant-onboarding-workflow}
 \end{figure}
 
 \section{Functional Architecture}
+
+\subsection{Analytics Workflow}
 
 From a functional perspective, DIS organizes the analytics lifecycle into
 three complementary layers: data ingestion, data storage and processing, and
@@ -179,17 +193,17 @@ The data ingestion layer supports multiple methods for collecting data from Orac
     \item \textbf{Direct Upload to Object Storage:} Large datasets, such as log files and historical data, can be uploaded directly to Oracle Object Storage for later processing.
 \end{itemize}
 
-\subsection{Data Storage and Processing}
+\subsection{Data Processing}
 
 The data processing layer provides distributed data processing using Apache Spark. It executes machine learning pipelines and data transformation jobs, storing the processed results in Oracle DBaaS. Spark jobs are tenant-isolated and are designed to periodically retrain machine learning models using historical data stored in Object Storage.
 
-\subsection{Visualization and Data Analysis}
+\subsection{Visualization}
 
 After data has been processed and stored, Oracle Business Intelligence Enterprise Edition (OBIEE) or Oracle Analytics Cloud (OAC) is used for report generation and dashboard visualization. Access is managed through tenant Identity Cloud Service (IDCS), and reports are customized according to user roles. OBIEE also provides self-service analytics capabilities, enabling administrative users with limited SQL or data modeling expertise to create reports and perform data analysis.
 
 \section{Software Architecture}
 
-\subsection{Cloud-Native Principles}
+\subsection{Architectural Principles}
 
 Cloud-native architecture refers to designing applications specifically
 for cloud environments using independently deployable services,
@@ -235,19 +249,45 @@ microservices deployed on Kubernetes. This architecture allows the
 platform to support different analytics workloads while maintaining
 scalability, tenant isolation, and operational reliability.
 
-\subsection{Microservices Overview}
-The DIS platform implements a comprehensive microservices-based architecture in which loosely coupled services communicate through RESTful APIs. All services are containerized and deployed on the Oracle Kubernetes Engine (OKE) platform, enabling scalability, fault tolerance, and independent service deployment.
+\subsection{Microservices Architecture}
+The DIS platform uses a microservices-based architecture in which focused,
+loosely coupled services communicate through REST APIs. The services are
+containerized and deployed on Oracle Kubernetes Engine (OKE), enabling
+independent deployment, scalability, and fault isolation.
 
-Figure~\ref{fig:dis_microservices} illustrates the high-level microservices architecture of the DIS platform.
+Figure~\ref{fig:dis-microservices-overview} presents a high-level view of the
+core DIS data-platform microservices. It illustrates how specialized services
+handle responsibilities such as ingestion, validation, storage, processing,
+authentication, and notifications. The figure is not an exhaustive inventory;
+newer OAC-specific lifecycle services are described separately below and in
+Chapter~\ref{chap:chapter3}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/dis_microservices.png}
-    \caption{DIS Microservices Architecture}
-    \label{fig:dis_microservices}
+    \caption{High-level view of core DIS microservices}
+    \label{fig:dis-microservices-overview}
 \end{figure}
 
-\subsubsection{Orchestration Service}
+The services most relevant to the OAC lifecycle have distinct
+responsibilities. The OAC Configuration Service receives and validates
+platform requests, the Orchestration Service coordinates the required
+workflow, and the OAC Execution Service performs operations against Oracle
+Analytics Cloud and its supporting resources. Authentication and Object
+Storage provide identity validation and persistent artifact or snapshot
+storage respectively.
+
+It is important to distinguish the managed analytics product from the
+microservices that operate it. Oracle Analytics Cloud is an OCI-managed service
+in the visualization layer; it is not itself a DIS microservice. The internal
+\texttt{config-oac-service} and \texttt{onb-oac-service} components manage its
+lifecycle from DIS. This description is intentionally limited to the
+OAC-related interaction and does not attempt to enumerate every service in the
+complete DIS platform.
+
+\subsection{Core Platform Services}
+
+\subsubsection*{a\quad Orchestration Service}
 
 The \textbf{Orchestration Service} is responsible for automating the entire lifecycle of platform components and tenant environments, including initial deployment, configuration, ongoing management, updates, and rollback operations. It coordinates these tasks using template-driven workflows and internal REST APIs, ensuring that all provisioning activities are executed consistently and reliably.
 
@@ -258,7 +298,7 @@ with the configuration and OAC execution services. Their interaction is
 examined in Chapter~\ref{chap:chapter3} through the cross-region disaster
 recovery workflow.
 
-\subsubsection{Authentication Service}
+\subsubsection*{b\quad Authentication Service}
 
 The \textbf{Authentication Service} is responsible for managing the secure onboarding and provisioning of tenant identities within the DIS platform. It enforces authentication, authorization, and compliance policies by integrating with Oracle Identity Cloud Service (IDCS) and partner platforms through standardized REST APIs.
 

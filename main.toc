@@ -22,62 +22,41 @@
 \contentsline {section}{\numberline {1.4}Project Management}{6}{section.25}%
 \contentsline {subsection}{\numberline {1.4.1}Work Approach}{6}{subsection.26}%
 \contentsline {subsection}{\numberline {1.4.2}Follow-up and Task Organization}{6}{subsection.27}%
-\contentsline {subsubsection}{\numberline {1.4.2.1}Adopted Methodology: Scrumban}{6}{subsubsection.28}%
-\contentsline {subsubsection}{\numberline {1.4.2.2}Agile and Kanban Principles}{7}{subsubsection.30}%
-\contentsline {subsubsection}{\numberline {1.4.2.3}Application within the Internship}{8}{subsubsection.31}%
-\contentsline {subsection}{\numberline {1.4.3}Collaboration Tools}{8}{subsection.32}%
-\contentsline {subsection}{\numberline {1.4.4}Project Planning}{9}{subsection.33}%
-\contentsline {chapter}{\numberline {2}DIS Platform Context and Architecture}{10}{chapter.34}%
-\contentsline {section}{\numberline {2.1}Data Intelligence Services Foundations}{10}{section.35}%
-\contentsline {subsection}{\numberline {2.1.1}Position within Oracle}{10}{subsection.36}%
-\contentsline {subsection}{\numberline {2.1.2}Regional Availability}{11}{subsection.38}%
-\contentsline {subsection}{\numberline {2.1.3}Data Intelligence Concepts}{11}{subsection.40}%
-\contentsline {subsection}{\numberline {2.1.4}Purpose and Role}{12}{subsection.41}%
-\contentsline {section}{\numberline {2.2}Platform Operating Model}{13}{section.42}%
-\contentsline {subsection}{\numberline {2.2.1}Multi-Tenancy and Resource Isolation}{13}{subsection.43}%
-\contentsline {subsection}{\numberline {2.2.2}Partner and Tenant Provisioning Lifecycle}{14}{subsection.45}%
-\contentsline {subsubsection}{\numberline {2.2.2.1}Partner Artifact Packaging}{14}{subsubsection.50}%
-\contentsline {section}{\numberline {2.3}Functional Architecture}{15}{section.52}%
-\contentsline {subsection}{\numberline {2.3.1}Data Ingestion}{16}{subsection.54}%
-\contentsline {subsection}{\numberline {2.3.2}Data Storage and Processing}{16}{subsection.55}%
-\contentsline {subsection}{\numberline {2.3.3}Visualization and Data Analysis}{17}{subsection.56}%
-\contentsline {section}{\numberline {2.4}Software Architecture}{17}{section.57}%
-\contentsline {subsection}{\numberline {2.4.1}Cloud-Native Principles}{17}{subsection.58}%
-\contentsline {subsection}{\numberline {2.4.2}Microservices Overview}{18}{subsection.60}%
-\contentsline {subsubsection}{\numberline {2.4.2.1}Orchestration Service}{19}{subsubsection.62}%
-\contentsline {subsubsection}{\numberline {2.4.2.2}Authentication Service}{20}{subsubsection.63}%
-\contentsline {chapter}{\numberline {3}Development Environment and Proposed Solutions}{22}{chapter.65}%
-\contentsline {section}{\numberline {3.1}Introduction}{22}{section.66}%
-\contentsline {section}{\numberline {3.2}Development Environment and Tools}{22}{section.67}%
-\contentsline {subsection}{\numberline {3.2.1}Code Editors and Integrated Development Environments}{22}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.2}Programming, Web Services, and Testing}{23}{subsection.69}%
-\contentsline {subsection}{\numberline {3.2.3}Version Control, Continuous Integration, and Containers}{23}{subsection.70}%
-\contentsline {subsection}{\numberline {3.2.4}API Development and Validation}{25}{subsection.71}%
-\contentsline {subsection}{\numberline {3.2.5}Deployment and Operational Validation}{25}{subsection.72}%
-\contentsline {section}{\numberline {3.3}OAC Cross-Region Disaster Recovery Automation}{26}{section.73}%
-\contentsline {subsection}{\numberline {3.3.1}Context and Problem Analysis}{26}{subsection.74}%
-\contentsline {subsubsection}{\numberline {3.3.1.1}Existing Recovery Context}{26}{subsubsection.75}%
-\contentsline {subsubsection}{\numberline {3.3.1.2}Problem Statement}{27}{subsubsection.77}%
-\contentsline {subsection}{\numberline {3.3.2}Requirements Analysis}{28}{subsection.78}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}Functional Requirements}{28}{subsubsection.79}%
-\contentsline {subsubsection}{\numberline {3.3.2.2}Non-Functional Requirements}{28}{subsubsection.81}%
-\contentsline {subsection}{\numberline {3.3.3}Architecture and Request Coordination}{29}{subsection.82}%
-\contentsline {subsubsection}{\numberline {3.3.3.1}General Architecture}{29}{subsubsection.83}%
-\contentsline {subsubsection}{\numberline {3.3.3.2}DR Request Routing and Validation}{30}{subsubsection.85}%
-\contentsline {subsection}{\numberline {3.3.4}Backup and Cross-Region Readiness}{31}{subsection.86}%
-\contentsline {subsubsection}{\numberline {3.3.4.1}Periodic Backup Creation and Replication}{31}{subsubsection.87}%
-\contentsline {subsubsection}{\numberline {3.3.4.2}Backup Retention Management}{31}{subsubsection.89}%
-\contentsline {subsection}{\numberline {3.3.5}Recovery Workflow and Content Restoration}{32}{subsection.91}%
-\contentsline {subsubsection}{\numberline {3.3.5.1}Tenant Recovery Workflow}{32}{subsubsection.92}%
-\contentsline {subsubsection}{\numberline {3.3.5.2}Snapshot Restoration During a DR Event}{34}{subsubsection.103}%
-\contentsline {subsection}{\numberline {3.3.6}Failure Handling and Operational Monitoring}{36}{subsection.112}%
-\contentsline {subsubsection}{\numberline {3.3.6.1}Retry and Rollback Strategy}{36}{subsubsection.113}%
-\contentsline {subsubsection}{\numberline {3.3.6.2}DR Status Monitoring}{37}{subsubsection.115}%
-\contentsline {subsection}{\numberline {3.3.7}Switchback and Standby Cleanup}{38}{subsection.116}%
-\contentsline {subsubsection}{\numberline {3.3.7.1}Controlled Switchback}{38}{subsubsection.117}%
-\contentsline {subsubsection}{\numberline {3.3.7.2}Tenant Cleanup Execution}{38}{subsubsection.119}%
-\contentsline {subsubsection}{\numberline {3.3.7.3}Cleanup Status Monitoring}{40}{subsubsection.121}%
-\contentsline {subsection}{\numberline {3.3.8}Validation Strategy}{40}{subsection.123}%
-\contentsline {subsection}{\numberline {3.3.9}Conclusion}{42}{subsection.125}%
-\contentsline {chapter}{\numberline {A}Acronyms}{43}{appendix.126}%
-\contentsline {chapter}{Bibliography}{45}{appendix*.128}%
+\contentsline {subsection}{\numberline {1.4.3}Collaboration Tools}{9}{subsection.31}%
+\contentsline {subsection}{\numberline {1.4.4}Project Planning}{10}{subsection.32}%
+\contentsline {chapter}{\numberline {2}DIS Platform Context and Architecture}{12}{chapter.33}%
+\contentsline {section}{\numberline {2.1}DIS Platform Overview}{12}{section.34}%
+\contentsline {subsection}{\numberline {2.1.1}Purpose and Scope}{12}{subsection.35}%
+\contentsline {subsection}{\numberline {2.1.2}Regional Availability}{13}{subsection.37}%
+\contentsline {subsection}{\numberline {2.1.3}Analytics Capabilities}{14}{subsection.39}%
+\contentsline {section}{\numberline {2.2}Platform Operating Model}{14}{section.40}%
+\contentsline {subsection}{\numberline {2.2.1}Multi-Tenancy and Resource Isolation}{14}{subsection.41}%
+\contentsline {subsection}{\numberline {2.2.2}Provisioning Lifecycle}{15}{subsection.43}%
+\contentsline {section}{\numberline {2.3}Functional Architecture}{18}{section.45}%
+\contentsline {subsection}{\numberline {2.3.1}Analytics Workflow}{18}{subsection.46}%
+\contentsline {subsection}{\numberline {2.3.2}Data Ingestion}{18}{subsection.48}%
+\contentsline {subsection}{\numberline {2.3.3}Data Processing}{19}{subsection.49}%
+\contentsline {subsection}{\numberline {2.3.4}Visualization}{19}{subsection.50}%
+\contentsline {section}{\numberline {2.4}Software Architecture}{19}{section.51}%
+\contentsline {subsection}{\numberline {2.4.1}Architectural Principles}{19}{subsection.52}%
+\contentsline {subsection}{\numberline {2.4.2}Microservices Architecture}{20}{subsection.54}%
+\contentsline {subsection}{\numberline {2.4.3}Core Platform Services}{21}{subsection.56}%
+\contentsline {chapter}{\numberline {3}Proposed Solutions and Development}{24}{chapter.58}%
+\contentsline {section}{\numberline {3.1}OAC Cross-Region Disaster Recovery Automation}{24}{section.59}%
+\contentsline {subsection}{\numberline {3.1.1}Context and Problem Analysis}{24}{subsection.60}%
+\contentsline {subsection}{\numberline {3.1.2}Requirements Analysis}{26}{subsection.62}%
+\contentsline {subsection}{\numberline {3.1.3}Architecture and Request Coordination}{27}{subsection.64}%
+\contentsline {subsection}{\numberline {3.1.4}Backup and Cross-Region Readiness}{29}{subsection.66}%
+\contentsline {subsection}{\numberline {3.1.5}Recovery Workflow and Content Restoration}{30}{subsection.69}%
+\contentsline {subsection}{\numberline {3.1.6}Failure Handling and Operational Monitoring}{34}{subsection.88}%
+\contentsline {subsection}{\numberline {3.1.7}Switchback and Standby Cleanup}{36}{subsection.90}%
+\contentsline {subsection}{\numberline {3.1.8}Validation Strategy}{38}{subsection.94}%
+\contentsline {subsection}{\numberline {3.1.9}Conclusion}{40}{subsection.96}%
+\contentsline {chapter}{\numberline {4}Development Environment and Tools}{41}{chapter.97}%
+\contentsline {section}{\numberline {4.1}Code Editors and Integrated Development Environments}{41}{section.98}%
+\contentsline {section}{\numberline {4.2}Programming, Web Services, and Testing}{42}{section.99}%
+\contentsline {section}{\numberline {4.3}Version Control, Continuous Integration, and Containers}{42}{section.100}%
+\contentsline {section}{\numberline {4.4}API Development and Validation}{43}{section.101}%
+\contentsline {section}{\numberline {4.5}Deployment and Operational Validation}{44}{section.102}%
+\contentsline {chapter}{\numberline {A}Acronyms}{46}{appendix.103}%
+\contentsline {chapter}{Bibliography}{48}{appendix*.105}%

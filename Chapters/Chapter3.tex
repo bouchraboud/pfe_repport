@@ -1,169 +1,21 @@
 % !TEX root = ../main.tex
-\chapter{Development Environment and Proposed Solutions}
+\chapter{Proposed Solutions and Development}
 \label{chap:chapter3}
 
-\section{Introduction}
+\section*{Introduction}
 
 The previous chapter introduced the purpose, operating model, and architecture
-of Data Intelligence Services (DIS). This chapter first presents the
-development technologies and engineering tools used during the internship. It
-then describes the solutions studied and developed, including their initial
-problems, requirements, architecture, implementation approach, and validation
-strategy.
-
-\section{Development Environment and Tools}
-
-The development workflow combines source-code editors, programming and testing
-technologies, version-control and delivery platforms, API clients, and
-operational tools. Together, they support the complete engineering cycle from
-code analysis and implementation to deployment verification in a
-non-production environment.
-
-\newcommand{\developmenttool}[3]{%
-    \par\medskip
-    \noindent\textbf{#1}\par\smallskip
-    \noindent
-    \begin{minipage}[c]{0.14\textwidth}
-        \centering
-        \includegraphics[width=0.70\linewidth]{Figures/#2}
-    \end{minipage}%
-    \hspace{0.02\textwidth}%
-    \begin{minipage}[c]{0.82\textwidth}
-        #3
-    \end{minipage}
-    \par\vspace{0.75cm}
-}
-
-\subsection{Code Editors and Integrated Development Environments}
-
-\developmenttool{PyCharm}{tool_pycharm.png}{%
-PyCharm is an integrated development environment specialized in Python. It
-provides code completion, navigation, debugging, refactoring, dependency
-management, and direct test execution. These capabilities help developers
-understand existing microservices and modify their Python modules while
-detecting syntax and type-related problems early.}
-
-\developmenttool{Visual Studio Code}{tool_vscode.png}{%
-Visual Studio Code is a lightweight, cross-platform source-code editor that can
-be extended for different languages and file formats. It was used to work with
-Python, JSON payloads, YAML deployment templates, shell scripts, and LaTeX
-files. Its integrated terminal and source-control view also simplify
-command-line verification and change review.}
-
-\subsection{Programming, Web Services, and Testing}
-
-\developmenttool{Python}{tool_python.png}{%
-Python is a high-level programming language valued for its readable syntax and
-large software ecosystem. It is the principal implementation language of the
-OAC onboarding service and several related DIS microservices. In this work, it
-supports REST request processing, workflow decisions, cloud-service
-integration, status management, and automated tests.}
-
-\developmenttool{Flask}{flask.png}{%
-Flask is a lightweight Python web framework used to create HTTP services
-without imposing a large application structure. It maps REST endpoints to
-Python handlers, processes incoming requests, and returns structured
-responses. Its modular design is suitable for microservices exposing focused
-platform responsibilities.}
-
-\developmenttool{pytest}{pytest.png}{%
-pytest is a Python testing framework used to verify individual functions and
-service behaviour automatically. It supports reusable fixtures, parameterized
-scenarios, exception assertions, and mocking of external dependencies. These
-features make it possible to test success, failure, retry, and rollback
-decisions without provisioning real cloud resources for every test.}
-
-\subsection{Version Control, Continuous Integration, and Containers}
-
-\developmenttool{Git}{tool_git.png}{%
-Git is a distributed version-control system that records source-file history
-and allows changes to be developed independently. Feature branches isolate
-work associated with each story, while commits document incremental
-implementation steps. Git also supports comparison, review, and controlled
-integration into the shared codebase.}
-
-\developmenttool{GitLab}{gitlab.png}{%
-GitLab hosts the Git repositories and supports collaborative source-code
-review. Merge requests present the differences between a feature branch and
-its target branch, allowing reviewers to comment and request corrections. The
-platform also preserves links between changes, pipelines, approvals, and
-implementation history.}
-
-\developmenttool{Jenkins}{jenkins.jpeg}{%
-Jenkins is an automation server used for continuous-integration and delivery
-pipelines. A pipeline installs dependencies, performs quality checks, executes
-tests, builds the application package, and creates a deployable container
-image. This automation provides a repeatable path from reviewed code to a build
-that can be validated in Kubernetes.}
-
-\developmenttool{Docker}{docker.jpg}{%
-Docker provides the image format and build instructions used to package an
-application with its runtime, dependencies, configuration paths, and required
-resources. The resulting image provides a consistent execution environment
-across development, integration, and deployment systems.}
-
-\developmenttool{Podman}{podman.png}{%
-Podman is a daemonless container engine compatible with common container-image
-workflows. It can build images from a Dockerfile, run containers, assign tags,
-and publish images to a registry. Project pipelines use these operations to
-produce service images in an automated environment.}
-
-\developmenttool{OCI Registry}{ocir.png}{%
-Oracle Cloud Infrastructure Registry is a managed private registry for storing
-and distributing container images. Pipeline publications are identified by a
-repository path and version tag, allowing Kubernetes deployments to select a
-precise service build. Access controls protect internal image publication and
-distribution.}
-
-\subsection{API Development and Validation}
-
-\developmenttool{Bruno}{bruno.png}{%
-Bruno is an API client used to organize and execute HTTP requests. Collections
-can contain endpoint paths, headers, JSON payloads, authentication settings,
-and environment variables. During validation, it was used to submit onboarding
-and operational requests and inspect their status codes and response bodies.}
-
-\developmenttool{cURL}{tool_curl.png}{%
-cURL is a command-line data-transfer utility commonly used to call REST APIs.
-It can specify the HTTP method, URL, headers, authentication token, and JSON
-body in a single command. It is useful for quick endpoint verification,
-diagnostics from a bastion host, and shell-based automation.}
-
-\developmenttool{Swagger and OpenAPI}{openapi.png}{%
-OpenAPI defines a machine-readable contract for a REST service, while Swagger
-tools render that contract as interactive documentation. The interface
-presents endpoints, parameters, request models, response models, and status
-codes. It helps developers confirm API behaviour and test requests without
-reading the complete implementation.}
-
-\subsection{Deployment and Operational Validation}
-
-\developmenttool{Kubernetes}{tool_kubernetes.png}{%
-Kubernetes is a container-orchestration platform that automates deployment,
-scheduling, health monitoring, and replacement of containerized services. DIS
-uses resources such as Deployments, Pods, Services, ConfigMaps, Secrets,
-persistent volumes, and CronJobs. It provides the runtime environment in which
-new service images are deployed and operationally validated.}
-
-\developmenttool{Linux Bastion Host}{bastion.png}{%
-A Linux bastion host is a controlled administrative entry point between an
-engineer and private cloud resources. After authentication, it provides a
-terminal from which authorized Kubernetes commands and diagnostic operations
-can be executed. This approach limits direct cluster exposure and centralizes
-operational access through a protected environment.}
-
-\developmenttool{OCI OS}{tool_oci_object_storage.png}{%
-Oracle Cloud Infrastructure Object Storage is a durable service for storing
-files as objects inside logical buckets. Within DIS workflows, it stores tenant
-artifacts, configuration objects, execution-status information, and OAC
-snapshot or BAR backups. Its object-based model and cross-region capabilities
-support both routine operations and Disaster Recovery preparation.}
+of Data Intelligence Services (DIS). This chapter presents the principal
+solution studied and developed during the internship: the automation of Oracle
+Analytics Cloud cross-region Disaster Recovery. It describes the initial
+problem, requirements, architecture, recovery workflow, failure-management
+strategy, and validation approach.
 
 \section{OAC Cross-Region Disaster Recovery Automation}
 
 \subsection{Context and Problem Analysis}
 
-\subsubsection{Existing Recovery Context}
+\subsubsection*{a\quad Existing Recovery Context}
 
 OAC provides cloud-based analytics capabilities such as dashboards, visualizations, datasets, semantic models, and reporting services. During normal operation, each tenant consumes these capabilities from an OAC environment deployed in a primary Oracle Cloud Infrastructure (OCI) region. Although availability mechanisms protect the service from several infrastructure failures, the loss of the complete region requires a separate cross-region recovery strategy.
 
@@ -187,7 +39,7 @@ Figure~\ref{fig:oac-standby-provisioning} illustrates the first approach, in whi
 
 The automated workflow can support both situations. If a valid standby instance already exists, the system activates or updates it. Otherwise, it provisions a new instance when the DR event is triggered.
 
-\subsubsection{Problem Statement}
+\subsubsection*{b\quad Problem Statement}
 
 Recovering OAC manually becomes complex when a region contains multiple tenants. Each tenant may have a different configuration and may reach a different state during recovery. A failed operation can also leave partially created resources. For example, an OAC instance may have been created successfully even when the calling service receives a timeout. Restarting the complete workflow without inspecting the existing state could then create duplicate resources or produce inconsistent tenant configuration.
 
@@ -201,7 +53,7 @@ The main difficulties are related to the asynchronous nature of OAC operations, 
 
 \subsection{Requirements Analysis}
 
-\subsubsection{Functional Requirements}
+\subsubsection*{a\quad Functional Requirements}
 
 The principal functional requirements are presented in Table~\ref{tab:dr-functional-requirements}.
 
@@ -226,7 +78,7 @@ FR9 & Support switchback to the primary region and cleanup of standby resources.
 \end{tabularx}
 \end{table}
 
-\subsubsection{Non-Functional Requirements}
+\subsubsection*{b\quad Non-Functional Requirements}
 
 The solution must also satisfy the following quality requirements:
 
@@ -242,7 +94,7 @@ The solution must also satisfy the following quality requirements:
 
 \subsection{Architecture and Request Coordination}
 
-\subsubsection{General Architecture}
+\subsubsection*{a\quad General Architecture}
 
 The proposed solution follows a warm DR model. During normal operation, the primary region serves the tenants, while the standby region receives the information required for recovery. When a regional failure is confirmed, DIS coordinates the recovery of each tenant through three logical responsibilities:
 
@@ -272,7 +124,7 @@ makes the recovery workflow easier to control, monitor, and retry.
     \label{fig:oac-dr-microservices-architecture}
 \end{figure}
 
-\subsubsection{DR Request Routing and Validation}
+\subsubsection*{b\quad DR Request Routing and Validation}
 
 A Disaster Recovery operation enters the platform through a secured service gateway. The gateway forwards the request to the configuration layer, which coordinates the recovery at partner level. For every affected tenant, an internal request is then sent to the orchestration layer to create and start a tenant-level workflow.
 
@@ -282,7 +134,7 @@ These controls prevent unsupported requests and concurrent operations from modif
 
 \subsection{Backup and Cross-Region Readiness}
 
-\subsubsection{Periodic Backup Creation and Replication}
+\subsubsection*{a\quad Periodic Backup Creation and Replication}
 
 Recovery is possible only if the required tenant information remains
 available after the loss of the primary region. A scheduled CronJob
@@ -302,7 +154,7 @@ summarizes this preparation workflow using a two-hour execution interval.
 
 The preparation process also covers deployment artifacts, container images, tenant configuration, credentials, access rights, database connectivity, private endpoints, and network allowlists. Storage technologies that do not provide automatic cross-region replication require an explicit synchronization mechanism. These dependencies must be prepared before an incident; provisioning OAC alone would not produce a usable analytics environment.
 
-\subsubsection{Backup Retention Management}
+\subsubsection*{b\quad Backup Retention Management}
 
 Backup creation and retention are separate responsibilities. The scheduled
 backup job creates new recovery points, whereas a retention job runs at
@@ -334,7 +186,7 @@ to keep the process auditable and reduce the risk of accidental data loss.
 
 \subsection{Recovery Workflow and Content Restoration}
 
-\subsubsection{Tenant Recovery Workflow}
+\subsubsection*{a\quad Tenant Recovery Workflow}
 
 When a DR event is declared, the recovery workflow is executed for every eligible tenant. Figure~\ref{fig:oac-dr-event} presents the tenant-level provisioning operation in the standby region.
 
@@ -361,7 +213,7 @@ The workflow is composed of the following main steps:
 
 The operation is asynchronous. Accepting the initial request does not mean that recovery has completed. Status information is therefore persisted for every tenant using states such as \texttt{PENDING}, \texttt{IN\_PROGRESS}, \texttt{SUCCESS}, \texttt{FAILED}, and \texttt{STOPPED}.
 
-\subsubsection{Snapshot Restoration During a DR Event}
+\subsubsection*{b\quad Snapshot Restoration During a DR Event}
 
 The post-deployment workflow contains a dedicated branch for DR restoration. A tenant-level \texttt{dr\_event.json} control file indicates that artifact deployment is being executed as part of a Disaster Recovery operation. When this file is present, the standard update or migration backup logic is bypassed and the DR snapshot restoration flow is selected.
 
@@ -389,7 +241,7 @@ This selection mechanism avoids depending on the order returned by Object Storag
 
 \subsection{Failure Handling and Operational Monitoring}
 
-\subsubsection{Retry and Rollback Strategy}
+\subsubsection*{a\quad Retry and Rollback Strategy}
 
 A failed tenant should not systematically restart from the beginning. If OAC provisioning and platform attachment have already completed while snapshot restoration fails, repeating the first two steps could create duplicate resources and increase recovery time. The fix-forward strategy stores the last successful step, verifies the corresponding resource, and resumes execution from the failed operation.
 
@@ -421,7 +273,7 @@ disabled and an operator must investigate the problem. After an authorized
 retry, the workflow either continues from the next step or records the latest
 failure for further intervention.
 
-\subsubsection{DR Status Monitoring}
+\subsubsection*{b\quad DR Status Monitoring}
 
 A status API provides an aggregated view of the recovery operation across
 all affected tenants. It identifies successful, failed, in-progress, and
@@ -433,7 +285,7 @@ investigation.
 
 \subsection{Switchback and Standby Cleanup}
 
-\subsubsection{Controlled Switchback}
+\subsubsection*{a\quad Controlled Switchback}
 
 The standby region is used until the primary region has been restored and validated. Service is then returned through a controlled switchback, illustrated in Figure~\ref{fig:oac-switchback}.
 
@@ -446,7 +298,7 @@ The standby region is used until the primary region has been restored and valida
 
 Switchback consists of three phases. First, configuration, tenant status, and required artifacts are synchronized with the primary region. Second, the OAC environments in the primary region are provisioned or updated and their availability is verified. Finally, temporary resources in the standby region are stopped or deleted. Cleanup must occur only after the primary service and the required backups have been confirmed as available.
 
-\subsubsection{Tenant Cleanup Execution}
+\subsubsection*{b\quad Tenant Cleanup Execution}
 
 Standby cleanup is coordinated at partner level and executed independently for each tenant. Before starting a new cleanup, the coordination layer checks the existing overall status. This prevents a second request from starting while cleanup is already running or after a previous execution has reached a terminal state without an explicit recovery decision. Once accepted, tenant cleanup requests are launched asynchronously and their individual results can be aggregated into an overall status such as successful, failed, or partially failed.
 
@@ -487,7 +339,7 @@ Each deletion is isolated in its own failure-handling block. If one resource can
 
 After all steps have been attempted, the final tenant status is set to \texttt{SUCCESS} when no failure has occurred. Otherwise, it is set to \texttt{FAILED} and includes the list of unsuccessful cleanup steps. The end time is then persisted, and the temporary restart-status information associated with the cleanup execution is removed. This status model allows an upper-level service to aggregate cleanup results across tenants and to retry only those that require further intervention.
 
-\subsubsection{Cleanup Status Monitoring}
+\subsubsection*{c\quad Cleanup Status Monitoring}
 
 Because cleanup is executed asynchronously for multiple tenants, a status
 API provides an aggregated view of the operation. It reports the total

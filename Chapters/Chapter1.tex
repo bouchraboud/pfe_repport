@@ -223,7 +223,7 @@ technical autonomy progressively.
 
 \subsection{Follow-up and Task Organization}
 
-\subsubsection{Adopted Methodology: Scrumban}
+\subsubsection*{a\quad Adopted Methodology: Scrumban}
 
 The DIS team adopts \textbf{Scrumban}, a hybrid Agile methodology combining
 Scrum's planning cadence with Kanban's visual workflow management. Work is
@@ -237,6 +237,18 @@ for the day, and any blocking issue. Sprint-planning sessions are held every two
 weeks to review the backlog, assess dependencies, and select the stories to be
 addressed during the next iteration. Progress and work logs are maintained in
 Jira so that the current state of each activity remains visible.
+
+Figure~\ref{fig:meeting-calendar} illustrates how recurring meetings and
+technical sessions were organized throughout the internship. The calendar
+provided a shared view of daily stand-ups, sprint ceremonies,
+knowledge-transfer sessions, and technical reviews.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/meetings calendar.png}
+    \caption{Meeting Calendar Used for Project Follow-up}
+    \label{fig:meeting-calendar}
+\end{figure}
 
 This methodology is appropriate for the project because the implementation
 depends on several microservices, cloud services, and service owners. A task may
@@ -262,7 +274,7 @@ confidential issue details and personal information must be removed or masked.
     \label{fig:dis-scrumban-board}
 \end{figure}
 
-\subsubsection{Agile and Kanban Principles}
+\subsubsection*{b\quad Agile and Kanban Principles}
 
 Agile development promotes incremental delivery, frequent feedback, and
 adaptation to changing requirements. Instead of treating the complete solution
@@ -278,7 +290,20 @@ A story is moved across the board according to its current state, such as
 which helps the team identify dependencies and avoid losing visibility over
 unfinished activities.
 
-\subsubsection{Application within the Internship}
+In addition to the team board, each task is represented by an individual Jira
+ticket. The ticket centralizes the requirement, assignee, priority, current
+status, technical exchanges, implementation evidence, and work log. This
+provides traceability from the initial requirement to validation and closure,
+as illustrated in Figure~\ref{fig:jira-ticket-example}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{Figures/jira_ticket_example.png}
+    \caption{Example of a Jira Ticket Used for Task Follow-up}
+    \label{fig:jira-ticket-example}
+\end{figure}
+
+\subsubsection*{c\quad Application within the Internship}
 
 For each assigned story, the working cycle consists of analyzing the requirement,
 studying the existing implementation, identifying the affected services,
@@ -290,9 +315,10 @@ evidence, and work logs are recorded on the story to maintain traceability.
 
 \subsection{Collaboration Tools}
 
-The internship relied on several complementary tools for communication,
-planning, technical documentation, source-code collaboration, and continuous
-integration. The following subsections describe their role in the project.
+The internship relied on complementary tools for communication and technical
+documentation. The following subsections describe their role in the project;
+task planning and follow-up through Jira were presented in the previous
+subsection.
 
 \subsubsection*{Team Communication}
 
@@ -302,7 +328,7 @@ integration. The following subsections describe their role in the project.
     \noindent
     \begin{minipage}[c]{0.14\textwidth}
         \centering
-        \includegraphics[width=0.7\linewidth]{Figures/#2}
+        \includegraphics[width=0.7\linewidth]{Logos/#2}
     \end{minipage}%
     \hspace{0.02\textwidth}%
     \begin{minipage}[c]{0.82\textwidth}
@@ -328,15 +354,6 @@ with participants from different teams.}
 Zoom supported remote meetings and screen sharing. It was used for team
 meetings, technical demonstrations, knowledge-transfer sessions, and other
 collaborative discussions requiring direct interaction between participants.}
-
-\subsubsection*{Project and Task Management}
-
-\collaborationtool{Jira}{logo_jira.png}{%
-Jira was used to manage epics, stories, defects, priorities, dependencies, and
-sprint status. Each story provided a traceable location for the requirement,
-technical discussion, implementation status, test evidence, and work log. The
-workflow states made it possible to distinguish planned work, active
-development, code review, completed work, and activities placed on hold.}
 
 \subsubsection*{Documentation}
 

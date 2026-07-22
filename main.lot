@@ -2,9 +2,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Functional requirements of the OAC DR solution\relax }}{28}{table.caption.80}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces OAC backup retention policy\relax }}{32}{table.caption.90}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Tenant-level cleanup operations in the standby region\relax }}{39}{table.caption.120}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Information provided by the cleanup status API\relax }}{40}{table.caption.122}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{41}{table.caption.124}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Functional requirements of the OAC DR solution\relax }}{26}{table.caption.63}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces OAC backup retention policy\relax }}{30}{table.caption.68}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Tenant-level cleanup operations in the standby region\relax }}{37}{table.caption.92}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Information provided by the cleanup status API\relax }}{38}{table.caption.93}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Principal validation scenarios for OAC cross-region DR\relax }}{39}{table.caption.95}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }

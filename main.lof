@@ -3,22 +3,25 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Oracle corporate logo\relax }}{1}{figure.caption.13}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Data Intelligence Services\relax }}{2}{figure.caption.16}%
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Simplified organizational chart of the internship within DIS\relax }}{4}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces DIS Team Scrumban Board\relax }}{7}{figure.caption.29}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Meeting Calendar Used for Project Follow-up\relax }}{7}{figure.caption.28}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces DIS Team Scrumban Board\relax }}{8}{figure.caption.29}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Example of a Jira Ticket Used for Task Follow-up\relax }}{9}{figure.caption.30}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Oracle entities\relax }}{11}{figure.caption.37}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces DIS Region Availability\relax }}{11}{figure.caption.39}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Difference between an OCI tenancy and a DIS tenant\relax }}{13}{figure.caption.44}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Tenant Onboarding Workflow\relax }}{15}{figure.caption.51}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces GBU Analytics and Machine Learning Architecture\relax }}{16}{figure.caption.53}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Principal components of cloud-native architecture\relax }}{18}{figure.caption.59}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces DIS Microservices Architecture\relax }}{19}{figure.caption.61}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Auth Service Sequence Diagram\relax }}{20}{figure.caption.64}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Oracle entities\relax }}{13}{figure.caption.36}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces DIS Region Availability\relax }}{14}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Difference between an OCI tenancy and a DIS tenant\relax }}{15}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Tenant Onboarding Workflow\relax }}{17}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces GBU Analytics and Machine Learning Architecture\relax }}{18}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Principal components of cloud-native architecture\relax }}{20}{figure.caption.53}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces High-level view of core DIS microservices\relax }}{21}{figure.caption.55}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Auth Service Sequence Diagram\relax }}{23}{figure.caption.57}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{27}{figure.caption.76}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Roles and interactions of the main microservices involved in OAC disaster recovery\relax }}{30}{figure.caption.84}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Periodic creation and cross-region synchronization of OAC backups\relax }}{31}{figure.caption.88}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{33}{figure.caption.93}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{35}{figure.caption.104}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Recovery strategies following an OAC Disaster Recovery workflow failure\relax }}{37}{figure.caption.114}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{38}{figure.caption.118}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces OAC provisioning in the primary and standby regions\relax }}{25}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Roles and interactions of the main microservices involved in OAC disaster recovery\relax }}{28}{figure.caption.65}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Periodic creation and cross-region synchronization of OAC backups\relax }}{29}{figure.caption.67}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Tenant-level OAC provisioning during a DR event\relax }}{31}{figure.caption.70}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Selection and restoration of an OAC snapshot during a Disaster Recovery event\relax }}{33}{figure.caption.80}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Recovery strategies following an OAC Disaster Recovery workflow failure\relax }}{35}{figure.caption.89}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Switchback to the primary region and cleanup of standby resources\relax }}{36}{figure.caption.91}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
